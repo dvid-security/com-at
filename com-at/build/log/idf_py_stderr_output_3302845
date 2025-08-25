@@ -1,0 +1,9 @@
+CMake Error at /home/eunous/esp-idf/tools/cmake/component.cmake:314 (message):
+  Include directory
+  '/home/eunous/git/dvid/com-at/com-at/components/at_server/include' is not a
+  directory.
+Call Stack (most recent call first):
+  /home/eunous/esp-idf/tools/cmake/component.cmake:482 (__component_add_include_dirs)
+  components/at_server/CMakeLists.txt:1 (idf_component_register)
+
+

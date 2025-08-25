@@ -1,0 +1,7 @@
+/home/eunous/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/../../../../xtensa-esp-elf/bin/ld: esp-idf/main/libmain.a(com-at.c.obj):(.literal.app_main+0x8): undefined reference to `wifi_at_register'
+/home/eunous/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/../../../../xtensa-esp-elf/bin/ld: esp-idf/main/libmain.a(com-at.c.obj): in function `app_main':
+/home/eunous/git/dvid/com-at/com-at/main/com-at.c:27:(.text.app_main+0x19): undefined reference to `wifi_at_register'
+collect2: error: ld returned 1 exit status
+make[2]: *** [CMakeFiles/com-at.elf.dir/build.make:577: com-at.elf] Error 1
+make[1]: *** [CMakeFiles/Makefile2:2582: CMakeFiles/com-at.elf.dir/all] Error 2
+make: *** [Makefile:136: all] Error 2

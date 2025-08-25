@@ -1,0 +1,13 @@
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c: In function 'at_server_start':
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:70:17: error: 'at_uart_task' undeclared (first use in this function)
+   70 |     xTaskCreate(at_uart_task, "at_uart_task", 4096, NULL, 10, NULL);
+      |                 ^~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:70:17: note: each undeclared identifier is reported only once for each function it appears in
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c: At top level:
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:102:13: warning: 'at_uart_task' defined but not used [-Wunused-function]
+  102 | static void at_uart_task(void *pvParameters)
+      |             ^~~~~~~~~~~~
+make[2]: *** [esp-idf/at_server/CMakeFiles/__idf_at_server.dir/build.make:76: esp-idf/at_server/CMakeFiles/__idf_at_server.dir/at_server.c.obj] Error 1
+make[1]: *** [CMakeFiles/Makefile2:5638: esp-idf/at_server/CMakeFiles/__idf_at_server.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+make: *** [Makefile:136: all] Error 2

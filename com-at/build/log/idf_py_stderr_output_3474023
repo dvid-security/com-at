@@ -1,0 +1,108 @@
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c: In function 'at_handle_cifsr':
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:93:13: error: implicit declaration of function 'ip4_addr1'; did you mean 'esp_ip4_addr1'? [-Werror=implicit-function-declaration]
+   93 |             ip4_addr1(&ip_info.ip), ip4_addr2(&ip_info.ip),
+      |             ^~~~~~~~~
+      |             esp_ip4_addr1
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:93:37: error: implicit declaration of function 'ip4_addr2'; did you mean 'esp_ip4_addr2'? [-Werror=implicit-function-declaration]
+   93 |             ip4_addr1(&ip_info.ip), ip4_addr2(&ip_info.ip),
+      |                                     ^~~~~~~~~
+      |                                     esp_ip4_addr2
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:94:13: error: implicit declaration of function 'ip4_addr3'; did you mean 'esp_ip4_addr3'? [-Werror=implicit-function-declaration]
+   94 |             ip4_addr3(&ip_info.ip), ip4_addr4(&ip_info.ip));
+      |             ^~~~~~~~~
+      |             esp_ip4_addr3
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:94:37: error: implicit declaration of function 'ip4_addr4'; did you mean 'esp_ip4_addr4'? [-Werror=implicit-function-declaration]
+   94 |             ip4_addr3(&ip_info.ip), ip4_addr4(&ip_info.ip));
+      |                                     ^~~~~~~~~
+      |                                     esp_ip4_addr4
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c: In function 'wifi_at_register':
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:147:18: error: unknown type name 'at_command_t'
+  147 |     static const at_command_t cmds[] = {
+      |                  ^~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:148:9: warning: braces around scalar initializer
+  148 |         {"AT+CWLAP",     at_handle_cwlap,   "Scan Wi-Fi"},
+      |         ^
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:148:9: note: (near initialization for 'cmds[0]')
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:148:10: warning: initialization of 'int' from 'char *' makes integer from pointer without a cast [-Wint-conversion]
+  148 |         {"AT+CWLAP",     at_handle_cwlap,   "Scan Wi-Fi"},
+      |          ^~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:148:10: note: (near initialization for 'cmds[0]')
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:148:26: warning: excess elements in scalar initializer
+  148 |         {"AT+CWLAP",     at_handle_cwlap,   "Scan Wi-Fi"},
+      |                          ^~~~~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:148:26: note: (near initialization for 'cmds[0]')
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:148:45: warning: excess elements in scalar initializer
+  148 |         {"AT+CWLAP",     at_handle_cwlap,   "Scan Wi-Fi"},
+      |                                             ^~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:148:45: note: (near initialization for 'cmds[0]')
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:149:9: warning: braces around scalar initializer
+  149 |         {"AT+CWJAP",     at_handle_cwjap,   "Connexion Wi-Fi"},
+      |         ^
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:149:9: note: (near initialization for 'cmds[1]')
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:149:10: warning: initialization of 'int' from 'char *' makes integer from pointer without a cast [-Wint-conversion]
+  149 |         {"AT+CWJAP",     at_handle_cwjap,   "Connexion Wi-Fi"},
+      |          ^~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:149:10: note: (near initialization for 'cmds[1]')
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:149:26: warning: excess elements in scalar initializer
+  149 |         {"AT+CWJAP",     at_handle_cwjap,   "Connexion Wi-Fi"},
+      |                          ^~~~~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:149:26: note: (near initialization for 'cmds[1]')
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:149:45: warning: excess elements in scalar initializer
+  149 |         {"AT+CWJAP",     at_handle_cwjap,   "Connexion Wi-Fi"},
+      |                                             ^~~~~~~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:149:45: note: (near initialization for 'cmds[1]')
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:150:9: warning: braces around scalar initializer
+  150 |         {"AT+CWQAP",     at_handle_cwqap,   "Déconnexion Wi-Fi"},
+      |         ^
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:150:9: note: (near initialization for 'cmds[2]')
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:150:10: warning: initialization of 'int' from 'char *' makes integer from pointer without a cast [-Wint-conversion]
+  150 |         {"AT+CWQAP",     at_handle_cwqap,   "Déconnexion Wi-Fi"},
+      |          ^~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:150:10: note: (near initialization for 'cmds[2]')
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:150:26: warning: excess elements in scalar initializer
+  150 |         {"AT+CWQAP",     at_handle_cwqap,   "Déconnexion Wi-Fi"},
+      |                          ^~~~~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:150:26: note: (near initialization for 'cmds[2]')
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:150:45: warning: excess elements in scalar initializer
+  150 |         {"AT+CWQAP",     at_handle_cwqap,   "Déconnexion Wi-Fi"},
+      |                                             ^~~~~~~~~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:150:45: note: (near initialization for 'cmds[2]')
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:151:9: warning: braces around scalar initializer
+  151 |         {"AT+CWSTATE?",  at_handle_cwstate, "Etat connexion Wi-Fi"},
+      |         ^
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:151:9: note: (near initialization for 'cmds[3]')
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:151:10: warning: initialization of 'int' from 'char *' makes integer from pointer without a cast [-Wint-conversion]
+  151 |         {"AT+CWSTATE?",  at_handle_cwstate, "Etat connexion Wi-Fi"},
+      |          ^~~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:151:10: note: (near initialization for 'cmds[3]')
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:151:26: warning: excess elements in scalar initializer
+  151 |         {"AT+CWSTATE?",  at_handle_cwstate, "Etat connexion Wi-Fi"},
+      |                          ^~~~~~~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:151:26: note: (near initialization for 'cmds[3]')
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:151:45: warning: excess elements in scalar initializer
+  151 |         {"AT+CWSTATE?",  at_handle_cwstate, "Etat connexion Wi-Fi"},
+      |                                             ^~~~~~~~~~~~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:151:45: note: (near initialization for 'cmds[3]')
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:152:9: warning: braces around scalar initializer
+  152 |         {"AT+CIFSR",     at_handle_cifsr,   "Adresse IP locale"},
+      |         ^
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:152:9: note: (near initialization for 'cmds[4]')
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:152:10: warning: initialization of 'int' from 'char *' makes integer from pointer without a cast [-Wint-conversion]
+  152 |         {"AT+CIFSR",     at_handle_cifsr,   "Adresse IP locale"},
+      |          ^~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:152:10: note: (near initialization for 'cmds[4]')
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:152:26: warning: excess elements in scalar initializer
+  152 |         {"AT+CIFSR",     at_handle_cifsr,   "Adresse IP locale"},
+      |                          ^~~~~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:152:26: note: (near initialization for 'cmds[4]')
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:152:45: warning: excess elements in scalar initializer
+  152 |         {"AT+CIFSR",     at_handle_cifsr,   "Adresse IP locale"},
+      |                                             ^~~~~~~~~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:152:45: note: (near initialization for 'cmds[4]')
+/home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.c:155:9: error: implicit declaration of function 'at_server_register_command' [-Werror=implicit-function-declaration]
+  155 |         at_server_register_command(&cmds[i]);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+cc1: some warnings being treated as errors
+make[2]: *** [esp-idf/at_server/CMakeFiles/__idf_at_server.dir/build.make:76: esp-idf/at_server/CMakeFiles/__idf_at_server.dir/at_server.c.obj] Error 1
+make[1]: *** [CMakeFiles/Makefile2:5638: esp-idf/at_server/CMakeFiles/__idf_at_server.dir/all] Error 2
+make: *** [Makefile:136: all] Error 2

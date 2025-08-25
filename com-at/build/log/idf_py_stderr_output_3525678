@@ -1,0 +1,421 @@
+/home/eunous/git/dvid/com-at/com-at/components/at_wifi/at_wifi.c: In function 'at_handle_cifsr':
+/home/eunous/git/dvid/com-at/com-at/components/at_wifi/at_wifi.c:164:49: error: format '%d' expects argument of type 'int', but argument 4 has type 'long unsigned int' [-Werror=format=]
+  164 |         snprintf(resp, sizeof(resp), "+CIFSR:\"%d.%d.%d.%d\"\r\nOK\r\n",
+      |                                                ~^
+      |                                                 |
+      |                                                 int
+      |                                                %ld
+  165 |                  ip & 0xFF,
+      |                  ~~~~~~~~~                       
+      |                     |
+      |                     long unsigned int
+/home/eunous/git/dvid/com-at/com-at/components/at_wifi/at_wifi.c:164:52: error: format '%d' expects argument of type 'int', but argument 5 has type 'long unsigned int' [-Werror=format=]
+  164 |         snprintf(resp, sizeof(resp), "+CIFSR:\"%d.%d.%d.%d\"\r\nOK\r\n",
+      |                                                   ~^
+      |                                                    |
+      |                                                    int
+      |                                                   %ld
+  165 |                  ip & 0xFF,
+  166 |                  (ip >> 8) & 0xFF,
+      |                  ~~~~~~~~~~~~~~~~                   
+      |                            |
+      |                            long unsigned int
+/home/eunous/git/dvid/com-at/com-at/components/at_wifi/at_wifi.c:164:55: error: format '%d' expects argument of type 'int', but argument 6 has type 'long unsigned int' [-Werror=format=]
+  164 |         snprintf(resp, sizeof(resp), "+CIFSR:\"%d.%d.%d.%d\"\r\nOK\r\n",
+      |                                                      ~^
+      |                                                       |
+      |                                                       int
+      |                                                      %ld
+......
+  167 |                  (ip >> 16) & 0xFF,
+      |                  ~~~~~~~~~~~~~~~~~                     
+      |                             |
+      |                             long unsigned int
+/home/eunous/git/dvid/com-at/com-at/components/at_wifi/at_wifi.c:164:58: error: format '%d' expects argument of type 'int', but argument 7 has type 'long unsigned int' [-Werror=format=]
+  164 |         snprintf(resp, sizeof(resp), "+CIFSR:\"%d.%d.%d.%d\"\r\nOK\r\n",
+      |                                                         ~^
+      |                                                          |
+      |                                                          int
+      |                                                         %ld
+......
+  168 |                  (ip >> 24) & 0xFF);
+      |                  ~~~~~~~~~~~~~~~~~                        
+      |                             |
+      |                             long unsigned int
+In file included from /home/eunous/git/dvid/com-at/com-at/components/at_wifi/at_wifi.c:7:
+/home/eunous/esp-idf/components/log/include/esp_log.h:290:27: error: format '%d' expects argument of type 'int', but argument 6 has type 'long unsigned int' [-Werror=format=]
+  290 | #define LOG_COLOR(COLOR)  "\033[0;" COLOR "m"
+      |                           ^~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:293:27: note: in expansion of macro 'LOG_COLOR'
+  293 | #define LOG_COLOR_E       LOG_COLOR(LOG_COLOR_RED)
+      |                           ^~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:307:37: note: in expansion of macro 'LOG_COLOR_E'
+  307 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                     ^~~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:435:86: note: in expansion of macro 'LOG_FORMAT'
+  435 |         if (level==ESP_LOG_ERROR )          { esp_log_write(ESP_LOG_ERROR,      tag, LOG_FORMAT(E, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                      ^~~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:463:41: note: in expansion of macro 'ESP_LOG_LEVEL'
+  463 |         if ( LOG_LOCAL_LEVEL >= level ) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                         ^~~~~~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:367:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  367 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_wifi/at_wifi.c:169:9: note: in expansion of macro 'ESP_LOGI'
+  169 |         ESP_LOGI(TAG, "CIFSR: Got IP: %d.%d.%d.%d", ip & 0xFF, (ip >> 8) & 0xFF, (ip >> 16) & 0xFF, (ip >> 24) & 0xFF);
+      |         ^~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:290:27: error: format '%d' expects argument of type 'int', but argument 7 has type 'long unsigned int' [-Werror=format=]
+  290 | #define LOG_COLOR(COLOR)  "\033[0;" COLOR "m"
+      |                           ^~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:293:27: note: in expansion of macro 'LOG_COLOR'
+  293 | #define LOG_COLOR_E       LOG_COLOR(LOG_COLOR_RED)
+      |                           ^~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:307:37: note: in expansion of macro 'LOG_COLOR_E'
+  307 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                     ^~~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:435:86: note: in expansion of macro 'LOG_FORMAT'
+  435 |         if (level==ESP_LOG_ERROR )          { esp_log_write(ESP_LOG_ERROR,      tag, LOG_FORMAT(E, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                      ^~~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:463:41: note: in expansion of macro 'ESP_LOG_LEVEL'
+  463 |         if ( LOG_LOCAL_LEVEL >= level ) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                         ^~~~~~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:367:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  367 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_wifi/at_wifi.c:169:9: note: in expansion of macro 'ESP_LOGI'
+  169 |         ESP_LOGI(TAG, "CIFSR: Got IP: %d.%d.%d.%d", ip & 0xFF, (ip >> 8) & 0xFF, (ip >> 16) & 0xFF, (ip >> 24) & 0xFF);
+      |         ^~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:290:27: error: format '%d' expects argument of type 'int', but argument 8 has type 'long unsigned int' [-Werror=format=]
+  290 | #define LOG_COLOR(COLOR)  "\033[0;" COLOR "m"
+      |                           ^~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:293:27: note: in expansion of macro 'LOG_COLOR'
+  293 | #define LOG_COLOR_E       LOG_COLOR(LOG_COLOR_RED)
+      |                           ^~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:307:37: note: in expansion of macro 'LOG_COLOR_E'
+  307 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                     ^~~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:435:86: note: in expansion of macro 'LOG_FORMAT'
+  435 |         if (level==ESP_LOG_ERROR )          { esp_log_write(ESP_LOG_ERROR,      tag, LOG_FORMAT(E, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                      ^~~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:463:41: note: in expansion of macro 'ESP_LOG_LEVEL'
+  463 |         if ( LOG_LOCAL_LEVEL >= level ) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                         ^~~~~~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:367:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  367 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_wifi/at_wifi.c:169:9: note: in expansion of macro 'ESP_LOGI'
+  169 |         ESP_LOGI(TAG, "CIFSR: Got IP: %d.%d.%d.%d", ip & 0xFF, (ip >> 8) & 0xFF, (ip >> 16) & 0xFF, (ip >> 24) & 0xFF);
+      |         ^~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:290:27: error: format '%d' expects argument of type 'int', but argument 9 has type 'long unsigned int' [-Werror=format=]
+  290 | #define LOG_COLOR(COLOR)  "\033[0;" COLOR "m"
+      |                           ^~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:293:27: note: in expansion of macro 'LOG_COLOR'
+  293 | #define LOG_COLOR_E       LOG_COLOR(LOG_COLOR_RED)
+      |                           ^~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:307:37: note: in expansion of macro 'LOG_COLOR_E'
+  307 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                     ^~~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:435:86: note: in expansion of macro 'LOG_FORMAT'
+  435 |         if (level==ESP_LOG_ERROR )          { esp_log_write(ESP_LOG_ERROR,      tag, LOG_FORMAT(E, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                      ^~~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:463:41: note: in expansion of macro 'ESP_LOG_LEVEL'
+  463 |         if ( LOG_LOCAL_LEVEL >= level ) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                         ^~~~~~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:367:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  367 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_wifi/at_wifi.c:169:9: note: in expansion of macro 'ESP_LOGI'
+  169 |         ESP_LOGI(TAG, "CIFSR: Got IP: %d.%d.%d.%d", ip & 0xFF, (ip >> 8) & 0xFF, (ip >> 16) & 0xFF, (ip >> 24) & 0xFF);
+      |         ^~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:290:27: error: format '%d' expects argument of type 'int', but argument 6 has type 'long unsigned int' [-Werror=format=]
+  290 | #define LOG_COLOR(COLOR)  "\033[0;" COLOR "m"
+      |                           ^~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:294:27: note: in expansion of macro 'LOG_COLOR'
+  294 | #define LOG_COLOR_W       LOG_COLOR(LOG_COLOR_BROWN)
+      |                           ^~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:307:37: note: in expansion of macro 'LOG_COLOR_W'
+  307 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                     ^~~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:436:86: note: in expansion of macro 'LOG_FORMAT'
+  436 |         else if (level==ESP_LOG_WARN )      { esp_log_write(ESP_LOG_WARN,       tag, LOG_FORMAT(W, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                      ^~~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:463:41: note: in expansion of macro 'ESP_LOG_LEVEL'
+  463 |         if ( LOG_LOCAL_LEVEL >= level ) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                         ^~~~~~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:367:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  367 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_wifi/at_wifi.c:169:9: note: in expansion of macro 'ESP_LOGI'
+  169 |         ESP_LOGI(TAG, "CIFSR: Got IP: %d.%d.%d.%d", ip & 0xFF, (ip >> 8) & 0xFF, (ip >> 16) & 0xFF, (ip >> 24) & 0xFF);
+      |         ^~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:290:27: error: format '%d' expects argument of type 'int', but argument 7 has type 'long unsigned int' [-Werror=format=]
+  290 | #define LOG_COLOR(COLOR)  "\033[0;" COLOR "m"
+      |                           ^~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:294:27: note: in expansion of macro 'LOG_COLOR'
+  294 | #define LOG_COLOR_W       LOG_COLOR(LOG_COLOR_BROWN)
+      |                           ^~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:307:37: note: in expansion of macro 'LOG_COLOR_W'
+  307 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                     ^~~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:436:86: note: in expansion of macro 'LOG_FORMAT'
+  436 |         else if (level==ESP_LOG_WARN )      { esp_log_write(ESP_LOG_WARN,       tag, LOG_FORMAT(W, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                      ^~~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:463:41: note: in expansion of macro 'ESP_LOG_LEVEL'
+  463 |         if ( LOG_LOCAL_LEVEL >= level ) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                         ^~~~~~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:367:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  367 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_wifi/at_wifi.c:169:9: note: in expansion of macro 'ESP_LOGI'
+  169 |         ESP_LOGI(TAG, "CIFSR: Got IP: %d.%d.%d.%d", ip & 0xFF, (ip >> 8) & 0xFF, (ip >> 16) & 0xFF, (ip >> 24) & 0xFF);
+      |         ^~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:290:27: error: format '%d' expects argument of type 'int', but argument 8 has type 'long unsigned int' [-Werror=format=]
+  290 | #define LOG_COLOR(COLOR)  "\033[0;" COLOR "m"
+      |                           ^~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:294:27: note: in expansion of macro 'LOG_COLOR'
+  294 | #define LOG_COLOR_W       LOG_COLOR(LOG_COLOR_BROWN)
+      |                           ^~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:307:37: note: in expansion of macro 'LOG_COLOR_W'
+  307 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                     ^~~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:436:86: note: in expansion of macro 'LOG_FORMAT'
+  436 |         else if (level==ESP_LOG_WARN )      { esp_log_write(ESP_LOG_WARN,       tag, LOG_FORMAT(W, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                      ^~~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:463:41: note: in expansion of macro 'ESP_LOG_LEVEL'
+  463 |         if ( LOG_LOCAL_LEVEL >= level ) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                         ^~~~~~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:367:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  367 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_wifi/at_wifi.c:169:9: note: in expansion of macro 'ESP_LOGI'
+  169 |         ESP_LOGI(TAG, "CIFSR: Got IP: %d.%d.%d.%d", ip & 0xFF, (ip >> 8) & 0xFF, (ip >> 16) & 0xFF, (ip >> 24) & 0xFF);
+      |         ^~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:290:27: error: format '%d' expects argument of type 'int', but argument 9 has type 'long unsigned int' [-Werror=format=]
+  290 | #define LOG_COLOR(COLOR)  "\033[0;" COLOR "m"
+      |                           ^~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:294:27: note: in expansion of macro 'LOG_COLOR'
+  294 | #define LOG_COLOR_W       LOG_COLOR(LOG_COLOR_BROWN)
+      |                           ^~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:307:37: note: in expansion of macro 'LOG_COLOR_W'
+  307 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                     ^~~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:436:86: note: in expansion of macro 'LOG_FORMAT'
+  436 |         else if (level==ESP_LOG_WARN )      { esp_log_write(ESP_LOG_WARN,       tag, LOG_FORMAT(W, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                      ^~~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:463:41: note: in expansion of macro 'ESP_LOG_LEVEL'
+  463 |         if ( LOG_LOCAL_LEVEL >= level ) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                         ^~~~~~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:367:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  367 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_wifi/at_wifi.c:169:9: note: in expansion of macro 'ESP_LOGI'
+  169 |         ESP_LOGI(TAG, "CIFSR: Got IP: %d.%d.%d.%d", ip & 0xFF, (ip >> 8) & 0xFF, (ip >> 16) & 0xFF, (ip >> 24) & 0xFF);
+      |         ^~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_wifi/at_wifi.c:169:1: error: format '%d' expects argument of type 'int', but argument 6 has type 'long unsigned int' [-Werror=format=]
+  169 |         ESP_LOGI(TAG, "CIFSR: Got IP: %d.%d.%d.%d", ip & 0xFF, (ip >> 8) & 0xFF, (ip >> 16) & 0xFF, (ip >> 24) & 0xFF);
+      | ^       ~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:307:59: note: in definition of macro 'LOG_FORMAT'
+  307 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                                           ^~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:463:41: note: in expansion of macro 'ESP_LOG_LEVEL'
+  463 |         if ( LOG_LOCAL_LEVEL >= level ) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                         ^~~~~~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:367:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  367 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_wifi/at_wifi.c:169:9: note: in expansion of macro 'ESP_LOGI'
+  169 |         ESP_LOGI(TAG, "CIFSR: Got IP: %d.%d.%d.%d", ip & 0xFF, (ip >> 8) & 0xFF, (ip >> 16) & 0xFF, (ip >> 24) & 0xFF);
+      |         ^~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_wifi/at_wifi.c:169:1: error: format '%d' expects argument of type 'int', but argument 7 has type 'long unsigned int' [-Werror=format=]
+  169 |         ESP_LOGI(TAG, "CIFSR: Got IP: %d.%d.%d.%d", ip & 0xFF, (ip >> 8) & 0xFF, (ip >> 16) & 0xFF, (ip >> 24) & 0xFF);
+      | ^       ~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:307:59: note: in definition of macro 'LOG_FORMAT'
+  307 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                                           ^~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:463:41: note: in expansion of macro 'ESP_LOG_LEVEL'
+  463 |         if ( LOG_LOCAL_LEVEL >= level ) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                         ^~~~~~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:367:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  367 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_wifi/at_wifi.c:169:9: note: in expansion of macro 'ESP_LOGI'
+  169 |         ESP_LOGI(TAG, "CIFSR: Got IP: %d.%d.%d.%d", ip & 0xFF, (ip >> 8) & 0xFF, (ip >> 16) & 0xFF, (ip >> 24) & 0xFF);
+      |         ^~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_wifi/at_wifi.c:169:1: error: format '%d' expects argument of type 'int', but argument 8 has type 'long unsigned int' [-Werror=format=]
+  169 |         ESP_LOGI(TAG, "CIFSR: Got IP: %d.%d.%d.%d", ip & 0xFF, (ip >> 8) & 0xFF, (ip >> 16) & 0xFF, (ip >> 24) & 0xFF);
+      | ^       ~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:307:59: note: in definition of macro 'LOG_FORMAT'
+  307 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                                           ^~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:463:41: note: in expansion of macro 'ESP_LOG_LEVEL'
+  463 |         if ( LOG_LOCAL_LEVEL >= level ) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                         ^~~~~~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:367:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  367 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_wifi/at_wifi.c:169:9: note: in expansion of macro 'ESP_LOGI'
+  169 |         ESP_LOGI(TAG, "CIFSR: Got IP: %d.%d.%d.%d", ip & 0xFF, (ip >> 8) & 0xFF, (ip >> 16) & 0xFF, (ip >> 24) & 0xFF);
+      |         ^~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_wifi/at_wifi.c:169:1: error: format '%d' expects argument of type 'int', but argument 9 has type 'long unsigned int' [-Werror=format=]
+  169 |         ESP_LOGI(TAG, "CIFSR: Got IP: %d.%d.%d.%d", ip & 0xFF, (ip >> 8) & 0xFF, (ip >> 16) & 0xFF, (ip >> 24) & 0xFF);
+      | ^       ~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:307:59: note: in definition of macro 'LOG_FORMAT'
+  307 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                                           ^~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:463:41: note: in expansion of macro 'ESP_LOG_LEVEL'
+  463 |         if ( LOG_LOCAL_LEVEL >= level ) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                         ^~~~~~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:367:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  367 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_wifi/at_wifi.c:169:9: note: in expansion of macro 'ESP_LOGI'
+  169 |         ESP_LOGI(TAG, "CIFSR: Got IP: %d.%d.%d.%d", ip & 0xFF, (ip >> 8) & 0xFF, (ip >> 16) & 0xFF, (ip >> 24) & 0xFF);
+      |         ^~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_wifi/at_wifi.c:169:1: error: format '%d' expects argument of type 'int', but argument 6 has type 'long unsigned int' [-Werror=format=]
+  169 |         ESP_LOGI(TAG, "CIFSR: Got IP: %d.%d.%d.%d", ip & 0xFF, (ip >> 8) & 0xFF, (ip >> 16) & 0xFF, (ip >> 24) & 0xFF);
+      | ^       ~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:307:59: note: in definition of macro 'LOG_FORMAT'
+  307 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                                           ^~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:463:41: note: in expansion of macro 'ESP_LOG_LEVEL'
+  463 |         if ( LOG_LOCAL_LEVEL >= level ) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                         ^~~~~~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:367:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  367 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_wifi/at_wifi.c:169:9: note: in expansion of macro 'ESP_LOGI'
+  169 |         ESP_LOGI(TAG, "CIFSR: Got IP: %d.%d.%d.%d", ip & 0xFF, (ip >> 8) & 0xFF, (ip >> 16) & 0xFF, (ip >> 24) & 0xFF);
+      |         ^~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_wifi/at_wifi.c:169:1: error: format '%d' expects argument of type 'int', but argument 7 has type 'long unsigned int' [-Werror=format=]
+  169 |         ESP_LOGI(TAG, "CIFSR: Got IP: %d.%d.%d.%d", ip & 0xFF, (ip >> 8) & 0xFF, (ip >> 16) & 0xFF, (ip >> 24) & 0xFF);
+      | ^       ~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:307:59: note: in definition of macro 'LOG_FORMAT'
+  307 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                                           ^~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:463:41: note: in expansion of macro 'ESP_LOG_LEVEL'
+  463 |         if ( LOG_LOCAL_LEVEL >= level ) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                         ^~~~~~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:367:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  367 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_wifi/at_wifi.c:169:9: note: in expansion of macro 'ESP_LOGI'
+  169 |         ESP_LOGI(TAG, "CIFSR: Got IP: %d.%d.%d.%d", ip & 0xFF, (ip >> 8) & 0xFF, (ip >> 16) & 0xFF, (ip >> 24) & 0xFF);
+      |         ^~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_wifi/at_wifi.c:169:1: error: format '%d' expects argument of type 'int', but argument 8 has type 'long unsigned int' [-Werror=format=]
+  169 |         ESP_LOGI(TAG, "CIFSR: Got IP: %d.%d.%d.%d", ip & 0xFF, (ip >> 8) & 0xFF, (ip >> 16) & 0xFF, (ip >> 24) & 0xFF);
+      | ^       ~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:307:59: note: in definition of macro 'LOG_FORMAT'
+  307 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                                           ^~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:463:41: note: in expansion of macro 'ESP_LOG_LEVEL'
+  463 |         if ( LOG_LOCAL_LEVEL >= level ) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                         ^~~~~~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:367:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  367 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_wifi/at_wifi.c:169:9: note: in expansion of macro 'ESP_LOGI'
+  169 |         ESP_LOGI(TAG, "CIFSR: Got IP: %d.%d.%d.%d", ip & 0xFF, (ip >> 8) & 0xFF, (ip >> 16) & 0xFF, (ip >> 24) & 0xFF);
+      |         ^~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_wifi/at_wifi.c:169:1: error: format '%d' expects argument of type 'int', but argument 9 has type 'long unsigned int' [-Werror=format=]
+  169 |         ESP_LOGI(TAG, "CIFSR: Got IP: %d.%d.%d.%d", ip & 0xFF, (ip >> 8) & 0xFF, (ip >> 16) & 0xFF, (ip >> 24) & 0xFF);
+      | ^       ~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:307:59: note: in definition of macro 'LOG_FORMAT'
+  307 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                                           ^~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:463:41: note: in expansion of macro 'ESP_LOG_LEVEL'
+  463 |         if ( LOG_LOCAL_LEVEL >= level ) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                         ^~~~~~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:367:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  367 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_wifi/at_wifi.c:169:9: note: in expansion of macro 'ESP_LOGI'
+  169 |         ESP_LOGI(TAG, "CIFSR: Got IP: %d.%d.%d.%d", ip & 0xFF, (ip >> 8) & 0xFF, (ip >> 16) & 0xFF, (ip >> 24) & 0xFF);
+      |         ^~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:290:27: error: format '%d' expects argument of type 'int', but argument 6 has type 'long unsigned int' [-Werror=format=]
+  290 | #define LOG_COLOR(COLOR)  "\033[0;" COLOR "m"
+      |                           ^~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:295:27: note: in expansion of macro 'LOG_COLOR'
+  295 | #define LOG_COLOR_I       LOG_COLOR(LOG_COLOR_GREEN)
+      |                           ^~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:307:37: note: in expansion of macro 'LOG_COLOR_I'
+  307 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                     ^~~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:439:86: note: in expansion of macro 'LOG_FORMAT'
+  439 |         else                                { esp_log_write(ESP_LOG_INFO,       tag, LOG_FORMAT(I, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                      ^~~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:463:41: note: in expansion of macro 'ESP_LOG_LEVEL'
+  463 |         if ( LOG_LOCAL_LEVEL >= level ) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                         ^~~~~~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:367:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  367 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_wifi/at_wifi.c:169:9: note: in expansion of macro 'ESP_LOGI'
+  169 |         ESP_LOGI(TAG, "CIFSR: Got IP: %d.%d.%d.%d", ip & 0xFF, (ip >> 8) & 0xFF, (ip >> 16) & 0xFF, (ip >> 24) & 0xFF);
+      |         ^~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:290:27: error: format '%d' expects argument of type 'int', but argument 7 has type 'long unsigned int' [-Werror=format=]
+  290 | #define LOG_COLOR(COLOR)  "\033[0;" COLOR "m"
+      |                           ^~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:295:27: note: in expansion of macro 'LOG_COLOR'
+  295 | #define LOG_COLOR_I       LOG_COLOR(LOG_COLOR_GREEN)
+      |                           ^~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:307:37: note: in expansion of macro 'LOG_COLOR_I'
+  307 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                     ^~~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:439:86: note: in expansion of macro 'LOG_FORMAT'
+  439 |         else                                { esp_log_write(ESP_LOG_INFO,       tag, LOG_FORMAT(I, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                      ^~~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:463:41: note: in expansion of macro 'ESP_LOG_LEVEL'
+  463 |         if ( LOG_LOCAL_LEVEL >= level ) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                         ^~~~~~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:367:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  367 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_wifi/at_wifi.c:169:9: note: in expansion of macro 'ESP_LOGI'
+  169 |         ESP_LOGI(TAG, "CIFSR: Got IP: %d.%d.%d.%d", ip & 0xFF, (ip >> 8) & 0xFF, (ip >> 16) & 0xFF, (ip >> 24) & 0xFF);
+      |         ^~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:290:27: error: format '%d' expects argument of type 'int', but argument 8 has type 'long unsigned int' [-Werror=format=]
+  290 | #define LOG_COLOR(COLOR)  "\033[0;" COLOR "m"
+      |                           ^~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:295:27: note: in expansion of macro 'LOG_COLOR'
+  295 | #define LOG_COLOR_I       LOG_COLOR(LOG_COLOR_GREEN)
+      |                           ^~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:307:37: note: in expansion of macro 'LOG_COLOR_I'
+  307 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                     ^~~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:439:86: note: in expansion of macro 'LOG_FORMAT'
+  439 |         else                                { esp_log_write(ESP_LOG_INFO,       tag, LOG_FORMAT(I, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                      ^~~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:463:41: note: in expansion of macro 'ESP_LOG_LEVEL'
+  463 |         if ( LOG_LOCAL_LEVEL >= level ) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                         ^~~~~~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:367:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  367 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_wifi/at_wifi.c:169:9: note: in expansion of macro 'ESP_LOGI'
+  169 |         ESP_LOGI(TAG, "CIFSR: Got IP: %d.%d.%d.%d", ip & 0xFF, (ip >> 8) & 0xFF, (ip >> 16) & 0xFF, (ip >> 24) & 0xFF);
+      |         ^~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:290:27: error: format '%d' expects argument of type 'int', but argument 9 has type 'long unsigned int' [-Werror=format=]
+  290 | #define LOG_COLOR(COLOR)  "\033[0;" COLOR "m"
+      |                           ^~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:295:27: note: in expansion of macro 'LOG_COLOR'
+  295 | #define LOG_COLOR_I       LOG_COLOR(LOG_COLOR_GREEN)
+      |                           ^~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:307:37: note: in expansion of macro 'LOG_COLOR_I'
+  307 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                     ^~~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:439:86: note: in expansion of macro 'LOG_FORMAT'
+  439 |         else                                { esp_log_write(ESP_LOG_INFO,       tag, LOG_FORMAT(I, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                      ^~~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:463:41: note: in expansion of macro 'ESP_LOG_LEVEL'
+  463 |         if ( LOG_LOCAL_LEVEL >= level ) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                         ^~~~~~~~~~~~~
+/home/eunous/esp-idf/components/log/include/esp_log.h:367:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  367 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_wifi/at_wifi.c:169:9: note: in expansion of macro 'ESP_LOGI'
+  169 |         ESP_LOGI(TAG, "CIFSR: Got IP: %d.%d.%d.%d", ip & 0xFF, (ip >> 8) & 0xFF, (ip >> 16) & 0xFF, (ip >> 24) & 0xFF);
+      |         ^~~~~~~~
+cc1: some warnings being treated as errors
+make[2]: *** [esp-idf/at_wifi/CMakeFiles/__idf_at_wifi.dir/build.make:76: esp-idf/at_wifi/CMakeFiles/__idf_at_wifi.dir/at_wifi.c.obj] Error 1
+make[1]: *** [CMakeFiles/Makefile2:5665: esp-idf/at_wifi/CMakeFiles/__idf_at_wifi.dir/all] Error 2
+make: *** [Makefile:136: all] Error 2
