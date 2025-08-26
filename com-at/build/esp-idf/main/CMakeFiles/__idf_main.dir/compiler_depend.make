@@ -113,8 +113,7 @@ esp-idf/main/CMakeFiles/__idf_main.dir/com-at.c.obj: /home/eunous/git/dvid/com-a
   /home/eunous/esp-idf/components/soc/esp32/include/soc/clk_tree_defs.h \
   /home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.h \
   /home/eunous/git/dvid/com-at/com-at/components/at_wifi/at_wifi.h \
-  /home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.h \
-  /home/eunous/git/dvid/com-at/com-at/components/at_mqtt/at_mqtt.h
+  /home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.h
 
 
 /home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.h:
@@ -178,8 +177,6 @@ esp-idf/main/CMakeFiles/__idf_main.dir/com-at.c.obj: /home/eunous/git/dvid/com-a
 /home/eunous/esp-idf/components/esp_common/include/esp_attr.h:
 
 /home/eunous/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/xtensa-esp-elf/include/stdint.h:
-
-/home/eunous/git/dvid/com-at/com-at/components/at_mqtt/at_mqtt.h:
 
 /home/eunous/esp-idf/components/soc/esp32/include/soc/reg_base.h:
 

@@ -1,0 +1,253 @@
+¢�B�(ets Jun  8 2016 00:22:57
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7176
+load:0x40078000,len:15564
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3904
+entry 0x40080640
+[0;32mI (30) boot: ESP-IDF v5.3.2-dirty 2nd stage bootloader[0m
+[0;32mI (30) boot: compile time Aug 26 2025 21:03:05[0m
+[0;32mI (30) boot: Multicore bootloader[0m
+[0;32mI (35) boot: chip revision: v1.0[0m
+[0;32mI (39) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (43) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (48) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (58) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (69) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (76) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (84) boot:  2 factory          factory app      00 00 00010000 00177000[0m
+[0;32mI (91) boot: End of partition table[0m
+[0;32mI (95) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=1e7ach (124844) map[0m
+[0;32mI (147) esp_image: segment 1: paddr=0002e7d4 vaddr=3ffbdb60 size=01844h (  6212) load[0m
+[0;32mI (149) esp_image: segment 2: paddr=00030020 vaddr=400d0020 size=aeccch (715980) map[0m
+[0;32mI (398) esp_image: segment 3: paddr=000decf4 vaddr=3ffbf3a4 size=04570h ( 17776) load[0m
+[0;32mI (405) esp_image: segment 4: paddr=000e326c vaddr=40080000 size=1f924h (129316) load[0m
+[0;32mI (471) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (471) boot: Disabling RNG early entropy source...[0m
+[0;32mI (484) cpu_start: Multicore app[0m
+[0;32mI (492) cpu_start: Pro cpu start user code[0m
+[0;32mI (493) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (493) app_init: Application information:[0m
+[0;32mI (496) app_init: Project name:     com-at[0m
+[0;32mI (500) app_init: App version:      c8f111d-dirty[0m
+[0;32mI (506) app_init: Compile time:     Aug 26 2025 23:48:08[0m
+[0;32mI (512) app_init: ELF file SHA256:  4af85144c...[0m
+[0;32mI (517) app_init: ESP-IDF:          v5.3.2-dirty[0m
+[0;32mI (522) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (527) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (532) efuse_init: Chip rev:         v1.0[0m
+[0;32mI (537) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (544) heap_init: At 3FFAFF10 len 000000F0 (0 KiB): DRAM[0m
+[0;32mI (550) heap_init: At 3FFB6388 len 00001C78 (7 KiB): DRAM[0m
+[0;32mI (556) heap_init: At 3FFB9A20 len 00004108 (16 KiB): DRAM[0m
+[0;32mI (562) heap_init: At 3FFCA3C8 len 00015C38 (87 KiB): DRAM[0m
+[0;32mI (568) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (575) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (581) heap_init: At 4009F924 len 000006DC (1 KiB): IRAM[0m
+[0;32mI (589) spi_flash: detected chip: generic[0m
+[0;32mI (592) spi_flash: flash io: dio[0m
+[0;33mW (596) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (610) coexist: coex firmware version: cbb41d7[0m
+[0;32mI (615) main_task: Started on CPU0[0m
+[0;32mI (625) main_task: Calling app_main()[0m
+[0;32mI (665) wifi:wifi driver task: 3ffcf31c, prio:23, stack:6656, core=0[0m
+[0;32mI (675) wifi:wifi firmware version: b0fd6006b[0m
+[0;32mI (675) wifi:wifi certification version: v7.0[0m
+[0;32mI (675) wifi:config NVS flash: enabled[0m
+[0;32mI (675) wifi:config nano formating: disabled[0m
+[0;32mI (685) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (685) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (695) wifi:Init management short buffer num: 32[0m
+[0;32mI (695) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (705) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (705) wifi:Init static rx buffer num: 10[0m
+[0;32mI (705) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (715) wifi_init: rx ba win: 6[0m
+[0;32mI (715) wifi_init: accept mbox: 6[0m
+[0;32mI (715) wifi_init: tcpip mbox: 32[0m
+[0;32mI (725) wifi_init: udp mbox: 6[0m
+[0;32mI (725) wifi_init: tcp mbox: 6[0m
+[0;32mI (735) wifi_init: tcp tx win: 5760[0m
+[0;32mI (735) wifi_init: tcp rx win: 5760[0m
+[0;32mI (735) wifi_init: tcp mss: 1440[0m
+[0;32mI (745) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (745) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (765) phy_init: phy_version 4840,02e0d70,Sep  2 2024,19:39:07[0m
+[0;32mI (835) wifi:mode : sta (a4:cf:12:55:ef:e4)[0m
+[0;32mI (835) wifi:enable tsf[0m
+[0;32mI (835) AT_WIFI: Wi-Fi initialized in STA mode[0m
+[0;32mI (835) AT_WIFI: All AT Wi-Fi commands registered.[0m
+TEST AT+CWLAP...
+[0;32mI (845) AT_WIFI: CWLAP called, params: (null)[0m
+[0;32mI (3345) AT_WIFI: Scan done, found 14 APs[0m
++CWLAP:(3,"Livebox-3EC0",-50,"18:DF:26:06:3E:C0",1)
+[0;32mI (3345) AT_WIFI: AP[0]: ssid=Livebox-3EC0, rssi=-50, auth=3[0m
++CWLAP:(1,"freeboxhc11",-71,"F4:CA:E5:F5:60:F8",11)
+[0;32mI (3355) AT_WIFI: AP[1]: ssid=freeboxhc11, rssi=-71, auth=1[0m
++CWLAP:(5,"FreeWifi_secure",-72,"F4:CA:E5:F5:60:FA",11)
+[0;32mI (3365) AT_WIFI: AP[2]: ssid=FreeWifi_secure, rssi=-72, auth=5[0m
++CWLAP:(4,"SFR_C728",-74,"CC:2D:1B:7B:C7:2E",6)
+[0;32mI (3375) AT_WIFI: AP[3]: ssid=SFR_C728, rssi=-74, auth=4[0m
++CWLAP:(4,"SFR_4340",-74,"6C:61:F4:37:43:46",11)
+[0;32mI (3395) AT_WIFI: AP[4]: ssid=SFR_4340, rssi=-74, auth=4[0m
++CWLAP:(5,"FreeWifi_secure",-74,"E4:9E:12:CC:FC:02",11)
+[0;32mI (3405) AT_WIFI: AP[5]: ssid=FreeWifi_secure, rssi=-74, auth=5[0m
++CWLAP:(4,"Kami",-76,"E4:9E:12:CC:FC:00",11)
+[0;32mI (3415) AT_WIFI: AP[6]: ssid=Kami, rssi=-76, auth=4[0m
++CWLAP:(3,"Livebox-5C20",-79,"18:86:37:50:5C:20",1)
+[0;32mI (3425) AT_WIFI: AP[7]: ssid=Livebox-5C20, rssi=-79, auth=3[0m
++CWLAP:(4,"SFR_08CF",-79,"58:FC:20:E7:08:D0",6)
+[0;32mI (3435) AT_WIFI: AP[8]: ssid=SFR_08CF, rssi=-79, auth=4[0m
++CWLAP:(2,"freebox_EBPNLY",-80,"56:8E:12:AB:03:CC",5)
+[0;32mI (3445) AT_WIFI: AP[9]: ssid=freebox_EBPNLY, rssi=-80, auth=2[0m
++CWLAP:(4,"SFR_36E8",-81,"6C:61:F4:07:36:EE",11)
+[0;32mI (3455) AT_WIFI: AP[10]: ssid=SFR_36E8, rssi=-81, auth=4[0m
++CWLAP:(5,"FreeWifi_secure",-82,"56:8E:12:AB:03:CD",5)
+[0;32mI (3465) AT_WIFI: AP[11]: ssid=FreeWifi_secure, rssi=-82, auth=5[0m
++CWLAP:(4,"SFR_74B0",-82,"CC:2D:1B:B1:74:B6",11)
+[0;32mI (3475) AT_WIFI: AP[12]: ssid=SFR_74B0, rssi=-82, auth=4[0m
++CWLAP:(5,"FreeWifi_secure",-89,"E4:9E:12:1A:EE:E0",11)
+[0;32mI (3485) AT_WIFI: AP[13]: ssid=FreeWifi_secure, rssi=-89, auth=5[0m
+OK
+TEST AT+CWJAP...
+[0;32mI (4495) AT_WIFI: CWJAP called, params: "Livebox-3EC0","LK7sHJ4RmpXdDySvKz"[0m
+[0;32mI (4495) AT_WIFI: parse_cwjap_params called with params: "Livebox-3EC0","LK7sHJ4RmpXdDySvKz"[0m
+[0;32mI (4495) AT_WIFI: Parsed SSID: 'Livebox-3EC0', PASS: 'LK7sHJ4RmpXdDySvKz'[0m
+[0;32mI (4505) AT_WIFI: Try connect to SSID: 'Livebox-3EC0'[0m
+[0;33mW (4515) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (4525) AT_WIFI: Connect command sent.[0m
+OKI (4535) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:6, snd_ch_cfg:0x0
+[0;32mI (4535) wifi:state: init -> auth (0xb0)[0m
+
+[0;32mI (4555) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (4565) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (4585) wifi:<ba-add>idx:0 (ifx:0, 18:df:26:06:3e:c0), tid:5, ssn:0, winSize:64[0m
+[0;32mI (4605) wifi:connected with Livebox-3EC0, aid = 2, channel 1, BW20, bssid = 18:df:26:06:3e:c0[0m
+[0;32mI (4605) wifi:security: WPA2-PSK, phy: bgn, rssi: -51[0m
+[0;32mI (4605) wifi:pm start, type: 1[0m
+
+[0;32mI (4605) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (4665) wifi:AP's beacon interval = 102400 us, DTIM period = 3[0m
+TEST AT+CWJAP?...
++CWJAP:"Livebox-3EC0"
+OK
+[0;32mI (5615) esp_netif_handlers: sta ip: 192.168.1.54, mask: 255.255.255.0, gw: 192.168.1.1[0m
+TEST AT+CWSTATE?...
+[0;32mI (6545) AT_WIFI: CWSTATE? connected=1[0m
++CWSTATE:1
+OK
+TEST AT+CIFSR...
+[0;32mI (7545) AT_WIFI: CIFSR: Got IP: 192.168.1.54[0m
++CIFSR:"192.168.1.54"
+OK
+TEST AT+CWQAP...
+[0;32mI (8545) AT_WIFI: CWQAP called[0m
+[0;32mI (8545) wifi:state: run -> init (0x0)[0m
+[0;32mI (8555) wifi:pm stop, total sleep time: 3488450 us / 3944363 us[0m
+
+[0;32mI (8555) wifi:<ba-del>idx:0, tid:5[0m
+[0;32mI (8555) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:6, snd_ch_cfg:0x0[0m
+OK
+TEST AT+CWMODE?...
++CWMODE:1
+OK
+TEST AT+CWMODE=2...
+[0;32mI (10555) wifi:mode : softAP (a4:cf:12:55:ef:e5)[0m
+[0;32mI (10555) wifi:Total power save buffer number: 16[0m
+[0;32mI (10555) wifi:Init max length of beacon: 752/752[0m
+[0;32mI (10555) wifi:Init max length of beacon: 752/752[0m
+OK
+[0;32mI (10575) esp_netif_lwip: DHCP server started on interface WIFI_AP_DEF with IP: 192.168.4.1[0m
+TEST AT+CWAP...
+[0;32mI (11585) wifi:Total power save buffer number: 16[0m
+OK
+[0;32mI (11585) esp_netif_lwip: DHCP server started on interface WIFI_AP_DEF with IP: 192.168.4.1[0m
+TEST AT+CWAP...
+[0;32mI (12585) AT_WIFI: AT+WIFISTOP called[0m
+[0;32mI (12585) wifi:flush txq[0m
+[0;32mI (12585) wifi:stop sw txq[0m
+[0;32mI (12585) wifi:lmac stop hw txq[0m
+[0;32mI (12585) wifi:Deinit lldesc rx mblock:10[0m
+OK
+[0;32mI (12695) AT_WIFI: WiFi stopped and deinit OK[0m
+DONE.
+[0;32mI (17695) AT_BLE: All AT BLE commands registered.[0m
+BLE FAT TEST...
+STEP 1: BLEBEGIN (TestAT/HELLO123)
+[0;32mI (17695) BTDM_INIT: BT controller compile version [faadb75][0m
+[0;32mI (17695) BTDM_INIT: Bluetooth MAC: a4:cf:12:55:ef:e6[0m
+[0;32mI (17935) AT_BLE: NimBLE using STATIC demo GATT[0m
+[0;32mI (17935) AT_BLE: NimBLE initialized OK![0m
+[0;32mI (17975) NimBLE: Failed to restore IRKs from store; status=8
+[0m
+[0;32mI (17985) AT_BLE: NimBLE synced! Ready.[0m
+[0;32mI (17985) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (17985) NimBLE: disc_mode=2[0m
+[0;32mI (17985) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=0 adv_itvl_max=0[0m
+[0;32mI (17995) NimBLE: 
+[0m
+[0;32mI (18005) AT_BLE: BLE Advertising started! Name: TestAT[0m
+STEP 2: BLEADVSTART (pub statique)
+[0;32mI (20005) AT_BLE: BLE Advertising started! Name: TestAT[0m
+STEP 3: ADV STOP
+[0;32mI (24005) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (24005) AT_BLE: BLE advertising stopped.[0m
+STEP 4: BLE STOP
+[0;32mI (25005) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (25005) NimBLE: GAP procedure initiated: terminate connection; conn_handle=0 hci_reason=19
+[0m
+[0;32mI (25105) AT_BLE: NimBLE stopped/deinit OK![0m
+[0;32mI (25105) AT_BLE: BLE stack stopped.[0m
+STEP 5: GATTBUILD (dynamic GATT, Battery Service, 2 characs)
+[0;32mI (26105) BTDM_INIT: BT controller compile version [faadb75][0m
+[0;32mI (26105) BTDM_INIT: Bluetooth MAC: a4:cf:12:55:ef:e6[0m
+[0;32mI (26355) AT_BLE: NimBLE using DYNAMIC GATT[0m
+[0;32mI (26355) AT_BLE: NimBLE initialized OK![0m
+GATT table rebuilt OK : service 0x180F, 2 characs
+[0;32mI (26395) NimBLE: Failed to restore IRKs from store; status=8
+[0m
+[0;32mI (26395) AT_BLE: NimBLE synced! Ready.[0m
+STEP 6: SET MANUFACTURER (DYN123)
+[0;32mI (27355) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (27355) NimBLE: disc_mode=2[0m
+[0;32mI (27355) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=0 adv_itvl_max=0[0m
+[0;32mI (27365) NimBLE: 
+[0m
+[0;32mI (27375) AT_BLE: BLE Advertising started! Name: TestAT[0m
+[0;32mI (27375) AT_BLE: BLE manufacturer data (ASCII) set: 'DYN123'[0m
+STEP 7: ADV START (pub dynamique)
+[0;32mI (28375) AT_BLE: BLE Advertising started! Name: TestAT[0m
+BLE FAT TEST DONE!
+[0;32mI (33375) AT_SERVER: Table AT après init:[0m
+[0;32mI (33375) AT_SERVER:   cmd[0]: AT+CWLAP[0m
+[0;32mI (33375) AT_SERVER:   cmd[1]: AT+CWJAP[0m
+[0;32mI (33375) AT_SERVER:   cmd[2]: AT+CWJAP?[0m
+[0;32mI (33375) AT_SERVER:   cmd[3]: AT+CWQAP[0m
+[0;32mI (33385) AT_SERVER:   cmd[4]: AT+CWSTATE?[0m
+[0;32mI (33385) AT_SERVER:   cmd[5]: AT+CIFSR[0m
+[0;32mI (33395) AT_SERVER:   cmd[6]: AT+CWMODE?[0m
+[0;32mI (33395) AT_SERVER:   cmd[7]: AT+CWMODE[0m
+[0;32mI (33405) AT_SERVER:   cmd[8]: AT+CWAP[0m
+[0;32mI (33405) AT_SERVER:   cmd[9]: AT+WIFISTOP[0m
+[0;32mI (33415) AT_SERVER:   cmd[10]: AT+BLEBEGIN[0m
+[0;32mI (33415) AT_SERVER:   cmd[11]: AT+BLEADVSTOP[0m
+[0;32mI (33425) AT_SERVER:   cmd[12]: AT+BLEADVSTART[0m
+[0;32mI (33425) AT_SERVER:   cmd[13]: AT+BLESTOP[0m
+[0;32mI (33435) AT_SERVER:   cmd[14]: AT+BLECLEAR[0m
+[0;32mI (33435) AT_SERVER:   cmd[15]: AT+BLESETNAME[0m
+[0;32mI (33445) AT_SERVER:   cmd[16]: AT+BLEMFG[0m
+[0;32mI (33445) AT_SERVER:   cmd[17]: AT+BLESCAN[0m
+[0;32mI (33455) AT_SERVER:   cmd[18]: AT+GATTBUILD[0m
+[0;32mI (33455) AT_SERVER:   cmd[19]: AT[0m
+[0;32mI (33455) AT_SERVER:   cmd[20]: AT+HELP[0m
+[0;32mI (33465) AT_SERVER: AT Server started (UART task)...[0m
+[0;32mI (33465) main_task: Returned from app_main()[0m

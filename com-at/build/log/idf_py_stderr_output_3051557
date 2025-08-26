@@ -1,0 +1,55 @@
+/home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c: In function 'at_ble_test_all':
+/home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:3:5: error: implicit declaration of function 'printf' [-Werror=implicit-function-declaration]
+    3 |     printf("BLE FAT TEST...\n");
+      |     ^~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:1:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+  +++ |+#include <stdio.h>
+    1 | void at_ble_test_all(void)
+/home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:3:5: warning: incompatible implicit declaration of built-in function 'printf' [-Wbuiltin-declaration-mismatch]
+    3 |     printf("BLE FAT TEST...\n");
+      |     ^~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:3:5: note: include '<stdio.h>' or provide a declaration of 'printf'
+/home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:6:5: error: implicit declaration of function 'at_handle_blebegin' [-Werror=implicit-function-declaration]
+    6 |     at_handle_blebegin("\"TestAT\";\"HELLO123\"");
+      |     ^~~~~~~~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:7:5: error: implicit declaration of function 'vTaskDelay' [-Werror=implicit-function-declaration]
+    7 |     vTaskDelay(pdMS_TO_TICKS(3000));
+      |     ^~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:7:16: error: implicit declaration of function 'pdMS_TO_TICKS' [-Werror=implicit-function-declaration]
+    7 |     vTaskDelay(pdMS_TO_TICKS(3000));
+      |                ^~~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:10:5: error: implicit declaration of function 'at_handle_blesetname' [-Werror=implicit-function-declaration]
+   10 |     at_handle_blesetname("\"Test2\"");
+      |     ^~~~~~~~~~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:14:5: error: implicit declaration of function 'at_handle_blemfg' [-Werror=implicit-function-declaration]
+   14 |     at_handle_blemfg("\"WORLD456\"");
+      |     ^~~~~~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:18:5: error: implicit declaration of function 'at_handle_bleadvstop' [-Werror=implicit-function-declaration]
+   18 |     at_handle_bleadvstop(NULL);
+      |     ^~~~~~~~~~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:18:26: error: 'NULL' undeclared (first use in this function)
+   18 |     at_handle_bleadvstop(NULL);
+      |                          ^~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:1:1: note: 'NULL' is defined in header '<stddef.h>'; did you forget to '#include <stddef.h>'?
+  +++ |+#include <stddef.h>
+    1 | void at_ble_test_all(void)
+/home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:18:26: note: each undeclared identifier is reported only once for each function it appears in
+   18 |     at_handle_bleadvstop(NULL);
+      |                          ^~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:22:5: error: implicit declaration of function 'at_handle_bleadvstart' [-Werror=implicit-function-declaration]
+   22 |     at_handle_bleadvstart(NULL);
+      |     ^~~~~~~~~~~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:26:5: error: implicit declaration of function 'at_handle_blescan' [-Werror=implicit-function-declaration]
+   26 |     at_handle_blescan("3");
+      |     ^~~~~~~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:30:5: error: implicit declaration of function 'at_handle_blestop' [-Werror=implicit-function-declaration]
+   30 |     at_handle_blestop(NULL);
+      |     ^~~~~~~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:35:5: error: implicit declaration of function 'at_handle_gattbuild' [-Werror=implicit-function-declaration]
+   35 |     at_handle_gattbuild("\"180F\";\"2A19:rw\";\"2A1B:r\"");
+      |     ^~~~~~~~~~~~~~~~~~~
+cc1: some warnings being treated as errors
+make[2]: *** [esp-idf/at_ble/CMakeFiles/__idf_at_ble.dir/build.make:76: esp-idf/at_ble/CMakeFiles/__idf_at_ble.dir/at_ble.c.obj] Error 1
+make[1]: *** [CMakeFiles/Makefile2:5745: esp-idf/at_ble/CMakeFiles/__idf_at_ble.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+make: *** [Makefile:136: all] Error 2

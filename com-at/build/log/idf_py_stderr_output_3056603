@@ -1,0 +1,26 @@
+/home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c: In function 'at_handle_gattbuild':
+/home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:175:5: error: implicit declaration of function 'at_ble_deinit_stack' [-Werror=implicit-function-declaration]
+  175 |     at_ble_deinit_stack();
+      |     ^~~~~~~~~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:176:5: error: implicit declaration of function 'at_ble_init_stack' [-Werror=implicit-function-declaration]
+  176 |     at_ble_init_stack();
+      |     ^~~~~~~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c: At top level:
+/home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:192:13: warning: conflicting types for 'at_ble_init_stack'; have 'void(void)'
+  192 | static void at_ble_init_stack(void) {
+      |             ^~~~~~~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:192:13: error: static declaration of 'at_ble_init_stack' follows non-static declaration
+/home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:176:5: note: previous implicit declaration of 'at_ble_init_stack' with type 'void(void)'
+  176 |     at_ble_init_stack();
+      |     ^~~~~~~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:215:13: warning: conflicting types for 'at_ble_deinit_stack'; have 'void(void)'
+  215 | static void at_ble_deinit_stack(void) {
+      |             ^~~~~~~~~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:215:13: error: static declaration of 'at_ble_deinit_stack' follows non-static declaration
+/home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:175:5: note: previous implicit declaration of 'at_ble_deinit_stack' with type 'void(void)'
+  175 |     at_ble_deinit_stack();
+      |     ^~~~~~~~~~~~~~~~~~~
+cc1: some warnings being treated as errors
+make[2]: *** [esp-idf/at_ble/CMakeFiles/__idf_at_ble.dir/build.make:76: esp-idf/at_ble/CMakeFiles/__idf_at_ble.dir/at_ble.c.obj] Error 1
+make[1]: *** [CMakeFiles/Makefile2:5745: esp-idf/at_ble/CMakeFiles/__idf_at_ble.dir/all] Error 2
+make: *** [Makefile:136: all] Error 2

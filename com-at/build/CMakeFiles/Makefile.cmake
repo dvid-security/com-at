@@ -423,8 +423,8 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "esp-idf/at_server/CMakeFiles/CMakeDirectoryInformation.cmake"
   "esp-idf/at_wifi/CMakeFiles/CMakeDirectoryInformation.cmake"
   "esp-idf/at_ble/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "esp-idf/at_mqtt/CMakeFiles/CMakeDirectoryInformation.cmake"
   "esp-idf/main/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "esp-idf/at_mqtt/CMakeFiles/CMakeDirectoryInformation.cmake"
   "esp-idf/esp-nimble-cpp/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
@@ -562,7 +562,7 @@ set(CMAKE_DEPEND_INFO_FILES
   "esp-idf/at_server/CMakeFiles/__idf_at_server.dir/DependInfo.cmake"
   "esp-idf/at_wifi/CMakeFiles/__idf_at_wifi.dir/DependInfo.cmake"
   "esp-idf/at_ble/CMakeFiles/__idf_at_ble.dir/DependInfo.cmake"
-  "esp-idf/at_mqtt/CMakeFiles/__idf_at_mqtt.dir/DependInfo.cmake"
   "esp-idf/main/CMakeFiles/__idf_main.dir/DependInfo.cmake"
+  "esp-idf/at_mqtt/CMakeFiles/__idf_at_mqtt.dir/DependInfo.cmake"
   "esp-idf/esp-nimble-cpp/CMakeFiles/__idf_esp-nimble-cpp.dir/DependInfo.cmake"
   )

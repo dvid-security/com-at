@@ -83,6 +83,6 @@ $<TARGET_FILE:__idf_wifi_provisioning>
 $<TARGET_FILE:__idf_at_server>
 $<TARGET_FILE:__idf_at_wifi>
 $<TARGET_FILE:__idf_at_ble>
-$<TARGET_FILE:__idf_at_mqtt>
 $<TARGET_FILE:__idf_main>
+$<TARGET_FILE:__idf_at_mqtt>
 $<TARGET_FILE:__idf_esp-nimble-cpp>

@@ -1,0 +1,19 @@
+/home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c: In function 'at_ble_init_stack':
+/home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:127:26: error: 'ble_gap_on_sync' undeclared (first use in this function); did you mean 'ble_gap_wl_set'?
+  127 |     ble_hs_cfg.sync_cb = ble_gap_on_sync;
+      |                          ^~~~~~~~~~~~~~~
+      |                          ble_gap_wl_set
+/home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:127:26: note: each undeclared identifier is reported only once for each function it appears in
+/home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:142:31: error: 'ble_host_task' undeclared (first use in this function)
+  142 |     nimble_port_freertos_init(ble_host_task);
+      |                               ^~~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c: At top level:
+/home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:219:13: warning: 'ble_gap_on_sync' defined but not used [-Wunused-function]
+  219 | static void ble_gap_on_sync(void) {
+      |             ^~~~~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:214:13: warning: 'ble_host_task' defined but not used [-Wunused-function]
+  214 | static void ble_host_task(void *param) {
+      |             ^~~~~~~~~~~~~
+make[2]: *** [esp-idf/at_ble/CMakeFiles/__idf_at_ble.dir/build.make:76: esp-idf/at_ble/CMakeFiles/__idf_at_ble.dir/at_ble.c.obj] Error 1
+make[1]: *** [CMakeFiles/Makefile2:5745: esp-idf/at_ble/CMakeFiles/__idf_at_ble.dir/all] Error 2
+make: *** [Makefile:136: all] Error 2

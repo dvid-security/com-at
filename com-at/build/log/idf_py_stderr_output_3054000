@@ -1,0 +1,12 @@
+/home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c: In function 'at_ble_test_all':
+/home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:274:5: error: implicit declaration of function 'at_handle_gattbuild' [-Werror=implicit-function-declaration]
+  274 |     at_handle_gattbuild("\"180F\";\"2A19:rw\";\"2A1B:r\"");
+      |     ^~~~~~~~~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c: At top level:
+/home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:24:33: warning: 'gatt_svcs' defined but not used [-Wunused-variable]
+   24 | static struct ble_gatt_svc_def *gatt_svcs = NULL;
+      |                                 ^~~~~~~~~
+cc1: some warnings being treated as errors
+make[2]: *** [esp-idf/at_ble/CMakeFiles/__idf_at_ble.dir/build.make:76: esp-idf/at_ble/CMakeFiles/__idf_at_ble.dir/at_ble.c.obj] Error 1
+make[1]: *** [CMakeFiles/Makefile2:5745: esp-idf/at_ble/CMakeFiles/__idf_at_ble.dir/all] Error 2
+make: *** [Makefile:136: all] Error 2
