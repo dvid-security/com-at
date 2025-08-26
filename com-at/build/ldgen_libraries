@@ -83,6 +83,6 @@
 /home/eunous/git/dvid/com-at/com-at/build/esp-idf/at_server/libat_server.a
 /home/eunous/git/dvid/com-at/com-at/build/esp-idf/at_wifi/libat_wifi.a
 /home/eunous/git/dvid/com-at/com-at/build/esp-idf/at_ble/libat_ble.a
-/home/eunous/git/dvid/com-at/com-at/build/esp-idf/main/libmain.a
 /home/eunous/git/dvid/com-at/com-at/build/esp-idf/at_mqtt/libat_mqtt.a
+/home/eunous/git/dvid/com-at/com-at/build/esp-idf/main/libmain.a
 /home/eunous/git/dvid/com-at/com-at/build/esp-idf/esp-nimble-cpp/libesp-nimble-cpp.a

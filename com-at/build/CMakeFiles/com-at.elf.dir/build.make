@@ -181,8 +181,8 @@ com-at.elf: esp-idf/wifi_provisioning/libwifi_provisioning.a
 com-at.elf: esp-idf/at_server/libat_server.a
 com-at.elf: esp-idf/at_wifi/libat_wifi.a
 com-at.elf: esp-idf/at_ble/libat_ble.a
-com-at.elf: esp-idf/main/libmain.a
 com-at.elf: esp-idf/at_mqtt/libat_mqtt.a
+com-at.elf: esp-idf/main/libmain.a
 com-at.elf: esp-idf/esp-nimble-cpp/libesp-nimble-cpp.a
 com-at.elf: esp-idf/app_trace/libapp_trace.a
 com-at.elf: esp-idf/unity/libunity.a
@@ -194,6 +194,8 @@ com-at.elf: esp-idf/protobuf-c/libprotobuf-c.a
 com-at.elf: esp-idf/json/libjson.a
 com-at.elf: esp-idf/at_wifi/libat_wifi.a
 com-at.elf: esp-idf/at_ble/libat_ble.a
+com-at.elf: esp-idf/at_mqtt/libat_mqtt.a
+com-at.elf: esp-idf/mqtt/libmqtt.a
 com-at.elf: esp-idf/at_server/libat_server.a
 com-at.elf: esp-idf/bt/libbt.a
 com-at.elf: esp-idf/xtensa/libxtensa.a

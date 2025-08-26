@@ -8,6 +8,7 @@
 #include "at_server.h"
 #include "at_wifi.h"  // Ton module AT Wi-Fi
 #include "at_ble.h"
+#include "at_mqtt.h"
 
 void uart_init(void)
 {
@@ -41,11 +42,17 @@ void app_main(void)
 
     // Enregistre toutes tes commandes Wi-Fi (init Wi-Fi incluse dans wifi_at_register)
     wifi_at_register();
-    at_wifi_test_all();
+    //at_wifi_test_all();
 
+    // Initialise et enregistre les commandes BLE
     ble_at_register();
-    at_ble_test_all();
-    
+    //at_ble_test_all();
+
+    // Initialise et enregistre les commandes MQTT
+    //mqtt_at_register();
+    //at_mqtt_test_all();
+
+    // Démarre le serveur AT (tâche FreeRTOS)
     at_server_start();
     // Le serveur AT tourne maintenant sur une tâche FreeRTOS, tout est prêt !
 }

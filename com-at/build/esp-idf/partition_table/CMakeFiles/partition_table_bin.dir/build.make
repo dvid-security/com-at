@@ -69,10 +69,10 @@ include esp-idf/partition_table/CMakeFiles/partition_table_bin.dir/progress.make
 esp-idf/partition_table/CMakeFiles/partition_table_bin: partition_table/partition-table.bin
 esp-idf/partition_table/CMakeFiles/partition_table_bin: partition_table/partition-table.bin
 
-partition_table/partition-table.bin: /home/eunous/esp-idf/components/partition_table/partitions_singleapp.csv
+partition_table/partition-table.bin: /home/eunous/esp-idf/components/partition_table/partitions_singleapp_large.csv
 partition_table/partition-table.bin: /home/eunous/esp-idf/components/partition_table/gen_esp32part.py
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating ../../partition_table/partition-table.bin"
-	cd /home/eunous/git/dvid/com-at/com-at/build/esp-idf/partition_table && /home/eunous/.espressif/python_env/idf5.3_py3.11_env/bin/python /home/eunous/esp-idf/components/partition_table/gen_esp32part.py -q --offset 0x8000 --flash-size 2MB -- /home/eunous/esp-idf/components/partition_table/partitions_singleapp.csv /home/eunous/git/dvid/com-at/com-at/build/partition_table/partition-table.bin
+	cd /home/eunous/git/dvid/com-at/com-at/build/esp-idf/partition_table && /home/eunous/.espressif/python_env/idf5.3_py3.11_env/bin/python /home/eunous/esp-idf/components/partition_table/gen_esp32part.py -q --offset 0x8000 --flash-size 2MB -- /home/eunous/esp-idf/components/partition_table/partitions_singleapp_large.csv /home/eunous/git/dvid/com-at/com-at/build/partition_table/partition-table.bin
 	cd /home/eunous/git/dvid/com-at/com-at/build/esp-idf/partition_table && /usr/bin/cmake -E echo "Partition table binary generated. Contents:"
 	cd /home/eunous/git/dvid/com-at/com-at/build/esp-idf/partition_table && /usr/bin/cmake -E echo "*******************************************************************************"
 	cd /home/eunous/git/dvid/com-at/com-at/build/esp-idf/partition_table && /home/eunous/.espressif/python_env/idf5.3_py3.11_env/bin/python /home/eunous/esp-idf/components/partition_table/gen_esp32part.py -q --offset 0x8000 --flash-size 2MB -- /home/eunous/git/dvid/com-at/com-at/build/partition_table/partition-table.bin

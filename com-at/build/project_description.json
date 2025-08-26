@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "com-at",
-    "project_version":    "c248ca4-dirty",
+    "project_version":    "da20724-dirty",
     "project_path":       "/home/eunous/git/dvid/com-at/com-at",
     "idf_path":           "/home/eunous/esp-idf",
     "build_dir":          "/home/eunous/git/dvid/com-at/com-at/build",
@@ -80,13 +80,13 @@
             "dir": "/home/eunous/git/dvid/com-at/com-at/components/at_mqtt",
             "type": "LIBRARY",
             "lib": "__idf_at_mqtt",
-            "reqs": [],
+            "reqs": [ "mqtt", "at_server", "esp_driver_uart" ],
             "priv_reqs": [],
             "managed_reqs": [],
             "managed_priv_reqs": [],
             "file": "/home/eunous/git/dvid/com-at/com-at/build/esp-idf/at_mqtt/libat_mqtt.a",
             "sources": [ "/home/eunous/git/dvid/com-at/com-at/components/at_mqtt/at_mqtt.c" ],
-            "include_dirs": [ "include" ]
+            "include_dirs": [ "." ]
         },
         "at_server": {
             "alias": "idf::at_server",
@@ -1251,7 +1251,7 @@
             "type": "LIBRARY",
             "lib": "__idf_main",
             "reqs": [ "esp_driver_uart" ],
-            "priv_reqs": [ "esp_wifi", "at_wifi", "at_server", "at_ble", "nvs_flash" ],
+            "priv_reqs": [ "esp_wifi", "at_wifi", "at_server", "at_ble", "at_mqtt", "nvs_flash" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
             "file": "/home/eunous/git/dvid/com-at/com-at/build/esp-idf/main/libmain.a",
@@ -2863,7 +2863,7 @@
             "dir": "/home/eunous/git/dvid/com-at/com-at/main",
             "lib": "__idf_main",
             "reqs": [ "esp_driver_uart" ],
-            "priv_reqs": [ "esp_wifi", "at_wifi", "at_server", "at_ble", "nvs_flash" ],
+            "priv_reqs": [ "esp_wifi", "at_wifi", "at_server", "at_ble", "at_mqtt", "nvs_flash" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
             "include_dirs": [ "." ]
@@ -2886,11 +2886,11 @@
             "prefix": "idf",
             "dir": "/home/eunous/git/dvid/com-at/com-at/components/at_mqtt",
             "lib": "__idf_at_mqtt",
-            "reqs": [],
+            "reqs": [ "mqtt", "at_server", "esp_driver_uart" ],
             "priv_reqs": [],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "include_dirs": [ "include" ]
+            "include_dirs": [ "." ]
         },
         "at_server": {
             "alias": "idf::at_server",

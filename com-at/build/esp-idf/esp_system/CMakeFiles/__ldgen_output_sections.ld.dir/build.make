@@ -208,8 +208,8 @@ esp-idf/esp_system/ld/sections.ld: esp-idf/wifi_provisioning/libwifi_provisionin
 esp-idf/esp_system/ld/sections.ld: esp-idf/at_server/libat_server.a
 esp-idf/esp_system/ld/sections.ld: esp-idf/at_wifi/libat_wifi.a
 esp-idf/esp_system/ld/sections.ld: esp-idf/at_ble/libat_ble.a
-esp-idf/esp_system/ld/sections.ld: esp-idf/main/libmain.a
 esp-idf/esp_system/ld/sections.ld: esp-idf/at_mqtt/libat_mqtt.a
+esp-idf/esp_system/ld/sections.ld: esp-idf/main/libmain.a
 esp-idf/esp_system/ld/sections.ld: esp-idf/esp-nimble-cpp/libesp-nimble-cpp.a
 esp-idf/esp_system/ld/sections.ld: /home/eunous/git/dvid/com-at/com-at/sdkconfig
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating ld/sections.ld"

@@ -203,8 +203,8 @@ esp-idf/all: esp-idf/wifi_provisioning/all
 esp-idf/all: esp-idf/at_server/all
 esp-idf/all: esp-idf/at_wifi/all
 esp-idf/all: esp-idf/at_ble/all
-esp-idf/all: esp-idf/main/all
 esp-idf/all: esp-idf/at_mqtt/all
+esp-idf/all: esp-idf/main/all
 esp-idf/all: esp-idf/esp-nimble-cpp/all
 .PHONY : esp-idf/all
 
@@ -312,8 +312,8 @@ esp-idf/preinstall: esp-idf/wifi_provisioning/preinstall
 esp-idf/preinstall: esp-idf/at_server/preinstall
 esp-idf/preinstall: esp-idf/at_wifi/preinstall
 esp-idf/preinstall: esp-idf/at_ble/preinstall
-esp-idf/preinstall: esp-idf/main/preinstall
 esp-idf/preinstall: esp-idf/at_mqtt/preinstall
+esp-idf/preinstall: esp-idf/main/preinstall
 esp-idf/preinstall: esp-idf/esp-nimble-cpp/preinstall
 .PHONY : esp-idf/preinstall
 
@@ -421,8 +421,8 @@ esp-idf/clean: esp-idf/wifi_provisioning/clean
 esp-idf/clean: esp-idf/at_server/clean
 esp-idf/clean: esp-idf/at_wifi/clean
 esp-idf/clean: esp-idf/at_ble/clean
-esp-idf/clean: esp-idf/main/clean
 esp-idf/clean: esp-idf/at_mqtt/clean
+esp-idf/clean: esp-idf/main/clean
 esp-idf/clean: esp-idf/esp-nimble-cpp/clean
 .PHONY : esp-idf/clean
 
@@ -2595,8 +2595,8 @@ CMakeFiles/com-at.elf.dir/all: esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_p
 CMakeFiles/com-at.elf.dir/all: esp-idf/at_server/CMakeFiles/__idf_at_server.dir/all
 CMakeFiles/com-at.elf.dir/all: esp-idf/at_wifi/CMakeFiles/__idf_at_wifi.dir/all
 CMakeFiles/com-at.elf.dir/all: esp-idf/at_ble/CMakeFiles/__idf_at_ble.dir/all
-CMakeFiles/com-at.elf.dir/all: esp-idf/main/CMakeFiles/__idf_main.dir/all
 CMakeFiles/com-at.elf.dir/all: esp-idf/at_mqtt/CMakeFiles/__idf_at_mqtt.dir/all
+CMakeFiles/com-at.elf.dir/all: esp-idf/main/CMakeFiles/__idf_main.dir/all
 CMakeFiles/com-at.elf.dir/all: esp-idf/esp-nimble-cpp/CMakeFiles/__idf_esp-nimble-cpp.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/com-at.elf.dir/build.make CMakeFiles/com-at.elf.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/com-at.elf.dir/build.make CMakeFiles/com-at.elf.dir/build
@@ -3845,8 +3845,8 @@ esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/wifi_p
 esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/at_server/CMakeFiles/__idf_at_server.dir/all
 esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/at_wifi/CMakeFiles/__idf_at_wifi.dir/all
 esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/at_ble/CMakeFiles/__idf_at_ble.dir/all
-esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/main/CMakeFiles/__idf_main.dir/all
 esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/at_mqtt/CMakeFiles/__idf_at_mqtt.dir/all
+esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/main/CMakeFiles/__idf_main.dir/all
 esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp-nimble-cpp/CMakeFiles/__idf_esp-nimble-cpp.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/build.make esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/build.make esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/build
@@ -5763,40 +5763,12 @@ esp-idf/at_ble/CMakeFiles/__idf_at_ble.dir/clean:
 .PHONY : esp-idf/at_ble/CMakeFiles/__idf_at_ble.dir/clean
 
 #=============================================================================
-# Target rules for target esp-idf/main/CMakeFiles/__idf_main.dir
-
-# All Build rule for target.
-esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/all
-esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/bt/CMakeFiles/__idf_bt.dir/all
-esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/at_server/CMakeFiles/__idf_at_server.dir/all
-esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/at_wifi/CMakeFiles/__idf_at_wifi.dir/all
-esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/at_ble/CMakeFiles/__idf_at_ble.dir/all
-	$(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/depend
-	$(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num= "Built target __idf_main"
-.PHONY : esp-idf/main/CMakeFiles/__idf_main.dir/all
-
-# Build rule for subdir invocation for target.
-esp-idf/main/CMakeFiles/__idf_main.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 84
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/main/CMakeFiles/__idf_main.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
-.PHONY : esp-idf/main/CMakeFiles/__idf_main.dir/rule
-
-# Convenience name for target.
-__idf_main: esp-idf/main/CMakeFiles/__idf_main.dir/rule
-.PHONY : __idf_main
-
-# clean rule for target.
-esp-idf/main/CMakeFiles/__idf_main.dir/clean:
-	$(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/clean
-.PHONY : esp-idf/main/CMakeFiles/__idf_main.dir/clean
-
-#=============================================================================
 # Target rules for target esp-idf/at_mqtt/CMakeFiles/__idf_at_mqtt.dir
 
 # All Build rule for target.
 esp-idf/at_mqtt/CMakeFiles/__idf_at_mqtt.dir/all: esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/all
+esp-idf/at_mqtt/CMakeFiles/__idf_at_mqtt.dir/all: esp-idf/mqtt/CMakeFiles/__idf_mqtt.dir/all
+esp-idf/at_mqtt/CMakeFiles/__idf_at_mqtt.dir/all: esp-idf/at_server/CMakeFiles/__idf_at_server.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/at_mqtt/CMakeFiles/__idf_at_mqtt.dir/build.make esp-idf/at_mqtt/CMakeFiles/__idf_at_mqtt.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/at_mqtt/CMakeFiles/__idf_at_mqtt.dir/build.make esp-idf/at_mqtt/CMakeFiles/__idf_at_mqtt.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=1 "Built target __idf_at_mqtt"
@@ -5804,7 +5776,7 @@ esp-idf/at_mqtt/CMakeFiles/__idf_at_mqtt.dir/all: esp-idf/xtensa/CMakeFiles/__id
 
 # Build rule for subdir invocation for target.
 esp-idf/at_mqtt/CMakeFiles/__idf_at_mqtt.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 76
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 77
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/at_mqtt/CMakeFiles/__idf_at_mqtt.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/at_mqtt/CMakeFiles/__idf_at_mqtt.dir/rule
@@ -5817,6 +5789,38 @@ __idf_at_mqtt: esp-idf/at_mqtt/CMakeFiles/__idf_at_mqtt.dir/rule
 esp-idf/at_mqtt/CMakeFiles/__idf_at_mqtt.dir/clean:
 	$(MAKE) $(MAKESILENT) -f esp-idf/at_mqtt/CMakeFiles/__idf_at_mqtt.dir/build.make esp-idf/at_mqtt/CMakeFiles/__idf_at_mqtt.dir/clean
 .PHONY : esp-idf/at_mqtt/CMakeFiles/__idf_at_mqtt.dir/clean
+
+#=============================================================================
+# Target rules for target esp-idf/main/CMakeFiles/__idf_main.dir
+
+# All Build rule for target.
+esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/all
+esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/bt/CMakeFiles/__idf_bt.dir/all
+esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/mqtt/CMakeFiles/__idf_mqtt.dir/all
+esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/at_server/CMakeFiles/__idf_at_server.dir/all
+esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/at_wifi/CMakeFiles/__idf_at_wifi.dir/all
+esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/at_ble/CMakeFiles/__idf_at_ble.dir/all
+esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/at_mqtt/CMakeFiles/__idf_at_mqtt.dir/all
+	$(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/depend
+	$(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num= "Built target __idf_main"
+.PHONY : esp-idf/main/CMakeFiles/__idf_main.dir/all
+
+# Build rule for subdir invocation for target.
+esp-idf/main/CMakeFiles/__idf_main.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 86
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/main/CMakeFiles/__idf_main.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
+.PHONY : esp-idf/main/CMakeFiles/__idf_main.dir/rule
+
+# Convenience name for target.
+__idf_main: esp-idf/main/CMakeFiles/__idf_main.dir/rule
+.PHONY : __idf_main
+
+# clean rule for target.
+esp-idf/main/CMakeFiles/__idf_main.dir/clean:
+	$(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/clean
+.PHONY : esp-idf/main/CMakeFiles/__idf_main.dir/clean
 
 #=============================================================================
 # Target rules for target esp-idf/esp-nimble-cpp/CMakeFiles/__idf_esp-nimble-cpp.dir

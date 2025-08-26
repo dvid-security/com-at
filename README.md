@@ -1,17 +1,41 @@
 # com-at
 
-Firmware AT pour ESP-C6, basé sur ESP-IDF.
+**Firmware AT pour ESP-C6**
+Basé sur **ESP-IDF v5.3.2**
+Par \[Eun0us - DVID]
 
-## Version ESP-IDF
+---
 
-Version utilisée : `v5.3.2`
+![Firmware ESP-C6](https://img.shields.io/badge/firmware-esp--idf%20v5.3.2-blue)
+![Status](https://img.shields.io/badge/status-alpha-lightgrey)
+![License](https://img.shields.io/badge/license-MIT-green)
 
-## TEST
+---
 
-// at_wifi_test_all();
+## Présentation
 
-run idf.py build flash monitor
-then monitor and look
+`com-at` est un firmware AT pour l’ESP-C6, conçu pour offrir une interface série simple et puissante :
+
+* Commandes AT universelles
+* Wi-Fi : scan, AP, STA
+* MQTT : connect, publish, subscribe
+* Bluetooth Low Energy (BLE) : scan, pub, config stack NimBLE
+* Idéal pour dev rapide, test hardware, domotique, IoT…
+
+---
+
+## Build & Flash
+
+**Pré-requis :**
+
+* [ESP-IDF v5.3.2](https://docs.espressif.com/projects/esp-idf/en/v5.3.2/esp32/get-started/)
+* Python 3.x, outils ESP
+
+```sh
+idf.py build flash monitor
+```
+
+---
 
 ## Table des matières
 
@@ -19,192 +43,115 @@ then monitor and look
 * [Commandes Wi-Fi](#commandes-wi-fi)
 * [Commandes MQTT](#commandes-mqtt)
 * [Commandes BLE](#commandes-ble)
+* [Tests automatiques](#tests-automatiques)
 
 ---
 
 ## Commandes générales
 
-| Commande   | Description         |
-| ---------- | ------------------- |
-| `AT`       | Test de présence    |
-| `AT+HELP`  | Liste les commandes |
-| `AT+GMR`   | Version firmware    |
-| `AT+RESET` | Redémarre l’ESP     |
+| Commande   | Description         | Exemple    | Retour attendu               |
+| ---------- | ------------------- | ---------- | ---------------------------- |
+| `AT`       | Test de présence    | `AT`       | `OK`                         |
+| `AT+HELP`  | Liste les commandes | `AT+HELP`  | (liste des commandes) + `OK` |
+| `AT+GMR`   | Version firmware    | `AT+GMR`   | `com-at vX.Y.Z`<br>`OK`      |
+| `AT+RESET` | Redémarre l’ESP     | `AT+RESET` | (ESP redémarre)              |
 
 ---
-
-## Commandes BLE
-
-```plaintext
-# AT BLE Commandes - Documentation rapide
-
-- `AT+BLECLEAR`          : Efface toute la configuration BLE temporaire.
-- `AT+BLEADDSVC=uuid`    : Ajoute un service BLE, uuid = 16 bits (ex: 0x180F)
-- `AT+BLEADDCHAR=sidx,uuid,flags` : Ajoute une caractéristique au service `sidx` (0 = premier), uuid = 16 bits,flags = OR bitwise: 0x01=read, 0x02=write, 0x04=notify
-- `AT+BLELIST`           : Liste la configuration BLE actuelle (services + chars)
-- `AT+BLEINIT`           : Lance le stack BLE et publie les services/chars configurés
-- `AT+BLEDEINIT`         : Stoppe et deinit le stack BLE
-- `AT+WIFISTOP`          : Stoppe/désinit le WiFi (utile pour BLE sur ESP32 classic)
-
-## Exemples :
-
-```at
-AT+BLECLEAR
-AT+BLEADDSVC=0x180F
-AT+BLEADDCHAR=0,0x2A19,0x03
-AT+BLEADDCHAR=0,0x2A1B,0x05
-AT+BLELIST
-AT+BLEINIT
-
-```
 
 ## Commandes Wi-Fi
 
-### `AT+CWLAP`
-
-**Scanne les réseaux Wi-Fi disponibles**
-
-```
-AT+CWLAP
-```
-
-**Réponse :**
-
-```
-+CWLAP:(<ecn>,"<ssid>",<rssi>,"<mac>",<channel>)
-...
-OK
-```
-
----
-
-### `AT+CWJAP="SSID","PASSWORD"`
-
-**Connecte l’ESP à un réseau Wi-Fi**
-
-**Réponse :** `OK` ou `ERROR`
-
----
-
-### `AT+CWJAP?`
-
-**Renvoie le SSID connecté actuellement**
-
-```
-AT+CWJAP?
-```
-
-**Réponse :**
-
-```
-+CWJAP:"NomDuSSID"
-OK
-```
-
----
-
-### `AT+CWQAP`
-
-**Déconnecte du Wi-Fi courant**
-
----
-
-### `AT+CWSTATE?`
-
-**Donne l’état de la connexion Wi-Fi**
-
-```
-+CWSTATE:<0|1>
-OK
-```
-
-* `0` : déconnecté
-* `1` : connecté
-
----
-
-### `AT+CIFSR`
-
-**Affiche l’IP locale de l’ESP**
-
-```
-+CIFSR:"192.168.1.42"
-OK
-```
-
----
-
-### `AT+CWMODE?`
-
-**Renvoie le mode Wi-Fi actuel :**
-
-* `1` = Station (STA)
-* `2` = Access Point (AP)
-* `3` = Les deux
-
----
-
-### `AT+CWMODE=<x>`
-
-**Change le mode Wi-Fi** (`x` étant 1, 2 ou 3)
-
-Exemple :
-
-```
-AT+CWMODE=3
-```
-
----
-
-### `AT+CWSAP="SSID","PASS",ch,ecn`
-
-**Crée un point d'accès Wi-Fi (hotspot)**
-
-Exemple :
-
-```
-AT+CWSAP="MonAP","12345678",5,3
-```
-
-* `ch` : canal (1-13)
-* `ecn` : type de sécurité (0=OPEN, 3=WPA2)
+| Commande                        | Description                         | Exemple                                | Retour attendu                                           |
+| ------------------------------- | ----------------------------------- | -------------------------------------- | -------------------------------------------------------- |
+| `AT+CWLAP`                      | Scan réseaux Wi-Fi                  | `AT+CWLAP`                             | `+CWLAP:(3,"Livebox",-42,"A0:20:A6:7C:42:13",1)`<br>`OK` |
+| `AT+CWJAP="SSID","PASS"`        | Connexion à un réseau               | `AT+CWJAP="Livebox-1234","motdepasse"` | `OK` ou `ERROR`                                          |
+| `AT+CWJAP?`                     | SSID connecté                       | `AT+CWJAP?`                            | `+CWJAP:"Livebox-1234"`<br>`OK`                          |
+| `AT+CWQAP`                      | Déconnexion Wi-Fi                   | `AT+CWQAP`                             | `OK`                                                     |
+| `AT+CWSTATE?`                   | État connexion (0/1)                | `AT+CWSTATE?`                          | `+CWSTATE:1`<br>`OK` ou `+CWSTATE:0`<br>`OK`             |
+| `AT+CIFSR`                      | Affiche IP locale                   | `AT+CIFSR`                             | `+CIFSR:"192.168.1.42"`<br>`OK`                          |
+| `AT+CWMODE?`                    | Mode actuel (1=STA, 2=AP, 3=STA+AP) | `AT+CWMODE?`                           | `+CWMODE:3`<br>`OK`                                      |
+| `AT+CWMODE=<x>`                 | Change le mode                      | `AT+CWMODE=3`                          | `OK`                                                     |
+| `AT+CWSAP="SSID","PASS",ch,ecn` | Crée un AP Wi-Fi (hotspot)          | `AT+CWSAP="MonAP","12345678",5,3`      | `OK`                                                     |
 
 ---
 
 ## Commandes MQTT
 
-### `AT+MQTTCONN="host",port,"user","pass"`
-
-**Connexion à un broker MQTT**
-
----
-
-### `AT+MQTTPUB="topic","payload"`
-
-**Publie un message MQTT**
+| Commande                                | Description        | Exemple                                       | Retour attendu  |
+| --------------------------------------- | ------------------ | --------------------------------------------- | --------------- |
+| `AT+MQTTCONN="host",port,"user","pass"` | Connexion MQTT     | `AT+MQTTCONN="192.168.1.10",1883,"user","pw"` | `OK` ou `ERROR` |
+| `AT+MQTTPUB="topic","payload"`          | Publier            | `AT+MQTTPUB="test/esp","hello"`               | `OK` ou `ERROR` |
+| `AT+MQTTSUB="topic"`                    | S’abonner          | `AT+MQTTSUB="test/esp"`                       | `OK` ou `ERROR` |
+| `AT+MQTTDISC`                           | Déconnexion broker | `AT+MQTTDISC`                                 | `OK`            |
 
 ---
 
-### `AT+MQTTSUB="topic"`
+## Commandes BLE
 
-**S'abonne à un topic MQTT**
+| Commande                        | Description                                                            | Exemple                       | Retour attendu |
+| ------------------------------- | ---------------------------------------------------------------------- | ----------------------------- | -------------- |
+| `AT+BLECLEAR`                   | Reset config BLE                                                       | `AT+BLECLEAR`                 | `OK`           |
+| `AT+BLEADDSVC=uuid`             | Ajoute un service (uuid 16 bits)                                       | `AT+BLEADDSVC=0x180F`         | `OK`           |
+| `AT+BLEADDCHAR=sidx,uuid,flags` | Ajoute une caractéristique (flags: 0x01=read, 0x02=write, 0x04=notify) | `AT+BLEADDCHAR=0,0x2A19,0x03` | `OK`           |
+| `AT+BLELIST`                    | Liste la config BLE                                                    | `AT+BLELIST`                  | (liste) + `OK` |
+| `AT+BLEINIT`                    | Lance la stack BLE et publie                                           | `AT+BLEINIT`                  | `OK`           |
+| `AT+BLEDEINIT`                  | Stoppe la stack BLE                                                    | `AT+BLEDEINIT`                | `OK`           |
+| `AT+BLESCAN`                    | Scan BLE                                                               | `AT+BLESCAN`                  | (résultats)    |
+| `AT+BLEADV="payload"`           | Diffuse un custom payload                                              | `AT+BLEADV="data"`            | `OK`           |
+| `AT+BLERD=<handle>`             | Read sur une caractéristique                                           | `AT+BLERD=0x14`               | (donnée lue)   |
+
+**Exemple de séquence BLE :**
+
+```
+AT+BLECLEAR
+AT+BLEADDSVC=0x180F
+AT+BLEADDCHAR=0,0x2A19,0x03
+AT+BLELIST
+AT+BLEINIT
+```
 
 ---
 
-### `AT+MQTTDISC`
+## Tests automatiques
 
-**Déconnecte du broker MQTT**
+Routine type (voir `at_ble_test_all()`):
 
----
-
-## Commandes BLE (en cours)
-
-Fonctionnalités NimBLE à venir :
-
-* `AT+BLESCAN`
-* `AT+BLEADV="payload"`
-* `AT+BLERD=<handle>`
+1. Init BLE, pub nom/payload
+2. Changement dynamique du nom/payload/manufacturer
+3. Start/stop pub, scan, etc.
+4. Monitor avec Python sniffer ou via nRF Connect
 
 ---
 
-Eun0us - DVID
+## Exemples de scripts de sniffing BLE
+
+Python + [bleak](https://github.com/hbldh/bleak) pour sniffer/filtrer les pubs :
+
+```python
+import asyncio
+from bleak import BleakScanner
+
+TARGET_MAC = "A4:CF:12:55:EF:E6"
+
+def detection_callback(device, adv_data):
+    if device.address.upper() == TARGET_MAC:
+        print(device, adv_data)
+
+async def main():
+    scanner = BleakScanner(detection_callback)
+    await scanner.start()
+    await asyncio.sleep(10)
+    await scanner.stop()
+
+asyncio.run(main())
+```
+
+---
+
+## Licence
+
+MIT – do what you want, enjoy, collab!
+
+---
+
+**Made by Eun0us for DVID**
+Pour toute question : Discord or Issue git
