@@ -74,17 +74,6 @@ idf.py build flash monitor
 
 ---
 
-## Commandes MQTT
-
-| Commande                                | Description        | Exemple                                       | Retour attendu  |
-| --------------------------------------- | ------------------ | --------------------------------------------- | --------------- |
-| `AT+MQTTCONN="host",port,"user","pass"` | Connexion MQTT     | `AT+MQTTCONN="192.168.1.10",1883,"user","pw"` | `OK` ou `ERROR` |
-| `AT+MQTTPUB="topic","payload"`          | Publier            | `AT+MQTTPUB="test/esp","hello"`               | `OK` ou `ERROR` |
-| `AT+MQTTSUB="topic"`                    | S’abonner          | `AT+MQTTSUB="test/esp"`                       | `OK` ou `ERROR` |
-| `AT+MQTTDISC`                           | Déconnexion broker | `AT+MQTTDISC`                                 | `OK`            |
-
----
-
 ## Commandes BLE
 
 | Commande                        | Description                                                            | Exemple                       | Retour attendu |
@@ -98,6 +87,7 @@ idf.py build flash monitor
 | `AT+BLESCAN`                    | Scan BLE                                                               | `AT+BLESCAN`                  | (résultats)    |
 | `AT+BLEADV="payload"`           | Diffuse un custom payload                                              | `AT+BLEADV="data"`            | `OK`           |
 | `AT+BLERD=<handle>`             | Read sur une caractéristique                                           | `AT+BLERD=0x14`               | (donnée lue)   |
+
 
 **Exemple de séquence BLE :**
 
