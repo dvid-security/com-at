@@ -21,6 +21,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/eunous/esp-idf/components/protocomm/src/security/security2.c" "esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/src/security/security2.c.obj" "gcc" "esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/src/security/security2.c.obj.d"
   "/home/eunous/esp-idf/components/protocomm/src/transports/protocomm_console.c" "esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/src/transports/protocomm_console.c.obj" "gcc" "esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/src/transports/protocomm_console.c.obj.d"
   "/home/eunous/esp-idf/components/protocomm/src/transports/protocomm_httpd.c" "esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/src/transports/protocomm_httpd.c.obj" "gcc" "esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/src/transports/protocomm_httpd.c.obj.d"
+  "/home/eunous/esp-idf/components/protocomm/src/transports/protocomm_nimble.c" "esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/src/transports/protocomm_nimble.c.obj" "gcc" "esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/src/transports/protocomm_nimble.c.obj.d"
   )
 
 # Targets to which this target links.
@@ -37,6 +38,7 @@ set(CMAKE_TARGET_LINKED_INFO_FILES
   "/home/eunous/git/dvid/com-at/com-at/build/esp-idf/esp_common/CMakeFiles/__idf_esp_common.dir/DependInfo.cmake"
   "/home/eunous/git/dvid/com-at/com-at/build/esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/DependInfo.cmake"
   "/home/eunous/git/dvid/com-at/com-at/build/esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/DependInfo.cmake"
+  "/home/eunous/git/dvid/com-at/com-at/build/esp-idf/bt/CMakeFiles/__idf_bt.dir/DependInfo.cmake"
   "/home/eunous/git/dvid/com-at/com-at/build/esp-idf/protobuf-c/CMakeFiles/__idf_protobuf-c.dir/DependInfo.cmake"
   "/home/eunous/git/dvid/com-at/com-at/build/esp-idf/mbedtls/CMakeFiles/__idf_mbedtls.dir/DependInfo.cmake"
   "/home/eunous/git/dvid/com-at/com-at/build/esp-idf/console/CMakeFiles/__idf_console.dir/DependInfo.cmake"
@@ -62,16 +64,18 @@ set(CMAKE_TARGET_LINKED_INFO_FILES
   "/home/eunous/git/dvid/com-at/com-at/build/esp-idf/esp_gdbstub/CMakeFiles/__idf_esp_gdbstub.dir/DependInfo.cmake"
   "/home/eunous/git/dvid/com-at/com-at/build/esp-idf/esp_app_format/CMakeFiles/__idf_esp_app_format.dir/DependInfo.cmake"
   "/home/eunous/git/dvid/com-at/com-at/build/esp-idf/vfs/CMakeFiles/__idf_vfs.dir/DependInfo.cmake"
+  "/home/eunous/git/dvid/com-at/com-at/build/esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/DependInfo.cmake"
+  "/home/eunous/git/dvid/com-at/com-at/build/esp-idf/esp_phy/CMakeFiles/__idf_esp_phy.dir/DependInfo.cmake"
+  "/home/eunous/git/dvid/com-at/com-at/build/esp-idf/esp_driver_uart/CMakeFiles/__idf_esp_driver_uart.dir/DependInfo.cmake"
+  "/home/eunous/git/dvid/com-at/com-at/build/esp-idf/esp_ringbuf/CMakeFiles/__idf_esp_ringbuf.dir/DependInfo.cmake"
   "/home/eunous/git/dvid/com-at/com-at/build/esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/DependInfo.cmake"
   "/home/eunous/git/dvid/com-at/com-at/build/esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/DependInfo.cmake"
   "/home/eunous/git/dvid/com-at/com-at/build/esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedx509.dir/DependInfo.cmake"
   "/home/eunous/git/dvid/com-at/com-at/build/esp-idf/mbedtls/mbedtls/3rdparty/everest/CMakeFiles/everest.dir/DependInfo.cmake"
   "/home/eunous/git/dvid/com-at/com-at/build/esp-idf/mbedtls/mbedtls/3rdparty/p256-m/CMakeFiles/p256m.dir/DependInfo.cmake"
   "/home/eunous/git/dvid/com-at/com-at/build/esp-idf/esp_vfs_console/CMakeFiles/__idf_esp_vfs_console.dir/DependInfo.cmake"
-  "/home/eunous/git/dvid/com-at/com-at/build/esp-idf/esp_driver_uart/CMakeFiles/__idf_esp_driver_uart.dir/DependInfo.cmake"
   "/home/eunous/git/dvid/com-at/com-at/build/esp-idf/http_parser/CMakeFiles/__idf_http_parser.dir/DependInfo.cmake"
   "/home/eunous/git/dvid/com-at/com-at/build/esp-idf/esp_event/CMakeFiles/__idf_esp_event.dir/DependInfo.cmake"
-  "/home/eunous/git/dvid/com-at/com-at/build/esp-idf/esp_ringbuf/CMakeFiles/__idf_esp_ringbuf.dir/DependInfo.cmake"
   "/home/eunous/git/dvid/com-at/com-at/build/esp-idf/esp_driver_pcnt/CMakeFiles/__idf_esp_driver_pcnt.dir/DependInfo.cmake"
   "/home/eunous/git/dvid/com-at/com-at/build/esp-idf/esp_driver_gptimer/CMakeFiles/__idf_esp_driver_gptimer.dir/DependInfo.cmake"
   "/home/eunous/git/dvid/com-at/com-at/build/esp-idf/esp_driver_spi/CMakeFiles/__idf_esp_driver_spi.dir/DependInfo.cmake"
@@ -90,8 +94,6 @@ set(CMAKE_TARGET_LINKED_INFO_FILES
   "/home/eunous/git/dvid/com-at/com-at/build/esp-idf/esp_bootloader_format/CMakeFiles/__idf_esp_bootloader_format.dir/DependInfo.cmake"
   "/home/eunous/git/dvid/com-at/com-at/build/esp-idf/esp_adc/CMakeFiles/__idf_esp_adc.dir/DependInfo.cmake"
   "/home/eunous/git/dvid/com-at/com-at/build/esp-idf/tcp_transport/CMakeFiles/__idf_tcp_transport.dir/DependInfo.cmake"
-  "/home/eunous/git/dvid/com-at/com-at/build/esp-idf/esp_phy/CMakeFiles/__idf_esp_phy.dir/DependInfo.cmake"
-  "/home/eunous/git/dvid/com-at/com-at/build/esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/DependInfo.cmake"
   "/home/eunous/git/dvid/com-at/com-at/build/esp-idf/sdmmc/CMakeFiles/__idf_sdmmc.dir/DependInfo.cmake"
   )
 

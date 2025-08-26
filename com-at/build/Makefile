@@ -1462,6 +1462,19 @@ __idf_esp_wifi/fast:
 .PHONY : __idf_esp_wifi/fast
 
 #=============================================================================
+# Target rules for targets named __idf_bt
+
+# Build rule for target.
+__idf_bt: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 __idf_bt
+.PHONY : __idf_bt
+
+# fast build rule for target.
+__idf_bt/fast:
+	$(MAKE) $(MAKESILENT) -f esp-idf/bt/CMakeFiles/__idf_bt.dir/build.make esp-idf/bt/CMakeFiles/__idf_bt.dir/build
+.PHONY : __idf_bt/fast
+
+#=============================================================================
 # Target rules for targets named __idf_unity
 
 # Build rule for target.
@@ -1852,19 +1865,6 @@ __idf_at_wifi/fast:
 .PHONY : __idf_at_wifi/fast
 
 #=============================================================================
-# Target rules for targets named __idf_main
-
-# Build rule for target.
-__idf_main: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 __idf_main
-.PHONY : __idf_main
-
-# fast build rule for target.
-__idf_main/fast:
-	$(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/build
-.PHONY : __idf_main/fast
-
-#=============================================================================
 # Target rules for targets named __idf_at_ble
 
 # Build rule for target.
@@ -1878,6 +1878,19 @@ __idf_at_ble/fast:
 .PHONY : __idf_at_ble/fast
 
 #=============================================================================
+# Target rules for targets named __idf_main
+
+# Build rule for target.
+__idf_main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 __idf_main
+.PHONY : __idf_main
+
+# fast build rule for target.
+__idf_main/fast:
+	$(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/build
+.PHONY : __idf_main/fast
+
+#=============================================================================
 # Target rules for targets named __idf_at_mqtt
 
 # Build rule for target.
@@ -1889,6 +1902,19 @@ __idf_at_mqtt: cmake_check_build_system
 __idf_at_mqtt/fast:
 	$(MAKE) $(MAKESILENT) -f esp-idf/at_mqtt/CMakeFiles/__idf_at_mqtt.dir/build.make esp-idf/at_mqtt/CMakeFiles/__idf_at_mqtt.dir/build
 .PHONY : __idf_at_mqtt/fast
+
+#=============================================================================
+# Target rules for targets named __idf_esp-nimble-cpp
+
+# Build rule for target.
+__idf_esp-nimble-cpp: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 __idf_esp-nimble-cpp
+.PHONY : __idf_esp-nimble-cpp
+
+# fast build rule for target.
+__idf_esp-nimble-cpp/fast:
+	$(MAKE) $(MAKESILENT) -f esp-idf/esp-nimble-cpp/CMakeFiles/__idf_esp-nimble-cpp.dir/build.make esp-idf/esp-nimble-cpp/CMakeFiles/__idf_esp-nimble-cpp.dir/build
+.PHONY : __idf_esp-nimble-cpp/fast
 
 project_elf_src_esp32.obj: project_elf_src_esp32.c.obj
 .PHONY : project_elf_src_esp32.obj
@@ -1974,11 +2000,13 @@ help:
 	@echo "... __idf_at_server"
 	@echo "... __idf_at_wifi"
 	@echo "... __idf_bootloader_support"
+	@echo "... __idf_bt"
 	@echo "... __idf_cmock"
 	@echo "... __idf_console"
 	@echo "... __idf_cxx"
 	@echo "... __idf_driver"
 	@echo "... __idf_efuse"
+	@echo "... __idf_esp-nimble-cpp"
 	@echo "... __idf_esp-tls"
 	@echo "... __idf_esp_adc"
 	@echo "... __idf_esp_app_format"

@@ -1,0 +1,85 @@
+[0;33m--- esp-idf-monitor 1.5.0 on /dev/ttyUSB0 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d909d: at_handle_bleinit at /home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:47 (discriminator 1)
+[0m
+[0;33m--- 0x4009055b: _esp_error_check_failed at /home/eunous/esp-idf/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- 0x40081bca: panic_abort at /home/eunous/esp-idf/components/esp_system/panic.c:463
+0x40090565: esp_system_abort at /home/eunous/esp-idf/components/esp_system/port/esp_system_chip.c:92
+0x400966e9: abort at /home/eunous/esp-idf/components/newlib/abort.c:38
+0x4009055b: _esp_error_check_failed at /home/eunous/esp-idf/components/esp_system/esp_err.c:49
+0x400d909d: at_handle_bleinit at /home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:47 (discriminator 1)
+0x400d90cb: at_ble_test_all at /home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:59
+0x400d8fb0: app_main at /home/eunous/git/dvid/com-at/com-at/main/com-at.c:46
+0x4012149b: main_task at /home/eunous/esp-idf/components/freertos/app_startup.c:208
+0x40091139: vPortTaskWrapper at /home/eunous/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d909d: at_handle_bleinit at /home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:47 (discriminator 1)
+[0m
+[0;33m--- 0x4009055b: _esp_error_check_failed at /home/eunous/esp-idf/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- 0x40081bca: panic_abort at /home/eunous/esp-idf/components/esp_system/panic.c:463
+0x40090565: esp_system_abort at /home/eunous/esp-idf/components/esp_system/port/esp_system_chip.c:92
+0x400966e9: abort at /home/eunous/esp-idf/components/newlib/abort.c:38
+0x4009055b: _esp_error_check_failed at /home/eunous/esp-idf/components/esp_system/esp_err.c:49
+0x400d909d: at_handle_bleinit at /home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:47 (discriminator 1)
+0x400d90cb: at_ble_test_all at /home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:59
+0x400d8fb0: app_main at /home/eunous/git/dvid/com-at/com-at/main/com-at.c:46
+0x4012149b: main_task at /home/eunous/esp-idf/components/freertos/app_startup.c:208
+0x40091139: vPortTaskWrapper at /home/eunous/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d909d: at_handle_bleinit at /home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:47 (discriminator 1)
+[0m
+[0;33m--- 0x4009055b: _esp_error_check_failed at /home/eunous/esp-idf/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- 0x40081bca: panic_abort at /home/eunous/esp-idf/components/esp_system/panic.c:463
+0x40090565: esp_system_abort at /home/eunous/esp-idf/components/esp_system/port/esp_system_chip.c:92
+0x400966e9: abort at /home/eunous/esp-idf/components/newlib/abort.c:38
+0x4009055b: _esp_error_check_failed at /home/eunous/esp-idf/components/esp_system/esp_err.c:49
+0x400d909d: at_handle_bleinit at /home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:47 (discriminator 1)
+0x400d90cb: at_ble_test_all at /home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:59
+0x400d8fb0: app_main at /home/eunous/git/dvid/com-at/com-at/main/com-at.c:46
+0x4012149b: main_task at /home/eunous/esp-idf/components/freertos/app_startup.c:208
+0x40091139: vPortTaskWrapper at /home/eunous/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d909d: at_handle_bleinit at /home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:47 (discriminator 1)
+[0m
+[0;33m--- 0x4009055b: _esp_error_check_failed at /home/eunous/esp-idf/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- 0x40081bca: panic_abort at /home/eunous/esp-idf/components/esp_system/panic.c:463
+0x40090565: esp_system_abort at /home/eunous/esp-idf/components/esp_system/port/esp_system_chip.c:92
+0x400966e9: abort at /home/eunous/esp-idf/components/newlib/abort.c:38
+0x4009055b: _esp_error_check_failed at /home/eunous/esp-idf/components/esp_system/esp_err.c:49
+0x400d909d: at_handle_bleinit at /home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:47 (discriminator 1)
+0x400d90cb: at_ble_test_all at /home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:59
+0x400d8fb0: app_main at /home/eunous/git/dvid/com-at/com-at/main/com-at.c:46
+0x4012149b: main_task at /home/eunous/esp-idf/components/freertos/app_startup.c:208
+0x40091139: vPortTaskWrapper at /home/eunous/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d909d: at_handle_bleinit at /home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:47 (discriminator 1)
+[0m
+[0;33m--- 0x4009055b: _esp_error_check_failed at /home/eunous/esp-idf/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- 0x40081bca: panic_abort at /home/eunous/esp-idf/components/esp_system/panic.c:463
+0x40090565: esp_system_abort at /home/eunous/esp-idf/components/esp_system/port/esp_system_chip.c:92
+0x400966e9: abort at /home/eunous/esp-idf/components/newlib/abort.c:38
+0x4009055b: _esp_error_check_failed at /home/eunous/esp-idf/components/esp_system/esp_err.c:49
+0x400d909d: at_handle_bleinit at /home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:47 (discriminator 1)
+0x400d90cb: at_ble_test_all at /home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:59
+0x400d8fb0: app_main at /home/eunous/git/dvid/com-at/com-at/main/com-at.c:46
+0x4012149b: main_task at /home/eunous/esp-idf/components/freertos/app_startup.c:208
+0x40091139: vPortTaskWrapper at /home/eunous/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0m

@@ -223,6 +223,20 @@ esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/src/scheme_soft
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/__idf_wifi_provisioning.dir/src/scheme_softap.c.s"
 	cd /home/eunous/git/dvid/com-at/com-at/build/esp-idf/wifi_provisioning && /home/eunous/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/eunous/esp-idf/components/wifi_provisioning/src/scheme_softap.c -o CMakeFiles/__idf_wifi_provisioning.dir/src/scheme_softap.c.s
 
+esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/src/scheme_ble.c.obj: esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/flags.make
+esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/src/scheme_ble.c.obj: /home/eunous/esp-idf/components/wifi_provisioning/src/scheme_ble.c
+esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/src/scheme_ble.c.obj: esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/src/scheme_ble.c.obj"
+	cd /home/eunous/git/dvid/com-at/com-at/build/esp-idf/wifi_provisioning && /home/eunous/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/src/scheme_ble.c.obj -MF CMakeFiles/__idf_wifi_provisioning.dir/src/scheme_ble.c.obj.d -o CMakeFiles/__idf_wifi_provisioning.dir/src/scheme_ble.c.obj -c /home/eunous/esp-idf/components/wifi_provisioning/src/scheme_ble.c
+
+esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/src/scheme_ble.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/__idf_wifi_provisioning.dir/src/scheme_ble.c.i"
+	cd /home/eunous/git/dvid/com-at/com-at/build/esp-idf/wifi_provisioning && /home/eunous/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/eunous/esp-idf/components/wifi_provisioning/src/scheme_ble.c > CMakeFiles/__idf_wifi_provisioning.dir/src/scheme_ble.c.i
+
+esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/src/scheme_ble.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/__idf_wifi_provisioning.dir/src/scheme_ble.c.s"
+	cd /home/eunous/git/dvid/com-at/com-at/build/esp-idf/wifi_provisioning && /home/eunous/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/eunous/esp-idf/components/wifi_provisioning/src/scheme_ble.c -o CMakeFiles/__idf_wifi_provisioning.dir/src/scheme_ble.c.s
+
 # Object files for target __idf_wifi_provisioning
 __idf_wifi_provisioning_OBJECTS = \
 "CMakeFiles/__idf_wifi_provisioning.dir/src/wifi_config.c.obj" \
@@ -235,7 +249,8 @@ __idf_wifi_provisioning_OBJECTS = \
 "CMakeFiles/__idf_wifi_provisioning.dir/proto-c/wifi_scan.pb-c.c.obj" \
 "CMakeFiles/__idf_wifi_provisioning.dir/proto-c/wifi_ctrl.pb-c.c.obj" \
 "CMakeFiles/__idf_wifi_provisioning.dir/proto-c/wifi_constants.pb-c.c.obj" \
-"CMakeFiles/__idf_wifi_provisioning.dir/src/scheme_softap.c.obj"
+"CMakeFiles/__idf_wifi_provisioning.dir/src/scheme_softap.c.obj" \
+"CMakeFiles/__idf_wifi_provisioning.dir/src/scheme_ble.c.obj"
 
 # External object files for target __idf_wifi_provisioning
 __idf_wifi_provisioning_EXTERNAL_OBJECTS =
@@ -251,9 +266,10 @@ esp-idf/wifi_provisioning/libwifi_provisioning.a: esp-idf/wifi_provisioning/CMak
 esp-idf/wifi_provisioning/libwifi_provisioning.a: esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/proto-c/wifi_ctrl.pb-c.c.obj
 esp-idf/wifi_provisioning/libwifi_provisioning.a: esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/proto-c/wifi_constants.pb-c.c.obj
 esp-idf/wifi_provisioning/libwifi_provisioning.a: esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/src/scheme_softap.c.obj
+esp-idf/wifi_provisioning/libwifi_provisioning.a: esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/src/scheme_ble.c.obj
 esp-idf/wifi_provisioning/libwifi_provisioning.a: esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/build.make
 esp-idf/wifi_provisioning/libwifi_provisioning.a: esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking C static library libwifi_provisioning.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking C static library libwifi_provisioning.a"
 	cd /home/eunous/git/dvid/com-at/com-at/build/esp-idf/wifi_provisioning && $(CMAKE_COMMAND) -P CMakeFiles/__idf_wifi_provisioning.dir/cmake_clean_target.cmake
 	cd /home/eunous/git/dvid/com-at/com-at/build/esp-idf/wifi_provisioning && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/__idf_wifi_provisioning.dir/link.txt --verbose=$(VERBOSE)
 

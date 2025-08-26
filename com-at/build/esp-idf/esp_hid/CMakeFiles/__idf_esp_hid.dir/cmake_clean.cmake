@@ -5,6 +5,10 @@ file(REMOVE_RECURSE
   "CMakeFiles/__idf_esp_hid.dir/src/esp_hidd.c.obj.d"
   "CMakeFiles/__idf_esp_hid.dir/src/esp_hidh.c.obj"
   "CMakeFiles/__idf_esp_hid.dir/src/esp_hidh.c.obj.d"
+  "CMakeFiles/__idf_esp_hid.dir/src/nimble_hidd.c.obj"
+  "CMakeFiles/__idf_esp_hid.dir/src/nimble_hidd.c.obj.d"
+  "CMakeFiles/__idf_esp_hid.dir/src/nimble_hidh.c.obj"
+  "CMakeFiles/__idf_esp_hid.dir/src/nimble_hidh.c.obj.d"
   "libesp_hid.a"
   "libesp_hid.pdb"
 )

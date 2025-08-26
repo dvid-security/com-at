@@ -227,6 +227,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/eunous/git/dvid/com-at/com-at/components/at_mqtt/CMakeLists.txt"
   "/home/eunous/git/dvid/com-at/com-at/components/at_server/CMakeLists.txt"
   "/home/eunous/git/dvid/com-at/com-at/components/at_wifi/CMakeLists.txt"
+  "/home/eunous/git/dvid/com-at/com-at/components/esp-nimble-cpp/CMakeLists.txt"
+  "/home/eunous/git/dvid/com-at/com-at/components/esp-nimble-cpp/idf_component.yml"
   "/home/eunous/git/dvid/com-at/com-at/main/CMakeLists.txt"
   "/home/eunous/git/dvid/com-at/com-at/sdkconfig"
   "/usr/share/cmake-3.25/Modules/CMakeASMInformation.cmake"
@@ -420,9 +422,10 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "esp-idf/wifi_provisioning/CMakeFiles/CMakeDirectoryInformation.cmake"
   "esp-idf/at_server/CMakeFiles/CMakeDirectoryInformation.cmake"
   "esp-idf/at_wifi/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "esp-idf/main/CMakeFiles/CMakeDirectoryInformation.cmake"
   "esp-idf/at_ble/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "esp-idf/main/CMakeFiles/CMakeDirectoryInformation.cmake"
   "esp-idf/at_mqtt/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "esp-idf/esp-nimble-cpp/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -527,6 +530,7 @@ set(CMAKE_DEPEND_INFO_FILES
   "esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/DependInfo.cmake"
   "esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/DependInfo.cmake"
   "esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/DependInfo.cmake"
+  "esp-idf/bt/CMakeFiles/__idf_bt.dir/DependInfo.cmake"
   "esp-idf/unity/CMakeFiles/__idf_unity.dir/DependInfo.cmake"
   "esp-idf/cmock/CMakeFiles/__idf_cmock.dir/DependInfo.cmake"
   "esp-idf/console/CMakeFiles/__idf_console.dir/DependInfo.cmake"
@@ -557,7 +561,8 @@ set(CMAKE_DEPEND_INFO_FILES
   "esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/DependInfo.cmake"
   "esp-idf/at_server/CMakeFiles/__idf_at_server.dir/DependInfo.cmake"
   "esp-idf/at_wifi/CMakeFiles/__idf_at_wifi.dir/DependInfo.cmake"
-  "esp-idf/main/CMakeFiles/__idf_main.dir/DependInfo.cmake"
   "esp-idf/at_ble/CMakeFiles/__idf_at_ble.dir/DependInfo.cmake"
+  "esp-idf/main/CMakeFiles/__idf_main.dir/DependInfo.cmake"
   "esp-idf/at_mqtt/CMakeFiles/__idf_at_mqtt.dir/DependInfo.cmake"
+  "esp-idf/esp-nimble-cpp/CMakeFiles/__idf_esp-nimble-cpp.dir/DependInfo.cmake"
   )

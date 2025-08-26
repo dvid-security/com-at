@@ -247,6 +247,54 @@ src/esp_hidh.c.s:
 	cd /home/eunous/git/dvid/com-at/com-at/build && $(MAKE) $(MAKESILENT) -f esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/build.make esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/src/esp_hidh.c.s
 .PHONY : src/esp_hidh.c.s
 
+src/nimble_hidd.obj: src/nimble_hidd.c.obj
+.PHONY : src/nimble_hidd.obj
+
+# target to build an object file
+src/nimble_hidd.c.obj:
+	cd /home/eunous/git/dvid/com-at/com-at/build && $(MAKE) $(MAKESILENT) -f esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/build.make esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/src/nimble_hidd.c.obj
+.PHONY : src/nimble_hidd.c.obj
+
+src/nimble_hidd.i: src/nimble_hidd.c.i
+.PHONY : src/nimble_hidd.i
+
+# target to preprocess a source file
+src/nimble_hidd.c.i:
+	cd /home/eunous/git/dvid/com-at/com-at/build && $(MAKE) $(MAKESILENT) -f esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/build.make esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/src/nimble_hidd.c.i
+.PHONY : src/nimble_hidd.c.i
+
+src/nimble_hidd.s: src/nimble_hidd.c.s
+.PHONY : src/nimble_hidd.s
+
+# target to generate assembly for a file
+src/nimble_hidd.c.s:
+	cd /home/eunous/git/dvid/com-at/com-at/build && $(MAKE) $(MAKESILENT) -f esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/build.make esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/src/nimble_hidd.c.s
+.PHONY : src/nimble_hidd.c.s
+
+src/nimble_hidh.obj: src/nimble_hidh.c.obj
+.PHONY : src/nimble_hidh.obj
+
+# target to build an object file
+src/nimble_hidh.c.obj:
+	cd /home/eunous/git/dvid/com-at/com-at/build && $(MAKE) $(MAKESILENT) -f esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/build.make esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/src/nimble_hidh.c.obj
+.PHONY : src/nimble_hidh.c.obj
+
+src/nimble_hidh.i: src/nimble_hidh.c.i
+.PHONY : src/nimble_hidh.i
+
+# target to preprocess a source file
+src/nimble_hidh.c.i:
+	cd /home/eunous/git/dvid/com-at/com-at/build && $(MAKE) $(MAKESILENT) -f esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/build.make esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/src/nimble_hidh.c.i
+.PHONY : src/nimble_hidh.c.i
+
+src/nimble_hidh.s: src/nimble_hidh.c.s
+.PHONY : src/nimble_hidh.s
+
+# target to generate assembly for a file
+src/nimble_hidh.c.s:
+	cd /home/eunous/git/dvid/com-at/com-at/build && $(MAKE) $(MAKESILENT) -f esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/build.make esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/src/nimble_hidh.c.s
+.PHONY : src/nimble_hidh.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -269,6 +317,12 @@ help:
 	@echo "... src/esp_hidh.obj"
 	@echo "... src/esp_hidh.i"
 	@echo "... src/esp_hidh.s"
+	@echo "... src/nimble_hidd.obj"
+	@echo "... src/nimble_hidd.i"
+	@echo "... src/nimble_hidd.s"
+	@echo "... src/nimble_hidh.obj"
+	@echo "... src/nimble_hidh.i"
+	@echo "... src/nimble_hidh.s"
 .PHONY : help
 
 

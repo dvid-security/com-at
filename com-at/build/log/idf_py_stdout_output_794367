@@ -1,0 +1,342 @@
+ets Jun  8 2016 00:22:57
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7176
+load:0x40078000,len:15564
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3904
+entry 0x40080640
+[0;32mI (30) boot: ESP-IDF v5.3.2-dirty 2nd stage bootloader[0m
+[0;32mI (30) boot: compile time Aug 26 2025 09:06:05[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (35) boot: chip revision: v1.0[0m
+[0;32mI (39) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (48) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (58) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (69) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (76) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (84) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (91) boot: End of partition table[0m
+[0;32mI (96) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=12ba0h ( 76704) map[0m
+[0;32mI (130) esp_image: segment 1: paddr=00022bc8 vaddr=3ffbdb60 size=0578ch ( 22412) load[0m
+[0;32mI (139) esp_image: segment 2: paddr=0002835c vaddr=40080000 size=07cbch ( 31932) load[0m
+[0;32mI (152) esp_image: segment 3: paddr=00030020 vaddr=400d0020 size=61ba0h (400288) map[0m
+[0;32mI (289) esp_image: segment 4: paddr=00091bc8 vaddr=40087cbc size=123a0h ( 74656) load[0m
+[0;32mI (332) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (332) boot: Disabling RNG early entropy source...[0m
+[0;32mI (344) cpu_start: Multicore app[0m
+[0;32mI (353) cpu_start: Pro cpu start user code[0m
+[0;32mI (353) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (353) app_init: Application information:[0m
+[0;32mI (356) app_init: Project name:     com-at[0m
+[0;32mI (361) app_init: App version:      c248ca4-dirty[0m
+[0;32mI (366) app_init: Compile time:     Aug 26 2025 09:06:27[0m
+[0;32mI (372) app_init: ELF file SHA256:  a3f47dfa6...[0m
+[0;32mI (377) app_init: ESP-IDF:          v5.3.2-dirty[0m
+[0;32mI (383) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (387) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (392) efuse_init: Chip rev:         v1.0[0m
+[0;32mI (397) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (405) heap_init: At 3FFAFF10 len 000000F0 (0 KiB): DRAM[0m
+[0;32mI (410) heap_init: At 3FFB6388 len 00001C78 (7 KiB): DRAM[0m
+[0;32mI (416) heap_init: At 3FFB9A20 len 00004108 (16 KiB): DRAM[0m
+[0;32mI (423) heap_init: At 3FFC8A30 len 000175D0 (93 KiB): DRAM[0m
+[0;32mI (429) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (435) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (442) heap_init: At 4009A05C len 00005FA4 (23 KiB): IRAM[0m
+[0;32mI (449) spi_flash: detected chip: generic[0m
+[0;32mI (452) spi_flash: flash io: dio[0m
+[0;33mW (456) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (470) coexist: coex firmware version: cbb41d7[0m
+[0;32mI (476) main_task: Started on CPU0[0m
+[0;32mI (486) main_task: Calling app_main()[0m
+TEST AT+BLEINIT...
+[0;32mI (516) AT_BLE: AT+BLEINIT[0m
+ESP_ERROR_CHECK failed: esp_err_t 0x103 (ESP_ERR_INVALID_STATE) at 0x400d911e
+file: "./components/at_ble/at_ble.c" line 56
+func: at_handle_bleinit
+expression: esp_bt_controller_init(&bt_cfg)
+
+abort() was called at PC 0x400907e7 on core 0
+
+
+Backtrace: 0x40081bca:0x3ffbbae0 0x400907f1:0x3ffbbb00 0x40096bdd:0x3ffbbb20 0x400907e7:0x3ffbbb90 0x400d911e:0x3ffbbbc0 0x400d9240:0x3ffbbc10 0x400d9094:0x3ffbbc30 0x4012fac7:0x3ffbbc50 0x400913c5:0x3ffbbc80
+
+
+
+
+ELF file SHA256: a3f47dfa6
+
+Rebooting...
+ets Jun  8 2016 00:22:57
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7176
+load:0x40078000,len:15564
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3904
+entry 0x40080640
+[0;32mI (31) boot: ESP-IDF v5.3.2-dirty 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Aug 26 2025 09:06:05[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (36) boot: chip revision: v1.0[0m
+[0;32mI (40) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (49) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (59) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (70) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (84) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (92) boot: End of partition table[0m
+[0;32mI (96) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=12ba0h ( 76704) map[0m
+[0;32mI (131) esp_image: segment 1: paddr=00022bc8 vaddr=3ffbdb60 size=0578ch ( 22412) load[0m
+[0;32mI (139) esp_image: segment 2: paddr=0002835c vaddr=40080000 size=07cbch ( 31932) load[0m
+[0;32mI (152) esp_image: segment 3: paddr=00030020 vaddr=400d0020 size=61ba0h (400288) map[0m
+[0;32mI (290) esp_image: segment 4: paddr=00091bc8 vaddr=40087cbc size=123a0h ( 74656) load[0m
+[0;32mI (332) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (332) boot: Disabling RNG early entropy source...[0m
+[0;32mI (345) cpu_start: Multicore app[0m
+[0;32mI (353) cpu_start: Pro cpu start user code[0m
+[0;32mI (354) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (354) app_init: Application information:[0m
+[0;32mI (356) app_init: Project name:     com-at[0m
+[0;32mI (361) app_init: App version:      c248ca4-dirty[0m
+[0;32mI (367) app_init: Compile time:     Aug 26 2025 09:06:27[0m
+[0;32mI (373) app_init: ELF file SHA256:  a3f47dfa6...[0m
+[0;32mI (378) app_init: ESP-IDF:          v5.3.2-dirty[0m
+[0;32mI (383) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (388) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (393) efuse_init: Chip rev:         v1.0[0m
+[0;32mI (398) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (405) heap_init: At 3FFAFF10 len 000000F0 (0 KiB): DRAM[0m
+[0;32mI (411) heap_init: At 3FFB6388 len 00001C78 (7 KiB): DRAM[0m
+[0;32mI (417) heap_init: At 3FFB9A20 len 00004108 (16 KiB): DRAM[0m
+[0;32mI (423) heap_init: At 3FFC8A30 len 000175D0 (93 KiB): DRAM[0m
+[0;32mI (429) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (436) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (442) heap_init: At 4009A05C len 00005FA4 (23 KiB): IRAM[0m
+[0;32mI (450) spi_flash: detected chip: generic[0m
+[0;32mI (453) spi_flash: flash io: dio[0m
+[0;33mW (457) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (471) coexist: coex firmware version: cbb41d7[0m
+[0;32mI (476) main_task: Started on CPU0[0m
+[0;32mI (486) main_task: Calling app_main()[0m
+TEST AT+BLEINIT...
+[0;32mI (516) AT_BLE: AT+BLEINIT[0m
+ESP_ERROR_CHECK failed: esp_err_t 0x103 (ESP_ERR_INVALID_STATE) at 0x400d911e
+file: "./components/at_ble/at_ble.c" line 56
+func: at_handle_bleinit
+expression: esp_bt_controller_init(&bt_cfg)
+
+abort() was called at PC 0x400907e7 on core 0
+
+
+Backtrace: 0x40081bca:0x3ffbbae0 0x400907f1:0x3ffbbb00 0x40096bdd:0x3ffbbb20 0x400907e7:0x3ffbbb90 0x400d911e:0x3ffbbbc0 0x400d9240:0x3ffbbc10 0x400d9094:0x3ffbbc30 0x4012fac7:0x3ffbbc50 0x400913c5:0x3ffbbc80
+
+
+
+
+ELF file SHA256: a3f47dfa6
+
+Rebooting...
+ets Jun  8 2016 00:22:57
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7176
+load:0x40078000,len:15564
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3904
+entry 0x40080640
+[0;32mI (31) boot: ESP-IDF v5.3.2-dirty 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Aug 26 2025 09:06:05[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (36) boot: chip revision: v1.0[0m
+[0;32mI (40) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (49) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (59) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (70) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (84) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (92) boot: End of partition table[0m
+[0;32mI (96) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=12ba0h ( 76704) map[0m
+[0;32mI (131) esp_image: segment 1: paddr=00022bc8 vaddr=3ffbdb60 size=0578ch ( 22412) load[0m
+[0;32mI (139) esp_image: segment 2: paddr=0002835c vaddr=40080000 size=07cbch ( 31932) load[0m
+[0;32mI (152) esp_image: segment 3: paddr=00030020 vaddr=400d0020 size=61ba0h (400288) map[0m
+[0;32mI (290) esp_image: segment 4: paddr=00091bc8 vaddr=40087cbc size=123a0h ( 74656) load[0m
+[0;32mI (332) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (332) boot: Disabling RNG early entropy source...[0m
+[0;32mI (345) cpu_start: Multicore app[0m
+[0;32mI (353) cpu_start: Pro cpu start user code[0m
+[0;32mI (354) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (354) app_init: Application information:[0m
+[0;32mI (356) app_init: Project name:     com-at[0m
+[0;32mI (361) app_init: App version:      c248ca4-dirty[0m
+[0;32mI (367) app_init: Compile time:     Aug 26 2025 09:06:27[0m
+[0;32mI (373) app_init: ELF file SHA256:  a3f47dfa6...[0m
+[0;32mI (378) app_init: ESP-IDF:          v5.3.2-dirty[0m
+[0;32mI (383) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (388) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (393) efuse_init: Chip rev:         v1.0[0m
+[0;32mI (398) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (405) heap_init: At 3FFAFF10 len 000000F0 (0 KiB): DRAM[0m
+[0;32mI (411) heap_init: At 3FFB6388 len 00001C78 (7 KiB): DRAM[0m
+[0;32mI (417) heap_init: At 3FFB9A20 len 00004108 (16 KiB): DRAM[0m
+[0;32mI (423) heap_init: At 3FFC8A30 len 000175D0 (93 KiB): DRAM[0m
+[0;32mI (429) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (436) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (442) heap_init: At 4009A05C len 00005FA4 (23 KiB): IRAM[0m
+[0;32mI (450) spi_flash: detected chip: generic[0m
+[0;32mI (453) spi_flash: flash io: dio[0m
+[0;33mW (457) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (471) coexist: coex firmware version: cbb41d7[0m
+[0;32mI (476) main_task: Started on CPU0[0m
+[0;32mI (486) main_task: Calling app_main()[0m
+TEST AT+BLEINIT...
+[0;32mI (516) AT_BLE: AT+BLEINIT[0m
+ESP_ERROR_CHECK failed: esp_err_t 0x103 (ESP_ERR_INVALID_STATE) at 0x400d911e
+file: "./components/at_ble/at_ble.c" line 56
+func: at_handle_bleinit
+expression: esp_bt_controller_init(&bt_cfg)
+
+abort() was called at PC 0x400907e7 on core 0
+
+
+Backtrace: 0x40081bca:0x3ffbbae0 0x400907f1:0x3ffbbb00 0x40096bdd:0x3ffbbb20 0x400907e7:0x3ffbbb90 0x400d911e:0x3ffbbbc0 0x400d9240:0x3ffbbc10 0x400d9094:0x3ffbbc30 0x4012fac7:0x3ffbbc50 0x400913c5:0x3ffbbc80
+
+
+
+
+ELF file SHA256: a3f47dfa6
+
+Rebooting...
+ets Jun  8 2016 00:22:57
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7176
+load:0x40078000,len:15564
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3904
+entry 0x40080640
+[0;32mI (31) boot: ESP-IDF v5.3.2-dirty 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Aug 26 2025 09:06:05[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (36) boot: chip revision: v1.0[0m
+[0;32mI (40) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (49) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (59) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (70) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (84) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (92) boot: End of partition table[0m
+[0;32mI (96) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=12ba0h ( 76704) map[0m
+[0;32mI (131) esp_image: segment 1: paddr=00022bc8 vaddr=3ffbdb60 size=0578ch ( 22412) load[0m
+[0;32mI (139) esp_image: segment 2: paddr=0002835c vaddr=40080000 size=07cbch ( 31932) load[0m
+[0;32mI (152) esp_image: segment 3: paddr=00030020 vaddr=400d0020 size=61ba0h (400288) map[0m
+[0;32mI (290) esp_image: segment 4: paddr=00091bc8 vaddr=40087cbc size=123a0h ( 74656) load[0m
+[0;32mI (332) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (332) boot: Disabling RNG early entropy source...[0m
+[0;32mI (345) cpu_start: Multicore app[0m
+[0;32mI (353) cpu_start: Pro cpu start user code[0m
+[0;32mI (354) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (354) app_init: Application information:[0m
+[0;32mI (356) app_init: Project name:     com-at[0m
+[0;32mI (361) app_init: App version:      c248ca4-dirty[0m
+[0;32mI (367) app_init: Compile time:     Aug 26 2025 09:06:27[0m
+[0;32mI (373) app_init: ELF file SHA256:  a3f47dfa6...[0m
+[0;32mI (378) app_init: ESP-IDF:          v5.3.2-dirty[0m
+[0;32mI (383) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (388) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (393) efuse_init: Chip rev:         v1.0[0m
+[0;32mI (398) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (405) heap_init: At 3FFAFF10 len 000000F0 (0 KiB): DRAM[0m
+[0;32mI (411) heap_init: At 3FFB6388 len 00001C78 (7 KiB): DRAM[0m
+[0;32mI (417) heap_init: At 3FFB9A20 len 00004108 (16 KiB): DRAM[0m
+[0;32mI (423) heap_init: At 3FFC8A30 len 000175D0 (93 KiB): DRAM[0m
+[0;32mI (429) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (436) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (442) heap_init: At 4009A05C len 00005FA4 (23 KiB): IRAM[0m
+[0;32mI (450) spi_flash: detected chip: generic[0m
+[0;32mI (453) spi_flash: flash io: dio[0m
+[0;33mW (457) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (471) coexist: coex firmware version: cbb41d7[0m
+[0;32mI (476) main_task: Started on CPU0[0m
+[0;32mI (486) main_task: Calling app_main()[0m
+TEST AT+BLEINIT...
+[0;32mI (516) AT_BLE: AT+BLEINIT[0m
+ESP_ERROR_CHECK failed: esp_err_t 0x103 (ESP_ERR_INVALID_STATE) at 0x400d911e
+file: "./components/at_ble/at_ble.c" line 56
+func: at_handle_bleinit
+expression: esp_bt_controller_init(&bt_cfg)
+
+abort() was called at PC 0x400907e7 on core 0
+
+
+Backtrace: 0x40081bca:0x3ffbbae0 0x400907f1:0x3ffbbb00 0x40096bdd:0x3ffbbb20 0x400907e7:0x3ffbbb90 0x400d911e:0x3ffbbbc0 0x400d9240:0x3ffbbc10 0x400d9094:0x3ffbbc30 0x4012fac7:0x3ffbbc50 0x400913c5:0x3ffbbc80
+
+
+
+
+ELF file SHA256: a3f47dfa6
+
+Rebooting...
+ets Jun  8 2016 00:22:57
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7176
+load:0x40078000,len:15564
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3904
+entry 0x40080640
+[0;32mI (31) boot: ESP-IDF v5.3.2-dirty 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Aug 26 2025 09:06:05[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (36) boot: chip revision: v1.0[0m
+[0;32mI (40) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (49) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (59) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (70) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (84) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (92) boot: End of partition table[0m
+[0;32mI (96) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=12ba0h ( 76704) map[0m
+[0;32mI (131) esp_image: segment 1: paddr=00022bc8 vaddr=3ffbdb60 size=0578ch ( 22412) load[0m
+[0;32mI (139) esp_image: segment 2: paddr=0002835c vaddr=40080000 size=07cbch ( 31932) load[0m
+[0;32mI (152) esp_image: segment 3: paddr=00030020 vaddr=400d0020 size=61ba0h (400288) map[0m
+[0;32mI (290) esp_image: segment 4: paddr=00091bc8 vaddr=40087cbc size=123a0h ( 74656) load[0m
+[0;32mI (332) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (332) boot: Disabling RNG early entropy source...[0m
+[0;32mI (345) cpu_start: Multicore app[0m

@@ -6,12 +6,19 @@ Firmware AT pour ESP-C6, basé sur ESP-IDF.
 
 Version utilisée : `v5.3.2`
 
+## TEST
+
+// at_wifi_test_all();
+
+run idf.py build flash monitor
+then monitor and look
+
 ## Table des matières
 
 * [Commandes générales](#commandes-générales)
 * [Commandes Wi-Fi](#commandes-wi-fi)
 * [Commandes MQTT](#commandes-mqtt)
-* [Commandes BLE (en cours)](#commandes-ble-en-cours)
+* [Commandes BLE](#commandes-ble)
 
 ---
 
@@ -25,6 +32,31 @@ Version utilisée : `v5.3.2`
 | `AT+RESET` | Redémarre l’ESP     |
 
 ---
+
+## Commandes BLE
+
+```plaintext
+# AT BLE Commandes - Documentation rapide
+
+- `AT+BLECLEAR`          : Efface toute la configuration BLE temporaire.
+- `AT+BLEADDSVC=uuid`    : Ajoute un service BLE, uuid = 16 bits (ex: 0x180F)
+- `AT+BLEADDCHAR=sidx,uuid,flags` : Ajoute une caractéristique au service `sidx` (0 = premier), uuid = 16 bits,flags = OR bitwise: 0x01=read, 0x02=write, 0x04=notify
+- `AT+BLELIST`           : Liste la configuration BLE actuelle (services + chars)
+- `AT+BLEINIT`           : Lance le stack BLE et publie les services/chars configurés
+- `AT+BLEDEINIT`         : Stoppe et deinit le stack BLE
+- `AT+WIFISTOP`          : Stoppe/désinit le WiFi (utile pour BLE sur ESP32 classic)
+
+## Exemples :
+
+```at
+AT+BLECLEAR
+AT+BLEADDSVC=0x180F
+AT+BLEADDCHAR=0,0x2A19,0x03
+AT+BLEADDCHAR=0,0x2A1B,0x05
+AT+BLELIST
+AT+BLEINIT
+
+```
 
 ## Commandes Wi-Fi
 

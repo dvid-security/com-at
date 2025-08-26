@@ -149,6 +149,7 @@ com-at.elf: esp-idf/esp_netif/libesp_netif.a
 com-at.elf: esp-idf/wpa_supplicant/libwpa_supplicant.a
 com-at.elf: esp-idf/esp_coex/libesp_coex.a
 com-at.elf: esp-idf/esp_wifi/libesp_wifi.a
+com-at.elf: esp-idf/bt/libbt.a
 com-at.elf: esp-idf/unity/libunity.a
 com-at.elf: esp-idf/cmock/libcmock.a
 com-at.elf: esp-idf/console/libconsole.a
@@ -179,9 +180,10 @@ com-at.elf: esp-idf/spiffs/libspiffs.a
 com-at.elf: esp-idf/wifi_provisioning/libwifi_provisioning.a
 com-at.elf: esp-idf/at_server/libat_server.a
 com-at.elf: esp-idf/at_wifi/libat_wifi.a
-com-at.elf: esp-idf/main/libmain.a
 com-at.elf: esp-idf/at_ble/libat_ble.a
+com-at.elf: esp-idf/main/libmain.a
 com-at.elf: esp-idf/at_mqtt/libat_mqtt.a
+com-at.elf: esp-idf/esp-nimble-cpp/libesp-nimble-cpp.a
 com-at.elf: esp-idf/app_trace/libapp_trace.a
 com-at.elf: esp-idf/unity/libunity.a
 com-at.elf: esp-idf/esp_https_server/libesp_https_server.a
@@ -191,7 +193,9 @@ com-at.elf: esp-idf/console/libconsole.a
 com-at.elf: esp-idf/protobuf-c/libprotobuf-c.a
 com-at.elf: esp-idf/json/libjson.a
 com-at.elf: esp-idf/at_wifi/libat_wifi.a
+com-at.elf: esp-idf/at_ble/libat_ble.a
 com-at.elf: esp-idf/at_server/libat_server.a
+com-at.elf: esp-idf/bt/libbt.a
 com-at.elf: esp-idf/xtensa/libxtensa.a
 com-at.elf: esp-idf/esp_driver_gpio/libesp_driver_gpio.a
 com-at.elf: esp-idf/esp_pm/libesp_pm.a
@@ -258,6 +262,7 @@ com-at.elf: esp-idf/mbedtls/mbedtls/library/libmbedcrypto.a
 com-at.elf: esp-idf/mbedtls/mbedtls/library/libmbedx509.a
 com-at.elf: esp-idf/mbedtls/mbedtls/3rdparty/everest/libeverest.a
 com-at.elf: esp-idf/mbedtls/mbedtls/3rdparty/p256-m/libp256m.a
+com-at.elf: /home/eunous/esp-idf/components/esp_coex/lib/esp32/libcoexist.a
 com-at.elf: /home/eunous/esp-idf/components/esp_wifi/lib/esp32/libcore.a
 com-at.elf: /home/eunous/esp-idf/components/esp_wifi/lib/esp32/libespnow.a
 com-at.elf: /home/eunous/esp-idf/components/esp_wifi/lib/esp32/libmesh.a
@@ -331,6 +336,7 @@ com-at.elf: esp-idf/mbedtls/mbedtls/library/libmbedcrypto.a
 com-at.elf: esp-idf/mbedtls/mbedtls/library/libmbedx509.a
 com-at.elf: esp-idf/mbedtls/mbedtls/3rdparty/everest/libeverest.a
 com-at.elf: esp-idf/mbedtls/mbedtls/3rdparty/p256-m/libp256m.a
+com-at.elf: /home/eunous/esp-idf/components/esp_coex/lib/esp32/libcoexist.a
 com-at.elf: /home/eunous/esp-idf/components/esp_wifi/lib/esp32/libcore.a
 com-at.elf: /home/eunous/esp-idf/components/esp_wifi/lib/esp32/libespnow.a
 com-at.elf: /home/eunous/esp-idf/components/esp_wifi/lib/esp32/libmesh.a
@@ -404,6 +410,7 @@ com-at.elf: esp-idf/mbedtls/mbedtls/library/libmbedcrypto.a
 com-at.elf: esp-idf/mbedtls/mbedtls/library/libmbedx509.a
 com-at.elf: esp-idf/mbedtls/mbedtls/3rdparty/everest/libeverest.a
 com-at.elf: esp-idf/mbedtls/mbedtls/3rdparty/p256-m/libp256m.a
+com-at.elf: /home/eunous/esp-idf/components/esp_coex/lib/esp32/libcoexist.a
 com-at.elf: /home/eunous/esp-idf/components/esp_wifi/lib/esp32/libcore.a
 com-at.elf: /home/eunous/esp-idf/components/esp_wifi/lib/esp32/libespnow.a
 com-at.elf: /home/eunous/esp-idf/components/esp_wifi/lib/esp32/libmesh.a
@@ -477,6 +484,7 @@ com-at.elf: esp-idf/mbedtls/mbedtls/library/libmbedcrypto.a
 com-at.elf: esp-idf/mbedtls/mbedtls/library/libmbedx509.a
 com-at.elf: esp-idf/mbedtls/mbedtls/3rdparty/everest/libeverest.a
 com-at.elf: esp-idf/mbedtls/mbedtls/3rdparty/p256-m/libp256m.a
+com-at.elf: /home/eunous/esp-idf/components/esp_coex/lib/esp32/libcoexist.a
 com-at.elf: /home/eunous/esp-idf/components/esp_wifi/lib/esp32/libcore.a
 com-at.elf: /home/eunous/esp-idf/components/esp_wifi/lib/esp32/libespnow.a
 com-at.elf: /home/eunous/esp-idf/components/esp_wifi/lib/esp32/libmesh.a
@@ -550,6 +558,7 @@ com-at.elf: esp-idf/mbedtls/mbedtls/library/libmbedcrypto.a
 com-at.elf: esp-idf/mbedtls/mbedtls/library/libmbedx509.a
 com-at.elf: esp-idf/mbedtls/mbedtls/3rdparty/everest/libeverest.a
 com-at.elf: esp-idf/mbedtls/mbedtls/3rdparty/p256-m/libp256m.a
+com-at.elf: /home/eunous/esp-idf/components/esp_coex/lib/esp32/libcoexist.a
 com-at.elf: /home/eunous/esp-idf/components/esp_wifi/lib/esp32/libcore.a
 com-at.elf: /home/eunous/esp-idf/components/esp_wifi/lib/esp32/libespnow.a
 com-at.elf: /home/eunous/esp-idf/components/esp_wifi/lib/esp32/libmesh.a

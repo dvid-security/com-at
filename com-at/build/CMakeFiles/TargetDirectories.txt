@@ -548,6 +548,7 @@
 /home/eunous/git/dvid/com-at/com-at/build/esp-idf/esp_wifi/CMakeFiles/install.dir
 /home/eunous/git/dvid/com-at/com-at/build/esp-idf/esp_wifi/CMakeFiles/install/local.dir
 /home/eunous/git/dvid/com-at/com-at/build/esp-idf/esp_wifi/CMakeFiles/install/strip.dir
+/home/eunous/git/dvid/com-at/com-at/build/esp-idf/bt/CMakeFiles/__idf_bt.dir
 /home/eunous/git/dvid/com-at/com-at/build/esp-idf/bt/CMakeFiles/edit_cache.dir
 /home/eunous/git/dvid/com-at/com-at/build/esp-idf/bt/CMakeFiles/rebuild_cache.dir
 /home/eunous/git/dvid/com-at/com-at/build/esp-idf/bt/CMakeFiles/list_install_components.dir
@@ -824,13 +825,6 @@
 /home/eunous/git/dvid/com-at/com-at/build/esp-idf/at_wifi/CMakeFiles/install.dir
 /home/eunous/git/dvid/com-at/com-at/build/esp-idf/at_wifi/CMakeFiles/install/local.dir
 /home/eunous/git/dvid/com-at/com-at/build/esp-idf/at_wifi/CMakeFiles/install/strip.dir
-/home/eunous/git/dvid/com-at/com-at/build/esp-idf/main/CMakeFiles/__idf_main.dir
-/home/eunous/git/dvid/com-at/com-at/build/esp-idf/main/CMakeFiles/edit_cache.dir
-/home/eunous/git/dvid/com-at/com-at/build/esp-idf/main/CMakeFiles/rebuild_cache.dir
-/home/eunous/git/dvid/com-at/com-at/build/esp-idf/main/CMakeFiles/list_install_components.dir
-/home/eunous/git/dvid/com-at/com-at/build/esp-idf/main/CMakeFiles/install.dir
-/home/eunous/git/dvid/com-at/com-at/build/esp-idf/main/CMakeFiles/install/local.dir
-/home/eunous/git/dvid/com-at/com-at/build/esp-idf/main/CMakeFiles/install/strip.dir
 /home/eunous/git/dvid/com-at/com-at/build/esp-idf/at_ble/CMakeFiles/__idf_at_ble.dir
 /home/eunous/git/dvid/com-at/com-at/build/esp-idf/at_ble/CMakeFiles/edit_cache.dir
 /home/eunous/git/dvid/com-at/com-at/build/esp-idf/at_ble/CMakeFiles/rebuild_cache.dir
@@ -838,6 +832,13 @@
 /home/eunous/git/dvid/com-at/com-at/build/esp-idf/at_ble/CMakeFiles/install.dir
 /home/eunous/git/dvid/com-at/com-at/build/esp-idf/at_ble/CMakeFiles/install/local.dir
 /home/eunous/git/dvid/com-at/com-at/build/esp-idf/at_ble/CMakeFiles/install/strip.dir
+/home/eunous/git/dvid/com-at/com-at/build/esp-idf/main/CMakeFiles/__idf_main.dir
+/home/eunous/git/dvid/com-at/com-at/build/esp-idf/main/CMakeFiles/edit_cache.dir
+/home/eunous/git/dvid/com-at/com-at/build/esp-idf/main/CMakeFiles/rebuild_cache.dir
+/home/eunous/git/dvid/com-at/com-at/build/esp-idf/main/CMakeFiles/list_install_components.dir
+/home/eunous/git/dvid/com-at/com-at/build/esp-idf/main/CMakeFiles/install.dir
+/home/eunous/git/dvid/com-at/com-at/build/esp-idf/main/CMakeFiles/install/local.dir
+/home/eunous/git/dvid/com-at/com-at/build/esp-idf/main/CMakeFiles/install/strip.dir
 /home/eunous/git/dvid/com-at/com-at/build/esp-idf/at_mqtt/CMakeFiles/__idf_at_mqtt.dir
 /home/eunous/git/dvid/com-at/com-at/build/esp-idf/at_mqtt/CMakeFiles/edit_cache.dir
 /home/eunous/git/dvid/com-at/com-at/build/esp-idf/at_mqtt/CMakeFiles/rebuild_cache.dir
@@ -845,3 +846,10 @@
 /home/eunous/git/dvid/com-at/com-at/build/esp-idf/at_mqtt/CMakeFiles/install.dir
 /home/eunous/git/dvid/com-at/com-at/build/esp-idf/at_mqtt/CMakeFiles/install/local.dir
 /home/eunous/git/dvid/com-at/com-at/build/esp-idf/at_mqtt/CMakeFiles/install/strip.dir
+/home/eunous/git/dvid/com-at/com-at/build/esp-idf/esp-nimble-cpp/CMakeFiles/__idf_esp-nimble-cpp.dir
+/home/eunous/git/dvid/com-at/com-at/build/esp-idf/esp-nimble-cpp/CMakeFiles/edit_cache.dir
+/home/eunous/git/dvid/com-at/com-at/build/esp-idf/esp-nimble-cpp/CMakeFiles/rebuild_cache.dir
+/home/eunous/git/dvid/com-at/com-at/build/esp-idf/esp-nimble-cpp/CMakeFiles/list_install_components.dir
+/home/eunous/git/dvid/com-at/com-at/build/esp-idf/esp-nimble-cpp/CMakeFiles/install.dir
+/home/eunous/git/dvid/com-at/com-at/build/esp-idf/esp-nimble-cpp/CMakeFiles/install/local.dir
+/home/eunous/git/dvid/com-at/com-at/build/esp-idf/esp-nimble-cpp/CMakeFiles/install/strip.dir

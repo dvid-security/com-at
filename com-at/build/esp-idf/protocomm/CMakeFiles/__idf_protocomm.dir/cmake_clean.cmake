@@ -25,6 +25,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/__idf_protocomm.dir/src/transports/protocomm_console.c.obj.d"
   "CMakeFiles/__idf_protocomm.dir/src/transports/protocomm_httpd.c.obj"
   "CMakeFiles/__idf_protocomm.dir/src/transports/protocomm_httpd.c.obj.d"
+  "CMakeFiles/__idf_protocomm.dir/src/transports/protocomm_nimble.c.obj"
+  "CMakeFiles/__idf_protocomm.dir/src/transports/protocomm_nimble.c.obj.d"
   "libprotocomm.a"
   "libprotocomm.pdb"
 )

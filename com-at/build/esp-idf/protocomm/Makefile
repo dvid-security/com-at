@@ -487,6 +487,30 @@ src/transports/protocomm_httpd.c.s:
 	cd /home/eunous/git/dvid/com-at/com-at/build && $(MAKE) $(MAKESILENT) -f esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/build.make esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/src/transports/protocomm_httpd.c.s
 .PHONY : src/transports/protocomm_httpd.c.s
 
+src/transports/protocomm_nimble.obj: src/transports/protocomm_nimble.c.obj
+.PHONY : src/transports/protocomm_nimble.obj
+
+# target to build an object file
+src/transports/protocomm_nimble.c.obj:
+	cd /home/eunous/git/dvid/com-at/com-at/build && $(MAKE) $(MAKESILENT) -f esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/build.make esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/src/transports/protocomm_nimble.c.obj
+.PHONY : src/transports/protocomm_nimble.c.obj
+
+src/transports/protocomm_nimble.i: src/transports/protocomm_nimble.c.i
+.PHONY : src/transports/protocomm_nimble.i
+
+# target to preprocess a source file
+src/transports/protocomm_nimble.c.i:
+	cd /home/eunous/git/dvid/com-at/com-at/build && $(MAKE) $(MAKESILENT) -f esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/build.make esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/src/transports/protocomm_nimble.c.i
+.PHONY : src/transports/protocomm_nimble.c.i
+
+src/transports/protocomm_nimble.s: src/transports/protocomm_nimble.c.s
+.PHONY : src/transports/protocomm_nimble.s
+
+# target to generate assembly for a file
+src/transports/protocomm_nimble.c.s:
+	cd /home/eunous/git/dvid/com-at/com-at/build && $(MAKE) $(MAKESILENT) -f esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/build.make esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/src/transports/protocomm_nimble.c.s
+.PHONY : src/transports/protocomm_nimble.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -539,6 +563,9 @@ help:
 	@echo "... src/transports/protocomm_httpd.obj"
 	@echo "... src/transports/protocomm_httpd.i"
 	@echo "... src/transports/protocomm_httpd.s"
+	@echo "... src/transports/protocomm_nimble.obj"
+	@echo "... src/transports/protocomm_nimble.i"
+	@echo "... src/transports/protocomm_nimble.s"
 .PHONY : help
 
 

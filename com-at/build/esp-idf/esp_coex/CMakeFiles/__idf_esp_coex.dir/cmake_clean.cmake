@@ -1,10 +1,14 @@
 file(REMOVE_RECURSE
   "CMakeFiles/__idf_esp_coex.dir/esp32/esp_coex_adapter.c.obj"
   "CMakeFiles/__idf_esp_coex.dir/esp32/esp_coex_adapter.c.obj.d"
+  "CMakeFiles/__idf_esp_coex.dir/src/coexist.c.obj"
+  "CMakeFiles/__idf_esp_coex.dir/src/coexist.c.obj.d"
   "CMakeFiles/__idf_esp_coex.dir/src/coexist_debug.c.obj"
   "CMakeFiles/__idf_esp_coex.dir/src/coexist_debug.c.obj.d"
   "CMakeFiles/__idf_esp_coex.dir/src/coexist_debug_diagram.c.obj"
   "CMakeFiles/__idf_esp_coex.dir/src/coexist_debug_diagram.c.obj.d"
+  "CMakeFiles/__idf_esp_coex.dir/src/lib_printf.c.obj"
+  "CMakeFiles/__idf_esp_coex.dir/src/lib_printf.c.obj.d"
   "libesp_coex.a"
   "libesp_coex.pdb"
 )

@@ -8678,7 +8678,10 @@
                                 "help": "Defines maximum number of concurrent BLE connections. For ESP32, user\nis expected to configure BTDM_CTRL_BLE_MAX_CONN from controller menu\nalong with this option. Similarly for ESP32-C3 or ESP32-S3, user is expected to\nconfigure BT_CTRL_BLE_MAX_ACT from controller menu.\nFor ESP32C2, ESP32C6 and ESP32H2, each connection will take about 1k DRAM.",
                                 "id": "BT_NIMBLE_MAX_CONNECTIONS",
                                 "name": "BT_NIMBLE_MAX_CONNECTIONS",
-                                "range": null,
+                                "range": [
+                                    1,
+                                    9
+                                ],
                                 "title": "Maximum number of concurrent connections",
                                 "type": "int"
                             },
@@ -8708,7 +8711,10 @@
                                 "help": "Defines maximum number of BLE Connection Oriented Channels. When set to (0), BLE COC is not compiled in",
                                 "id": "BT_NIMBLE_L2CAP_COC_MAX_NUM",
                                 "name": "BT_NIMBLE_L2CAP_COC_MAX_NUM",
-                                "range": null,
+                                "range": [
+                                    0,
+                                    9
+                                ],
                                 "title": "Maximum number of connection oriented channels",
                                 "type": "int"
                             },
@@ -9120,7 +9126,10 @@
                                 "help": "Time interval between RPA address change.",
                                 "id": "BT_NIMBLE_RPA_TIMEOUT",
                                 "name": "BT_NIMBLE_RPA_TIMEOUT",
-                                "range": null,
+                                "range": [
+                                    1,
+                                    41400
+                                ],
                                 "title": "RPA timeout in seconds",
                                 "type": "int"
                             },
@@ -9512,7 +9521,10 @@
                                 "help": "BLE list size",
                                 "id": "BT_NIMBLE_WHITELIST_SIZE",
                                 "name": "BT_NIMBLE_WHITELIST_SIZE",
-                                "range": null,
+                                "range": [
+                                    1,
+                                    15
+                                ],
                                 "title": "BLE white list size",
                                 "type": "int"
                             },
@@ -10246,7 +10258,10 @@
                                 "help": "BLE maximum connections of bluetooth controller.\nEach connection uses 1KB static DRAM whenever the BT controller is enabled.",
                                 "id": "BTDM_CTRL_BLE_MAX_CONN",
                                 "name": "BTDM_CTRL_BLE_MAX_CONN",
-                                "range": null,
+                                "range": [
+                                    1,
+                                    9
+                                ],
                                 "title": "BLE Max Connections",
                                 "type": "int"
                             },
@@ -10757,7 +10772,10 @@
                                         "help": "Maximum number of devices which can be recorded in scan duplicate filter.\nWhen the maximum amount of device in the filter is reached, the oldest device will be refreshed.",
                                         "id": "BTDM_SCAN_DUPL_CACHE_SIZE",
                                         "name": "BTDM_SCAN_DUPL_CACHE_SIZE",
-                                        "range": null,
+                                        "range": [
+                                            10,
+                                            1000
+                                        ],
                                         "title": "Maximum number of devices in scan duplicate filter",
                                         "type": "int"
                                     },
@@ -10767,7 +10785,10 @@
                                         "help": "If the period value is non-zero, the controller will periodically clear the device information\nstored in the scan duuplicate filter. If it is 0, the scan duuplicate filter will not be cleared\nuntil the scanning is disabled. Duplicate advertisements for this period should not be sent to the\nHost in advertising report events.\nThere are two scenarios where the ADV packet will be repeatedly reported:\n1. The duplicate scan cache is full, the controller will delete the oldest device information and\nadd new device information.\n2. When the refresh period is up, the controller will clear all device information and start filtering\nagain.",
                                         "id": "BTDM_SCAN_DUPL_CACHE_REFRESH_PERIOD",
                                         "name": "BTDM_SCAN_DUPL_CACHE_REFRESH_PERIOD",
-                                        "range": null,
+                                        "range": [
+                                            0,
+                                            1000
+                                        ],
                                         "title": "Duplicate scan list refresh period (seconds)",
                                         "type": "int"
                                     },
@@ -10839,7 +10860,10 @@
                                         "help": "The number of unprocessed advertising report that Bluedroid can save.If you set\n`BTDM_BLE_ADV_REPORT_FLOW_CTRL_NUM` to a small value, this may cause adv packets lost.\nIf you set `BTDM_BLE_ADV_REPORT_FLOW_CTRL_NUM` to a large value, Bluedroid may cache a\nlot of adv packets and this may cause system memory run out. For example, if you set\nit to 50, the maximum memory consumed by host is 35 * 50 bytes. Please set\n`BTDM_BLE_ADV_REPORT_FLOW_CTRL_NUM` according to your system free memory and handle adv\npackets as fast as possible, otherwise it will cause adv packets lost.",
                                         "id": "BTDM_BLE_ADV_REPORT_FLOW_CTRL_NUM",
                                         "name": "BTDM_BLE_ADV_REPORT_FLOW_CTRL_NUM",
-                                        "range": null,
+                                        "range": [
+                                            50,
+                                            1000
+                                        ],
                                         "title": "BLE adv report flow control number",
                                         "type": "int"
                                     },
@@ -10849,7 +10873,10 @@
                                         "help": "When adv report flow control is enabled, The ADV lost event will be generated when the number\nof ADV packets lost in the controller reaches this threshold. It is better to set a larger value.\nIf you set `BTDM_BLE_ADV_REPORT_DISCARD_THRSHOLD` to a small value or printf every adv lost event, it\nmay cause adv packets lost more.",
                                         "id": "BTDM_BLE_ADV_REPORT_DISCARD_THRSHOLD",
                                         "name": "BTDM_BLE_ADV_REPORT_DISCARD_THRSHOLD",
-                                        "range": null,
+                                        "range": [
+                                            1,
+                                            1000
+                                        ],
                                         "title": "BLE adv lost event threshold value",
                                         "type": "int"
                                     }
@@ -28635,6 +28662,626 @@
                 "depends_on": null,
                 "id": "component-config-wi-fi-provisioning-manager",
                 "title": "Wi-Fi Provisioning Manager",
+                "type": "menu"
+            },
+            {
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "children": [],
+                                "depends_on": "<choice NIMBLE_CPP_LOG_LEVEL>",
+                                "help": null,
+                                "id": "NIMBLE_CPP_LOG_LEVEL_NONE",
+                                "name": "NIMBLE_CPP_LOG_LEVEL_NONE",
+                                "range": null,
+                                "title": "No logs",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice NIMBLE_CPP_LOG_LEVEL>",
+                                "help": null,
+                                "id": "NIMBLE_CPP_LOG_LEVEL_ERROR",
+                                "name": "NIMBLE_CPP_LOG_LEVEL_ERROR",
+                                "range": null,
+                                "title": "Error logs",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice NIMBLE_CPP_LOG_LEVEL>",
+                                "help": null,
+                                "id": "NIMBLE_CPP_LOG_LEVEL_WARNING",
+                                "name": "NIMBLE_CPP_LOG_LEVEL_WARNING",
+                                "range": null,
+                                "title": "Warning logs",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice NIMBLE_CPP_LOG_LEVEL>",
+                                "help": null,
+                                "id": "NIMBLE_CPP_LOG_LEVEL_INFO",
+                                "name": "NIMBLE_CPP_LOG_LEVEL_INFO",
+                                "range": null,
+                                "title": "Info logs",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice NIMBLE_CPP_LOG_LEVEL>",
+                                "help": null,
+                                "id": "NIMBLE_CPP_LOG_LEVEL_DEBUG",
+                                "name": "NIMBLE_CPP_LOG_LEVEL_DEBUG",
+                                "range": null,
+                                "title": "Debug logs",
+                                "type": "bool"
+                            }
+                        ],
+                        "depends_on": null,
+                        "help": "Select NimBLE CPP log verbosity level.",
+                        "id": "component-config-esp-nimble-cpp-configuration-nimble-cpp-log-verbosity",
+                        "name": "NIMBLE_CPP_LOG_LEVEL",
+                        "title": "NimBLE CPP log verbosity",
+                        "type": "choice"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": null,
+                        "id": "NIMBLE_CPP_LOG_LEVEL",
+                        "name": "NIMBLE_CPP_LOG_LEVEL",
+                        "range": null,
+                        "title": null,
+                        "type": "int"
+                    },
+                    {
+                        "children": [
+                            {
+                                "children": [
+                                    {
+                                        "children": [
+                                            {
+                                                "children": [],
+                                                "depends_on": "<choice NIMBLE_CPP_LOG_OVERRIDE_COLOR_ERR>",
+                                                "help": null,
+                                                "id": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_ERR_NONE",
+                                                "name": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_ERR_NONE",
+                                                "range": null,
+                                                "title": "None",
+                                                "type": "bool"
+                                            },
+                                            {
+                                                "children": [],
+                                                "depends_on": "<choice NIMBLE_CPP_LOG_OVERRIDE_COLOR_ERR>",
+                                                "help": null,
+                                                "id": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_ERR_BLACK",
+                                                "name": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_ERR_BLACK",
+                                                "range": null,
+                                                "title": "Black",
+                                                "type": "bool"
+                                            },
+                                            {
+                                                "children": [],
+                                                "depends_on": "<choice NIMBLE_CPP_LOG_OVERRIDE_COLOR_ERR>",
+                                                "help": null,
+                                                "id": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_ERR_RED",
+                                                "name": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_ERR_RED",
+                                                "range": null,
+                                                "title": "Red",
+                                                "type": "bool"
+                                            },
+                                            {
+                                                "children": [],
+                                                "depends_on": "<choice NIMBLE_CPP_LOG_OVERRIDE_COLOR_ERR>",
+                                                "help": null,
+                                                "id": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_ERR_GREEN",
+                                                "name": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_ERR_GREEN",
+                                                "range": null,
+                                                "title": "Green",
+                                                "type": "bool"
+                                            },
+                                            {
+                                                "children": [],
+                                                "depends_on": "<choice NIMBLE_CPP_LOG_OVERRIDE_COLOR_ERR>",
+                                                "help": null,
+                                                "id": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_ERR_YELLOW",
+                                                "name": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_ERR_YELLOW",
+                                                "range": null,
+                                                "title": "Yellow",
+                                                "type": "bool"
+                                            },
+                                            {
+                                                "children": [],
+                                                "depends_on": "<choice NIMBLE_CPP_LOG_OVERRIDE_COLOR_ERR>",
+                                                "help": null,
+                                                "id": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_ERR_BLUE",
+                                                "name": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_ERR_BLUE",
+                                                "range": null,
+                                                "title": "Blue",
+                                                "type": "bool"
+                                            },
+                                            {
+                                                "children": [],
+                                                "depends_on": "<choice NIMBLE_CPP_LOG_OVERRIDE_COLOR_ERR>",
+                                                "help": null,
+                                                "id": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_ERR_PURPLE",
+                                                "name": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_ERR_PURPLE",
+                                                "range": null,
+                                                "title": "Purple",
+                                                "type": "bool"
+                                            },
+                                            {
+                                                "children": [],
+                                                "depends_on": "<choice NIMBLE_CPP_LOG_OVERRIDE_COLOR_ERR>",
+                                                "help": null,
+                                                "id": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_ERR_CYAN",
+                                                "name": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_ERR_CYAN",
+                                                "range": null,
+                                                "title": "Cyan",
+                                                "type": "bool"
+                                            }
+                                        ],
+                                        "depends_on": "NIMBLE_CPP_LOG_OVERRIDE_COLOR",
+                                        "help": "Select NimBLE CPP log override error color.",
+                                        "id": "component-config-esp-nimble-cpp-configuration-enable-log-color-override--nimble-log-override-colors-nimble-cpp-log-override-color-error",
+                                        "name": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_ERR",
+                                        "title": "NimBLE CPP log override color Error",
+                                        "type": "choice"
+                                    },
+                                    {
+                                        "children": [
+                                            {
+                                                "children": [],
+                                                "depends_on": "<choice NIMBLE_CPP_LOG_OVERRIDE_COLOR_WARN>",
+                                                "help": null,
+                                                "id": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_WARN_NONE",
+                                                "name": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_WARN_NONE",
+                                                "range": null,
+                                                "title": "None",
+                                                "type": "bool"
+                                            },
+                                            {
+                                                "children": [],
+                                                "depends_on": "<choice NIMBLE_CPP_LOG_OVERRIDE_COLOR_WARN>",
+                                                "help": null,
+                                                "id": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_WARN_BLACK",
+                                                "name": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_WARN_BLACK",
+                                                "range": null,
+                                                "title": "Black",
+                                                "type": "bool"
+                                            },
+                                            {
+                                                "children": [],
+                                                "depends_on": "<choice NIMBLE_CPP_LOG_OVERRIDE_COLOR_WARN>",
+                                                "help": null,
+                                                "id": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_WARN_RED",
+                                                "name": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_WARN_RED",
+                                                "range": null,
+                                                "title": "Red",
+                                                "type": "bool"
+                                            },
+                                            {
+                                                "children": [],
+                                                "depends_on": "<choice NIMBLE_CPP_LOG_OVERRIDE_COLOR_WARN>",
+                                                "help": null,
+                                                "id": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_WARN_GREEN",
+                                                "name": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_WARN_GREEN",
+                                                "range": null,
+                                                "title": "Green",
+                                                "type": "bool"
+                                            },
+                                            {
+                                                "children": [],
+                                                "depends_on": "<choice NIMBLE_CPP_LOG_OVERRIDE_COLOR_WARN>",
+                                                "help": null,
+                                                "id": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_WARN_YELLOW",
+                                                "name": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_WARN_YELLOW",
+                                                "range": null,
+                                                "title": "Yellow",
+                                                "type": "bool"
+                                            },
+                                            {
+                                                "children": [],
+                                                "depends_on": "<choice NIMBLE_CPP_LOG_OVERRIDE_COLOR_WARN>",
+                                                "help": null,
+                                                "id": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_WARN_BLUE",
+                                                "name": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_WARN_BLUE",
+                                                "range": null,
+                                                "title": "Blue",
+                                                "type": "bool"
+                                            },
+                                            {
+                                                "children": [],
+                                                "depends_on": "<choice NIMBLE_CPP_LOG_OVERRIDE_COLOR_WARN>",
+                                                "help": null,
+                                                "id": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_WARN_PURPLE",
+                                                "name": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_WARN_PURPLE",
+                                                "range": null,
+                                                "title": "Purple",
+                                                "type": "bool"
+                                            },
+                                            {
+                                                "children": [],
+                                                "depends_on": "<choice NIMBLE_CPP_LOG_OVERRIDE_COLOR_WARN>",
+                                                "help": null,
+                                                "id": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_WARN_CYAN",
+                                                "name": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_WARN_CYAN",
+                                                "range": null,
+                                                "title": "Cyan",
+                                                "type": "bool"
+                                            }
+                                        ],
+                                        "depends_on": "NIMBLE_CPP_LOG_OVERRIDE_COLOR",
+                                        "help": "Select NimBLE CPP log override warning color.",
+                                        "id": "component-config-esp-nimble-cpp-configuration-enable-log-color-override--nimble-log-override-colors-nimble-cpp-log-override-color-warning",
+                                        "name": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_WARN",
+                                        "title": "NimBLE CPP log override color Warning",
+                                        "type": "choice"
+                                    },
+                                    {
+                                        "children": [
+                                            {
+                                                "children": [],
+                                                "depends_on": "<choice NIMBLE_CPP_LOG_OVERRIDE_COLOR_INFO>",
+                                                "help": null,
+                                                "id": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_INFO_NONE",
+                                                "name": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_INFO_NONE",
+                                                "range": null,
+                                                "title": "None",
+                                                "type": "bool"
+                                            },
+                                            {
+                                                "children": [],
+                                                "depends_on": "<choice NIMBLE_CPP_LOG_OVERRIDE_COLOR_INFO>",
+                                                "help": null,
+                                                "id": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_INFO_BLACK",
+                                                "name": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_INFO_BLACK",
+                                                "range": null,
+                                                "title": "Black",
+                                                "type": "bool"
+                                            },
+                                            {
+                                                "children": [],
+                                                "depends_on": "<choice NIMBLE_CPP_LOG_OVERRIDE_COLOR_INFO>",
+                                                "help": null,
+                                                "id": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_INFO_RED",
+                                                "name": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_INFO_RED",
+                                                "range": null,
+                                                "title": "Red",
+                                                "type": "bool"
+                                            },
+                                            {
+                                                "children": [],
+                                                "depends_on": "<choice NIMBLE_CPP_LOG_OVERRIDE_COLOR_INFO>",
+                                                "help": null,
+                                                "id": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_INFO_GREEN",
+                                                "name": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_INFO_GREEN",
+                                                "range": null,
+                                                "title": "Green",
+                                                "type": "bool"
+                                            },
+                                            {
+                                                "children": [],
+                                                "depends_on": "<choice NIMBLE_CPP_LOG_OVERRIDE_COLOR_INFO>",
+                                                "help": null,
+                                                "id": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_INFO_YELLOW",
+                                                "name": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_INFO_YELLOW",
+                                                "range": null,
+                                                "title": "Yellow",
+                                                "type": "bool"
+                                            },
+                                            {
+                                                "children": [],
+                                                "depends_on": "<choice NIMBLE_CPP_LOG_OVERRIDE_COLOR_INFO>",
+                                                "help": null,
+                                                "id": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_INFO_BLUE",
+                                                "name": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_INFO_BLUE",
+                                                "range": null,
+                                                "title": "Blue",
+                                                "type": "bool"
+                                            },
+                                            {
+                                                "children": [],
+                                                "depends_on": "<choice NIMBLE_CPP_LOG_OVERRIDE_COLOR_INFO>",
+                                                "help": null,
+                                                "id": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_INFO_PURPLE",
+                                                "name": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_INFO_PURPLE",
+                                                "range": null,
+                                                "title": "Purple",
+                                                "type": "bool"
+                                            },
+                                            {
+                                                "children": [],
+                                                "depends_on": "<choice NIMBLE_CPP_LOG_OVERRIDE_COLOR_INFO>",
+                                                "help": null,
+                                                "id": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_INFO_CYAN",
+                                                "name": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_INFO_CYAN",
+                                                "range": null,
+                                                "title": "Cyan",
+                                                "type": "bool"
+                                            }
+                                        ],
+                                        "depends_on": "NIMBLE_CPP_LOG_OVERRIDE_COLOR",
+                                        "help": "Select NimBLE CPP log override info color.",
+                                        "id": "component-config-esp-nimble-cpp-configuration-enable-log-color-override--nimble-log-override-colors-nimble-cpp-log-override-color-info",
+                                        "name": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_INFO",
+                                        "title": "NimBLE CPP log override color Info",
+                                        "type": "choice"
+                                    },
+                                    {
+                                        "children": [
+                                            {
+                                                "children": [],
+                                                "depends_on": "<choice NIMBLE_CPP_LOG_OVERRIDE_COLOR_DEBUG>",
+                                                "help": null,
+                                                "id": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_DEBUG_NONE",
+                                                "name": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_DEBUG_NONE",
+                                                "range": null,
+                                                "title": "None",
+                                                "type": "bool"
+                                            },
+                                            {
+                                                "children": [],
+                                                "depends_on": "<choice NIMBLE_CPP_LOG_OVERRIDE_COLOR_DEBUG>",
+                                                "help": null,
+                                                "id": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_DEBUG_BLACK",
+                                                "name": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_DEBUG_BLACK",
+                                                "range": null,
+                                                "title": "Black",
+                                                "type": "bool"
+                                            },
+                                            {
+                                                "children": [],
+                                                "depends_on": "<choice NIMBLE_CPP_LOG_OVERRIDE_COLOR_DEBUG>",
+                                                "help": null,
+                                                "id": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_DEBUG_RED",
+                                                "name": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_DEBUG_RED",
+                                                "range": null,
+                                                "title": "Red",
+                                                "type": "bool"
+                                            },
+                                            {
+                                                "children": [],
+                                                "depends_on": "<choice NIMBLE_CPP_LOG_OVERRIDE_COLOR_DEBUG>",
+                                                "help": null,
+                                                "id": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_DEBUG_GREEN",
+                                                "name": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_DEBUG_GREEN",
+                                                "range": null,
+                                                "title": "Green",
+                                                "type": "bool"
+                                            },
+                                            {
+                                                "children": [],
+                                                "depends_on": "<choice NIMBLE_CPP_LOG_OVERRIDE_COLOR_DEBUG>",
+                                                "help": null,
+                                                "id": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_DEBUG_YELLOW",
+                                                "name": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_DEBUG_YELLOW",
+                                                "range": null,
+                                                "title": "Yellow",
+                                                "type": "bool"
+                                            },
+                                            {
+                                                "children": [],
+                                                "depends_on": "<choice NIMBLE_CPP_LOG_OVERRIDE_COLOR_DEBUG>",
+                                                "help": null,
+                                                "id": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_DEBUG_BLUE",
+                                                "name": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_DEBUG_BLUE",
+                                                "range": null,
+                                                "title": "Blue",
+                                                "type": "bool"
+                                            },
+                                            {
+                                                "children": [],
+                                                "depends_on": "<choice NIMBLE_CPP_LOG_OVERRIDE_COLOR_DEBUG>",
+                                                "help": null,
+                                                "id": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_DEBUG_PURPLE",
+                                                "name": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_DEBUG_PURPLE",
+                                                "range": null,
+                                                "title": "Purple",
+                                                "type": "bool"
+                                            },
+                                            {
+                                                "children": [],
+                                                "depends_on": "<choice NIMBLE_CPP_LOG_OVERRIDE_COLOR_DEBUG>",
+                                                "help": null,
+                                                "id": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_DEBUG_CYAN",
+                                                "name": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_DEBUG_CYAN",
+                                                "range": null,
+                                                "title": "Cyan",
+                                                "type": "bool"
+                                            }
+                                        ],
+                                        "depends_on": "NIMBLE_CPP_LOG_OVERRIDE_COLOR",
+                                        "help": "Select NimBLE CPP log override debug color.",
+                                        "id": "component-config-esp-nimble-cpp-configuration-enable-log-color-override--nimble-log-override-colors-nimble-cpp-log-override-color-debug",
+                                        "name": "NIMBLE_CPP_LOG_OVERRIDE_COLOR_DEBUG",
+                                        "title": "NimBLE CPP log override color Debug",
+                                        "type": "choice"
+                                    }
+                                ],
+                                "depends_on": "NIMBLE_CPP_LOG_OVERRIDE_COLOR",
+                                "id": "component-config-esp-nimble-cpp-configuration-enable-log-color-override--nimble-log-override-colors",
+                                "title": "NIMBLE Log Override Colors",
+                                "type": "menu"
+                            }
+                        ],
+                        "depends_on": null,
+                        "help": "Enabling this option will allow NimBLE log levels to have\nspecific colors assigned.",
+                        "id": "NIMBLE_CPP_LOG_OVERRIDE_COLOR",
+                        "name": "NIMBLE_CPP_LOG_OVERRIDE_COLOR",
+                        "range": null,
+                        "title": "Enable log color override.",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Enabling this option will display return code values as text\nmessages in the debug log. This will use approximately 8kB\nof flash memory.",
+                        "id": "NIMBLE_CPP_ENABLE_RETURN_CODE_TEXT",
+                        "name": "NIMBLE_CPP_ENABLE_RETURN_CODE_TEXT",
+                        "range": null,
+                        "title": "Show NimBLE return codes as text in debug log.",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Enabling this option will display gap event codes as text\nmessages in the debug log. This will use approximately 1kB\nof flash memory.",
+                        "id": "NIMBLE_CPP_ENABLE_GAP_EVENT_CODE_TEXT",
+                        "name": "NIMBLE_CPP_ENABLE_GAP_EVENT_CODE_TEXT",
+                        "range": null,
+                        "title": "Show NimBLE gap events as text in debug log.",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Enabling this option will display advertisment types recieved\nwhile scanning as text messages in the debug log.\nThis will use approximately 250 bytes of flash memory.",
+                        "id": "NIMBLE_CPP_ENABLE_ADVERTISEMENT_TYPE_TEXT",
+                        "name": "NIMBLE_CPP_ENABLE_ADVERTISEMENT_TYPE_TEXT",
+                        "range": null,
+                        "title": "Show advertisment types as text in debug log.",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Enabling this option will format MAC addresses without\ncolon characters when printing.",
+                        "id": "NIMBLE_CPP_ADDR_FMT_EXCLUDE_DELIMITER",
+                        "name": "NIMBLE_CPP_ADDR_FMT_EXCLUDE_DELIMITER",
+                        "range": null,
+                        "title": "Exclude colon characters when printing address.",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Enabling this option will format MAC addresses in\nuppercase letters when printing.",
+                        "id": "NIMBLE_CPP_ADDR_FMT_UPPERCASE",
+                        "name": "NIMBLE_CPP_ADDR_FMT_UPPERCASE",
+                        "range": null,
+                        "title": "Use uppercase letters when printing address.",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Enabling this option will store the timestamp when an attribute value is updated.\nThis allows for checking the last update time using getTimeStamp()\nor getValue(time_t*). If disabled, the timestamp returned from these functions will be 0.\nDisabling timestamps will reduce the memory used for each value.",
+                        "id": "NIMBLE_CPP_ATT_VALUE_TIMESTAMP_ENABLED",
+                        "name": "NIMBLE_CPP_ATT_VALUE_TIMESTAMP_ENABLED",
+                        "range": null,
+                        "title": "Enable timestamps to be stored with attribute values.",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Sets the default allocation size (bytes) for each attribute if not specified\nwhen the constructor is called. This is also the size used when a remote\ncharacteristic or descriptor is constructed before a value is read/notifed.\nIncreasing this will reduce reallocations but increase memory footprint.",
+                        "id": "NIMBLE_CPP_ATT_VALUE_INIT_LENGTH",
+                        "name": "NIMBLE_CPP_ATT_VALUE_INIT_LENGTH",
+                        "range": [
+                            1,
+                            512
+                        ],
+                        "title": "Initial attribute value size (bytes) for empty values.",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Enabling this option will add debug asserts to the NimBLE CPP library.\nThis will use approximately 1kB of flash memory.",
+                        "id": "NIMBLE_CPP_DEBUG_ASSERT_ENABLED",
+                        "name": "NIMBLE_CPP_DEBUG_ASSERT_ENABLED",
+                        "range": null,
+                        "title": "Enable debug asserts.",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Configure the bit to set in the task notification value when a task is blocked waiting for an event.\nThis should be set to a bit that is not used by other notifications in the system.",
+                        "id": "NIMBLE_CPP_FREERTOS_TASK_BLOCK_BIT",
+                        "name": "NIMBLE_CPP_FREERTOS_TASK_BLOCK_BIT",
+                        "range": null,
+                        "title": "FreeRTOS task block bit.",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": null,
+                        "id": "NIMBLE_CPP_IDF",
+                        "name": "NIMBLE_CPP_IDF",
+                        "range": null,
+                        "title": null,
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Select this option to enable Bluetooth and show the submenu with Bluetooth configuration choices.",
+                        "id": "BT_ENABLED",
+                        "name": "BT_ENABLED",
+                        "range": null,
+                        "title": "Bluetooth",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "This option is recommended for BLE only usecases to save on memory",
+                        "id": "BT_NIMBLE_ENABLED",
+                        "name": "BT_NIMBLE_ENABLED",
+                        "range": null,
+                        "title": "NimBLE - BLE only",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "IDF_TARGET_ESP32P4",
+                        "help": null,
+                        "id": "BT_NIMBLE_TRANSPORT_UART",
+                        "name": "BT_NIMBLE_TRANSPORT_UART",
+                        "range": null,
+                        "title": "Enable Uart Transport",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "IDF_TARGET_ESP32P4",
+                        "help": "Enable Bluetooth Support via Hosted",
+                        "id": "ESP_ENABLE_BT",
+                        "name": "ESP_ENABLE_BT",
+                        "range": null,
+                        "title": "Enable Hosted Bluetooth support",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [
+                            {
+                                "children": [],
+                                "depends_on": "<choice ESP_WIFI_REMOTE_LIBRARY>",
+                                "help": null,
+                                "id": "ESP_WIFI_REMOTE_LIBRARY_HOSTED",
+                                "name": "ESP_WIFI_REMOTE_LIBRARY_HOSTED",
+                                "range": null,
+                                "title": "ESP-HOSTED",
+                                "type": "bool"
+                            }
+                        ],
+                        "depends_on": "IDF_TARGET_ESP32P4",
+                        "help": "Select type of WiFi Remote implementation\n\nESP-HOSTED is the default and most versatile option.\nIt's also possible to use EPPP, which uses PPPoS link between micros and NAPT, so it's slower\nand less universal.",
+                        "id": "component-config-esp-nimble-cpp-configuration-choose-wifi-remote-implementation",
+                        "name": "ESP_WIFI_REMOTE_LIBRARY",
+                        "title": "Choose WiFi-remote implementation",
+                        "type": "choice"
+                    }
+                ],
+                "depends_on": null,
+                "id": "component-config-esp-nimble-cpp-configuration",
+                "title": "ESP-NimBLE-CPP configuration",
                 "type": "menu"
             }
         ],

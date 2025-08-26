@@ -1,49 +1,38 @@
-import serial
-import time
+import asyncio
+from bleak import BleakScanner, BleakClient
 
-SERIAL_PORT = "/dev/ttyUSB0"  # À adapter si besoin
-BAUDRATE = 115200
+ESP32_ADDR = "A4:CF:12:55:EF:E6"  # adapte ici si besoin (insensible à la casse)
 
-# Liste de commandes à tester (mets ici toutes tes commandes)
-COMMANDS = [
-    "AT",                   # Test basique
-    "AT+HELP",              # Liste les commandes
-    "AT+CWLAP",             # Scan Wi-Fi
-    # "AT+CWJAP=\"SSID\",\"PASSWORD\"",  # Connexion Wi-Fi (à adapter)
-    "AT+CWQAP",             # Déconnexion Wi-Fi
-    "AT+CWSTATE?",          # État connexion
-    "AT+CIFSR",             # Adresse IP
-]
+async def explore_ble(addr):
+    print(f"Recherche l'ESP32 ({addr})...")
+    # Scan rapide pour être sûr que le device est là
+    found = False
+    devices = await BleakScanner.discover(timeout=10)
+    for d in devices:
+        if d.address.lower() == addr.lower():
+            found = True
+            print(f"ESP32 trouvé ! Nom: {d.name}, RSSI: {getattr(d, 'rssi', '-')}")
+            break
+    if not found:
+        print("Device non trouvé. Relance advertising ou vérifie le code côté ESP32.")
+        return
 
-# Si tu veux tester la connexion Wi-Fi, décommente et adapte :
-SSID = "MonWifi"
-PASSWORD = "MonMotDePasse"
-COMMANDS.insert(3, f'AT+CWJAP="{SSID}","{PASSWORD}"')
-
-def wait_response(ser, timeout=10.0):
-    start = time.time()
-    lines = []
-    while time.time() - start < timeout:
-        if ser.in_waiting:
-            line = ser.readline().decode(errors="ignore").strip()
-            print(f"    [RECU] '{line}'")
-            lines.append(line)
-            # Arrête dès qu'on a "OK" ou "ERROR"
-            if line.upper() in ["OK", "ERROR"]:
-                break
-        else:
-            time.sleep(0.05)
-    return lines
-
-def main():
-    with serial.Serial(SERIAL_PORT, BAUDRATE, timeout=0.5) as ser:
-        time.sleep(2)
-        ser.reset_input_buffer()
-        for cmd in COMMANDS:
-            print(f"\n[ENVOI] {cmd}")
-            ser.write((cmd + "\r\n").encode())
-            ser.flush()
-            wait_response(ser, timeout=15.0)  # Timeout généreux pour le Wi-Fi
+    print(f"Connexion à {addr} ...")
+    async with BleakClient(addr) as client:
+        print("Connecté ! Lecture des services et caractéristiques :")
+        for service in client.services:
+            print(f"- Service: {service.uuid} ({service.description})")
+            for char in service.characteristics:
+                props = ",".join(char.properties)
+                value = None
+                if "read" in char.properties:
+                    try:
+                        value = await client.read_gatt_char(char.uuid)
+                        value = value.hex()
+                    except Exception as e:
+                        value = f"<read error: {e}>"
+                print(f"    - Char: {char.uuid} ({char.description})  Props: {props}  Value: {value}")
+    print("Fini.")
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(explore_ble(ESP32_ADDR))

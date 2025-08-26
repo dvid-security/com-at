@@ -202,9 +202,10 @@ esp-idf/all: esp-idf/usb/all
 esp-idf/all: esp-idf/wifi_provisioning/all
 esp-idf/all: esp-idf/at_server/all
 esp-idf/all: esp-idf/at_wifi/all
-esp-idf/all: esp-idf/main/all
 esp-idf/all: esp-idf/at_ble/all
+esp-idf/all: esp-idf/main/all
 esp-idf/all: esp-idf/at_mqtt/all
+esp-idf/all: esp-idf/esp-nimble-cpp/all
 .PHONY : esp-idf/all
 
 # Recursive "preinstall" directory target.
@@ -310,9 +311,10 @@ esp-idf/preinstall: esp-idf/usb/preinstall
 esp-idf/preinstall: esp-idf/wifi_provisioning/preinstall
 esp-idf/preinstall: esp-idf/at_server/preinstall
 esp-idf/preinstall: esp-idf/at_wifi/preinstall
-esp-idf/preinstall: esp-idf/main/preinstall
 esp-idf/preinstall: esp-idf/at_ble/preinstall
+esp-idf/preinstall: esp-idf/main/preinstall
 esp-idf/preinstall: esp-idf/at_mqtt/preinstall
+esp-idf/preinstall: esp-idf/esp-nimble-cpp/preinstall
 .PHONY : esp-idf/preinstall
 
 # Recursive "clean" directory target.
@@ -418,9 +420,10 @@ esp-idf/clean: esp-idf/usb/clean
 esp-idf/clean: esp-idf/wifi_provisioning/clean
 esp-idf/clean: esp-idf/at_server/clean
 esp-idf/clean: esp-idf/at_wifi/clean
-esp-idf/clean: esp-idf/main/clean
 esp-idf/clean: esp-idf/at_ble/clean
+esp-idf/clean: esp-idf/main/clean
 esp-idf/clean: esp-idf/at_mqtt/clean
+esp-idf/clean: esp-idf/esp-nimble-cpp/clean
 .PHONY : esp-idf/clean
 
 #=============================================================================
@@ -549,7 +552,7 @@ esp-idf/bootloader_support/clean: esp-idf/bootloader_support/CMakeFiles/__idf_bo
 # Directory level rules for directory esp-idf/bt
 
 # Recursive "all" directory target.
-esp-idf/bt/all:
+esp-idf/bt/all: esp-idf/bt/CMakeFiles/__idf_bt.dir/all
 .PHONY : esp-idf/bt/all
 
 # Recursive "preinstall" directory target.
@@ -557,7 +560,7 @@ esp-idf/bt/preinstall:
 .PHONY : esp-idf/bt/preinstall
 
 # Recursive "clean" directory target.
-esp-idf/bt/clean:
+esp-idf/bt/clean: esp-idf/bt/CMakeFiles/__idf_bt.dir/clean
 .PHONY : esp-idf/bt/clean
 
 #=============================================================================
@@ -641,6 +644,21 @@ esp-idf/efuse/clean: esp-idf/efuse/CMakeFiles/show-efuse-table.dir/clean
 esp-idf/efuse/clean: esp-idf/efuse/CMakeFiles/show_efuse_table.dir/clean
 esp-idf/efuse/clean: esp-idf/efuse/CMakeFiles/efuse_test_table.dir/clean
 .PHONY : esp-idf/efuse/clean
+
+#=============================================================================
+# Directory level rules for directory esp-idf/esp-nimble-cpp
+
+# Recursive "all" directory target.
+esp-idf/esp-nimble-cpp/all: esp-idf/esp-nimble-cpp/CMakeFiles/__idf_esp-nimble-cpp.dir/all
+.PHONY : esp-idf/esp-nimble-cpp/all
+
+# Recursive "preinstall" directory target.
+esp-idf/esp-nimble-cpp/preinstall:
+.PHONY : esp-idf/esp-nimble-cpp/preinstall
+
+# Recursive "clean" directory target.
+esp-idf/esp-nimble-cpp/clean: esp-idf/esp-nimble-cpp/CMakeFiles/__idf_esp-nimble-cpp.dir/clean
+.PHONY : esp-idf/esp-nimble-cpp/clean
 
 #=============================================================================
 # Directory level rules for directory esp-idf/esp-tls
@@ -2315,12 +2333,12 @@ CMakeFiles/save-defconfig.dir/clean:
 CMakeFiles/bootloader.dir/all: esp-idf/partition_table/CMakeFiles/partition_table_bin.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/bootloader.dir/build.make CMakeFiles/bootloader.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/bootloader.dir/build.make CMakeFiles/bootloader.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=85 "Built target bootloader"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num= "Built target bootloader"
 .PHONY : CMakeFiles/bootloader.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/bootloader.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/bootloader.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : CMakeFiles/bootloader.dir/rule
@@ -2346,7 +2364,7 @@ CMakeFiles/gen_project_binary.dir/all: CMakeFiles/com-at.elf.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/gen_project_binary.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 98
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 99
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/gen_project_binary.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : CMakeFiles/gen_project_binary.dir/rule
@@ -2373,7 +2391,7 @@ CMakeFiles/app.dir/all: esp-idf/esptool_py/CMakeFiles/app_check_size.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/app.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 98
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 99
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/app.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : CMakeFiles/app.dir/rule
@@ -2452,7 +2470,7 @@ CMakeFiles/monitor.dir/all: CMakeFiles/com-at.elf.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/monitor.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 98
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 99
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/monitor.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : CMakeFiles/monitor.dir/rule
@@ -2554,6 +2572,7 @@ CMakeFiles/com-at.elf.dir/all: CMakeFiles/_project_elf_src.dir/all
 CMakeFiles/com-at.elf.dir/all: esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/all
 CMakeFiles/com-at.elf.dir/all: esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all
 CMakeFiles/com-at.elf.dir/all: esp-idf/app_trace/CMakeFiles/__idf_app_trace.dir/all
+CMakeFiles/com-at.elf.dir/all: esp-idf/bt/CMakeFiles/__idf_bt.dir/all
 CMakeFiles/com-at.elf.dir/all: esp-idf/unity/CMakeFiles/__idf_unity.dir/all
 CMakeFiles/com-at.elf.dir/all: esp-idf/cmock/CMakeFiles/__idf_cmock.dir/all
 CMakeFiles/com-at.elf.dir/all: esp-idf/console/CMakeFiles/__idf_console.dir/all
@@ -2575,17 +2594,18 @@ CMakeFiles/com-at.elf.dir/all: esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/all
 CMakeFiles/com-at.elf.dir/all: esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/all
 CMakeFiles/com-at.elf.dir/all: esp-idf/at_server/CMakeFiles/__idf_at_server.dir/all
 CMakeFiles/com-at.elf.dir/all: esp-idf/at_wifi/CMakeFiles/__idf_at_wifi.dir/all
-CMakeFiles/com-at.elf.dir/all: esp-idf/main/CMakeFiles/__idf_main.dir/all
 CMakeFiles/com-at.elf.dir/all: esp-idf/at_ble/CMakeFiles/__idf_at_ble.dir/all
+CMakeFiles/com-at.elf.dir/all: esp-idf/main/CMakeFiles/__idf_main.dir/all
 CMakeFiles/com-at.elf.dir/all: esp-idf/at_mqtt/CMakeFiles/__idf_at_mqtt.dir/all
+CMakeFiles/com-at.elf.dir/all: esp-idf/esp-nimble-cpp/CMakeFiles/__idf_esp-nimble-cpp.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/com-at.elf.dir/build.make CMakeFiles/com-at.elf.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/com-at.elf.dir/build.make CMakeFiles/com-at.elf.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num= "Built target com-at.elf"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=87 "Built target com-at.elf"
 .PHONY : CMakeFiles/com-at.elf.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/com-at.elf.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 98
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 99
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/com-at.elf.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : CMakeFiles/com-at.elf.dir/rule
@@ -2736,12 +2756,12 @@ CMakeFiles/uf2-app.dir/clean:
 esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/all: esp-idf/esp_driver_gpio/CMakeFiles/__idf_esp_driver_gpio.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/build.make esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/build.make esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=84 "Built target __idf_xtensa"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=86 "Built target __idf_xtensa"
 .PHONY : esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 85
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 75
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/rule
@@ -2767,7 +2787,7 @@ esp-idf/esp_driver_gpio/CMakeFiles/__idf_esp_driver_gpio.dir/all: esp-idf/esp_pm
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_driver_gpio/CMakeFiles/__idf_esp_driver_gpio.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 84
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 74
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_driver_gpio/CMakeFiles/__idf_esp_driver_gpio.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/esp_driver_gpio/CMakeFiles/__idf_esp_driver_gpio.dir/rule
@@ -2788,12 +2808,12 @@ esp-idf/esp_driver_gpio/CMakeFiles/__idf_esp_driver_gpio.dir/clean:
 esp-idf/esp_pm/CMakeFiles/__idf_esp_pm.dir/all: esp-idf/mbedtls/CMakeFiles/__idf_mbedtls.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_pm/CMakeFiles/__idf_esp_pm.dir/build.make esp-idf/esp_pm/CMakeFiles/__idf_esp_pm.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_pm/CMakeFiles/__idf_esp_pm.dir/build.make esp-idf/esp_pm/CMakeFiles/__idf_esp_pm.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num= "Built target __idf_esp_pm"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=39 "Built target __idf_esp_pm"
 .PHONY : esp-idf/esp_pm/CMakeFiles/__idf_esp_pm.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_pm/CMakeFiles/__idf_esp_pm.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 84
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 74
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_pm/CMakeFiles/__idf_esp_pm.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/esp_pm/CMakeFiles/__idf_esp_pm.dir/rule
@@ -2819,7 +2839,7 @@ esp-idf/mbedtls/CMakeFiles/__idf_mbedtls.dir/all: esp-idf/mbedtls/mbedtls/3rdpar
 
 # Build rule for subdir invocation for target.
 esp-idf/mbedtls/CMakeFiles/__idf_mbedtls.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 84
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 73
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/mbedtls/CMakeFiles/__idf_mbedtls.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/mbedtls/CMakeFiles/__idf_mbedtls.dir/rule
@@ -2892,12 +2912,12 @@ esp-idf/mbedtls/mbedtls/CMakeFiles/apidoc.dir/clean:
 esp-idf/mbedtls/mbedtls/3rdparty/everest/CMakeFiles/everest.dir/all: esp-idf/mbedtls/mbedtls/3rdparty/p256-m/CMakeFiles/p256m.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/mbedtls/mbedtls/3rdparty/everest/CMakeFiles/everest.dir/build.make esp-idf/mbedtls/mbedtls/3rdparty/everest/CMakeFiles/everest.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/mbedtls/mbedtls/3rdparty/everest/CMakeFiles/everest.dir/build.make esp-idf/mbedtls/mbedtls/3rdparty/everest/CMakeFiles/everest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=86 "Built target everest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num= "Built target everest"
 .PHONY : esp-idf/mbedtls/mbedtls/3rdparty/everest/CMakeFiles/everest.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/mbedtls/mbedtls/3rdparty/everest/CMakeFiles/everest.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 84
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 73
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/mbedtls/mbedtls/3rdparty/everest/CMakeFiles/everest.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/mbedtls/mbedtls/3rdparty/everest/CMakeFiles/everest.dir/rule
@@ -2923,7 +2943,7 @@ esp-idf/mbedtls/mbedtls/3rdparty/p256-m/CMakeFiles/p256m.dir/all: esp-idf/mbedtl
 
 # Build rule for subdir invocation for target.
 esp-idf/mbedtls/mbedtls/3rdparty/p256-m/CMakeFiles/p256m.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 83
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 73
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/mbedtls/mbedtls/3rdparty/p256-m/CMakeFiles/p256m.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/mbedtls/mbedtls/3rdparty/p256-m/CMakeFiles/p256m.dir/rule
@@ -2944,12 +2964,12 @@ esp-idf/mbedtls/mbedtls/3rdparty/p256-m/CMakeFiles/p256m.dir/clean:
 esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/all: esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedx509.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/build.make esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/build.make esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=87,88,89,90,91,92,93,94,95 "Built target mbedcrypto"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=88,89,90,91,92,93,94,95,96 "Built target mbedcrypto"
 .PHONY : esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 83
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 73
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/rule
@@ -2975,7 +2995,7 @@ esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedx509.dir/all: esp-idf/mbedtls/mbe
 
 # Build rule for subdir invocation for target.
 esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedx509.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 74
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 64
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedx509.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedx509.dir/rule
@@ -2996,12 +3016,12 @@ esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedx509.dir/clean:
 esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/all: esp-idf/esp_app_format/CMakeFiles/__idf_esp_app_format.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/build.make esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/build.make esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=96,97,98 "Built target mbedtls"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=97,98 "Built target mbedtls"
 .PHONY : esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 73
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 63
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/rule
@@ -3027,7 +3047,7 @@ esp-idf/mbedtls/mbedtls/library/CMakeFiles/lib.dir/all: esp-idf/xtensa/CMakeFile
 
 # Build rule for subdir invocation for target.
 esp-idf/mbedtls/mbedtls/library/CMakeFiles/lib.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 85
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 75
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/mbedtls/mbedtls/library/CMakeFiles/lib.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/mbedtls/mbedtls/library/CMakeFiles/lib.dir/rule
@@ -3053,7 +3073,7 @@ esp-idf/bootloader/CMakeFiles/bootloader-flash.dir/all: CMakeFiles/bootloader.di
 
 # Build rule for subdir invocation for target.
 esp-idf/bootloader/CMakeFiles/bootloader-flash.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/bootloader/CMakeFiles/bootloader-flash.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/bootloader/CMakeFiles/bootloader-flash.dir/rule
@@ -3105,7 +3125,7 @@ esp-idf/esptool_py/CMakeFiles/app-flash.dir/all: CMakeFiles/app.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/esptool_py/CMakeFiles/app-flash.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 98
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 99
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esptool_py/CMakeFiles/app-flash.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/esptool_py/CMakeFiles/app-flash.dir/rule
@@ -3158,7 +3178,7 @@ esp-idf/esptool_py/CMakeFiles/app_check_size.dir/all: esp-idf/partition_table/CM
 
 # Build rule for subdir invocation for target.
 esp-idf/esptool_py/CMakeFiles/app_check_size.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 98
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 99
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esptool_py/CMakeFiles/app_check_size.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/esptool_py/CMakeFiles/app_check_size.dir/rule
@@ -3340,7 +3360,7 @@ esp-idf/esp_app_format/CMakeFiles/__idf_esp_app_format.dir/all: esp-idf/esp_boot
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_app_format/CMakeFiles/__idf_esp_app_format.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 70
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 61
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_app_format/CMakeFiles/__idf_esp_app_format.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/esp_app_format/CMakeFiles/__idf_esp_app_format.dir/rule
@@ -3361,12 +3381,12 @@ esp-idf/esp_app_format/CMakeFiles/__idf_esp_app_format.dir/clean:
 esp-idf/esp_bootloader_format/CMakeFiles/__idf_esp_bootloader_format.dir/all: esp-idf/app_update/CMakeFiles/__idf_app_update.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_bootloader_format/CMakeFiles/__idf_esp_bootloader_format.dir/build.make esp-idf/esp_bootloader_format/CMakeFiles/__idf_esp_bootloader_format.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_bootloader_format/CMakeFiles/__idf_esp_bootloader_format.dir/build.make esp-idf/esp_bootloader_format/CMakeFiles/__idf_esp_bootloader_format.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num= "Built target __idf_esp_bootloader_format"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=21 "Built target __idf_esp_bootloader_format"
 .PHONY : esp-idf/esp_bootloader_format/CMakeFiles/__idf_esp_bootloader_format.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_bootloader_format/CMakeFiles/__idf_esp_bootloader_format.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 70
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 61
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_bootloader_format/CMakeFiles/__idf_esp_bootloader_format.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/esp_bootloader_format/CMakeFiles/__idf_esp_bootloader_format.dir/rule
@@ -3392,7 +3412,7 @@ esp-idf/app_update/CMakeFiles/__idf_app_update.dir/all: esp-idf/esp_partition/CM
 
 # Build rule for subdir invocation for target.
 esp-idf/app_update/CMakeFiles/__idf_app_update.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 70
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 60
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/app_update/CMakeFiles/__idf_app_update.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/app_update/CMakeFiles/__idf_app_update.dir/rule
@@ -3413,12 +3433,12 @@ esp-idf/app_update/CMakeFiles/__idf_app_update.dir/clean:
 esp-idf/esp_partition/CMakeFiles/__idf_esp_partition.dir/all: esp-idf/efuse/CMakeFiles/__idf_efuse.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_partition/CMakeFiles/__idf_esp_partition.dir/build.make esp-idf/esp_partition/CMakeFiles/__idf_esp_partition.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_partition/CMakeFiles/__idf_esp_partition.dir/build.make esp-idf/esp_partition/CMakeFiles/__idf_esp_partition.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num= "Built target __idf_esp_partition"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=38 "Built target __idf_esp_partition"
 .PHONY : esp-idf/esp_partition/CMakeFiles/__idf_esp_partition.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_partition/CMakeFiles/__idf_esp_partition.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 70
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 60
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_partition/CMakeFiles/__idf_esp_partition.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/esp_partition/CMakeFiles/__idf_esp_partition.dir/rule
@@ -3439,12 +3459,12 @@ esp-idf/esp_partition/CMakeFiles/__idf_esp_partition.dir/clean:
 esp-idf/efuse/CMakeFiles/__idf_efuse.dir/all: esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/efuse/CMakeFiles/__idf_efuse.dir/build.make esp-idf/efuse/CMakeFiles/__idf_efuse.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/efuse/CMakeFiles/__idf_efuse.dir/build.make esp-idf/efuse/CMakeFiles/__idf_efuse.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=8 "Built target __idf_efuse"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=17 "Built target __idf_efuse"
 .PHONY : esp-idf/efuse/CMakeFiles/__idf_efuse.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/efuse/CMakeFiles/__idf_efuse.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 70
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 59
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/efuse/CMakeFiles/__idf_efuse.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/efuse/CMakeFiles/__idf_efuse.dir/rule
@@ -3652,7 +3672,7 @@ esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/all: esp-idf/
 
 # Build rule for subdir invocation for target.
 esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 69
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 58
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/rule
@@ -3673,12 +3693,12 @@ esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/clean:
 esp-idf/esp_mm/CMakeFiles/__idf_esp_mm.dir/all: esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_mm/CMakeFiles/__idf_esp_mm.dir/build.make esp-idf/esp_mm/CMakeFiles/__idf_esp_mm.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_mm/CMakeFiles/__idf_esp_mm.dir/build.make esp-idf/esp_mm/CMakeFiles/__idf_esp_mm.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=28 "Built target __idf_esp_mm"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=37 "Built target __idf_esp_mm"
 .PHONY : esp-idf/esp_mm/CMakeFiles/__idf_esp_mm.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_mm/CMakeFiles/__idf_esp_mm.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 67
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 56
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_mm/CMakeFiles/__idf_esp_mm.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/esp_mm/CMakeFiles/__idf_esp_mm.dir/rule
@@ -3699,12 +3719,12 @@ esp-idf/esp_mm/CMakeFiles/__idf_esp_mm.dir/clean:
 esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/all: esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/build.make esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/build.make esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=69,70 "Built target __idf_spi_flash"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=72,73 "Built target __idf_spi_flash"
 .PHONY : esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 66
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 55
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/rule
@@ -3725,12 +3745,12 @@ esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/clean:
 esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/all: esp-idf/esp_common/CMakeFiles/__idf_esp_common.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/build.make esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/build.make esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=32,33,34,35 "Built target __idf_esp_system"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=41,42,43 "Built target __idf_esp_system"
 .PHONY : esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 64
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 53
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/rule
@@ -3802,6 +3822,7 @@ esp-idf/esp_system/CMakeFiles/sections.ld.in.dir/clean:
 # All Build rule for target.
 esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/all
 esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/app_trace/CMakeFiles/__idf_app_trace.dir/all
+esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/bt/CMakeFiles/__idf_bt.dir/all
 esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/unity/CMakeFiles/__idf_unity.dir/all
 esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/cmock/CMakeFiles/__idf_cmock.dir/all
 esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/console/CMakeFiles/__idf_console.dir/all
@@ -3823,9 +3844,10 @@ esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/spiffs
 esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/all
 esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/at_server/CMakeFiles/__idf_at_server.dir/all
 esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/at_wifi/CMakeFiles/__idf_at_wifi.dir/all
-esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/main/CMakeFiles/__idf_main.dir/all
 esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/at_ble/CMakeFiles/__idf_at_ble.dir/all
+esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/main/CMakeFiles/__idf_main.dir/all
 esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/at_mqtt/CMakeFiles/__idf_at_mqtt.dir/all
+esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp-nimble-cpp/CMakeFiles/__idf_esp-nimble-cpp.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/build.make esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/build.make esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num= "Built target __ldgen_output_sections.ld"
@@ -3859,7 +3881,7 @@ esp-idf/esp_common/CMakeFiles/__idf_esp_common.dir/all: esp-idf/esp_rom/CMakeFil
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_common/CMakeFiles/__idf_esp_common.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 60
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 50
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_common/CMakeFiles/__idf_esp_common.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/esp_common/CMakeFiles/__idf_esp_common.dir/rule
@@ -3880,12 +3902,12 @@ esp-idf/esp_common/CMakeFiles/__idf_esp_common.dir/clean:
 esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/all: esp-idf/hal/CMakeFiles/__idf_hal.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/build.make esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/build.make esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num= "Built target __idf_esp_rom"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=40 "Built target __idf_esp_rom"
 .PHONY : esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 60
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 50
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/rule
@@ -3906,12 +3928,12 @@ esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/clean:
 esp-idf/hal/CMakeFiles/__idf_hal.dir/all: esp-idf/log/CMakeFiles/__idf_log.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/hal/CMakeFiles/__idf_hal.dir/build.make esp-idf/hal/CMakeFiles/__idf_hal.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/hal/CMakeFiles/__idf_hal.dir/build.make esp-idf/hal/CMakeFiles/__idf_hal.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=42,43,44,45,46 "Built target __idf_hal"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=49,50,51,52 "Built target __idf_hal"
 .PHONY : esp-idf/hal/CMakeFiles/__idf_hal.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/hal/CMakeFiles/__idf_hal.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 60
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 49
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/hal/CMakeFiles/__idf_hal.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/hal/CMakeFiles/__idf_hal.dir/rule
@@ -3932,12 +3954,12 @@ esp-idf/hal/CMakeFiles/__idf_hal.dir/clean:
 esp-idf/log/CMakeFiles/__idf_log.dir/all: esp-idf/heap/CMakeFiles/__idf_heap.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/log/CMakeFiles/__idf_log.dir/build.make esp-idf/log/CMakeFiles/__idf_log.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/log/CMakeFiles/__idf_log.dir/build.make esp-idf/log/CMakeFiles/__idf_log.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num= "Built target __idf_log"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=54 "Built target __idf_log"
 .PHONY : esp-idf/log/CMakeFiles/__idf_log.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/log/CMakeFiles/__idf_log.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 55
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 45
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/log/CMakeFiles/__idf_log.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/log/CMakeFiles/__idf_log.dir/rule
@@ -3958,12 +3980,12 @@ esp-idf/log/CMakeFiles/__idf_log.dir/clean:
 esp-idf/heap/CMakeFiles/__idf_heap.dir/all: esp-idf/soc/CMakeFiles/__idf_soc.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/heap/CMakeFiles/__idf_heap.dir/build.make esp-idf/heap/CMakeFiles/__idf_heap.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/heap/CMakeFiles/__idf_heap.dir/build.make esp-idf/heap/CMakeFiles/__idf_heap.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num= "Built target __idf_heap"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=53 "Built target __idf_heap"
 .PHONY : esp-idf/heap/CMakeFiles/__idf_heap.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/heap/CMakeFiles/__idf_heap.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 55
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 44
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/heap/CMakeFiles/__idf_heap.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/heap/CMakeFiles/__idf_heap.dir/rule
@@ -3984,12 +4006,12 @@ esp-idf/heap/CMakeFiles/__idf_heap.dir/clean:
 esp-idf/soc/CMakeFiles/__idf_soc.dir/all: esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/soc/CMakeFiles/__idf_soc.dir/build.make esp-idf/soc/CMakeFiles/__idf_soc.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/soc/CMakeFiles/__idf_soc.dir/build.make esp-idf/soc/CMakeFiles/__idf_soc.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=66,67,68 "Built target __idf_soc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=70,71 "Built target __idf_soc"
 .PHONY : esp-idf/soc/CMakeFiles/__idf_soc.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/soc/CMakeFiles/__idf_soc.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 55
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 43
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/soc/CMakeFiles/__idf_soc.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/soc/CMakeFiles/__idf_soc.dir/rule
@@ -4010,12 +4032,12 @@ esp-idf/soc/CMakeFiles/__idf_soc.dir/clean:
 esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/all: esp-idf/freertos/CMakeFiles/__idf_freertos.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/build.make esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/build.make esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=22,23,24,25,26 "Built target __idf_esp_hw_support"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=32,33,34,35 "Built target __idf_esp_hw_support"
 .PHONY : esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 52
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 41
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/rule
@@ -4036,12 +4058,12 @@ esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/clean:
 esp-idf/freertos/CMakeFiles/__idf_freertos.dir/all: esp-idf/newlib/CMakeFiles/__idf_newlib.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/freertos/CMakeFiles/__idf_freertos.dir/build.make esp-idf/freertos/CMakeFiles/__idf_freertos.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/freertos/CMakeFiles/__idf_freertos.dir/build.make esp-idf/freertos/CMakeFiles/__idf_freertos.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=40,41 "Built target __idf_freertos"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=47,48 "Built target __idf_freertos"
 .PHONY : esp-idf/freertos/CMakeFiles/__idf_freertos.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/freertos/CMakeFiles/__idf_freertos.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 47
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 37
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/freertos/CMakeFiles/__idf_freertos.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/freertos/CMakeFiles/__idf_freertos.dir/rule
@@ -4062,12 +4084,12 @@ esp-idf/freertos/CMakeFiles/__idf_freertos.dir/clean:
 esp-idf/newlib/CMakeFiles/__idf_newlib.dir/all: esp-idf/pthread/CMakeFiles/__idf_pthread.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/newlib/CMakeFiles/__idf_newlib.dir/build.make esp-idf/newlib/CMakeFiles/__idf_newlib.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/newlib/CMakeFiles/__idf_newlib.dir/build.make esp-idf/newlib/CMakeFiles/__idf_newlib.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=59,60 "Built target __idf_newlib"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=64 "Built target __idf_newlib"
 .PHONY : esp-idf/newlib/CMakeFiles/__idf_newlib.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/newlib/CMakeFiles/__idf_newlib.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 45
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 35
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/newlib/CMakeFiles/__idf_newlib.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/newlib/CMakeFiles/__idf_newlib.dir/rule
@@ -4088,12 +4110,12 @@ esp-idf/newlib/CMakeFiles/__idf_newlib.dir/clean:
 esp-idf/pthread/CMakeFiles/__idf_pthread.dir/all: esp-idf/cxx/CMakeFiles/__idf_cxx.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/pthread/CMakeFiles/__idf_pthread.dir/build.make esp-idf/pthread/CMakeFiles/__idf_pthread.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/pthread/CMakeFiles/__idf_pthread.dir/build.make esp-idf/pthread/CMakeFiles/__idf_pthread.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=64 "Built target __idf_pthread"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num= "Built target __idf_pthread"
 .PHONY : esp-idf/pthread/CMakeFiles/__idf_pthread.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/pthread/CMakeFiles/__idf_pthread.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 43
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 34
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/pthread/CMakeFiles/__idf_pthread.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/pthread/CMakeFiles/__idf_pthread.dir/rule
@@ -4114,12 +4136,12 @@ esp-idf/pthread/CMakeFiles/__idf_pthread.dir/clean:
 esp-idf/cxx/CMakeFiles/__idf_cxx.dir/all: esp-idf/esp_timer/CMakeFiles/__idf_esp_timer.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/cxx/CMakeFiles/__idf_cxx.dir/build.make esp-idf/cxx/CMakeFiles/__idf_cxx.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/cxx/CMakeFiles/__idf_cxx.dir/build.make esp-idf/cxx/CMakeFiles/__idf_cxx.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=6 "Built target __idf_cxx"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num= "Built target __idf_cxx"
 .PHONY : esp-idf/cxx/CMakeFiles/__idf_cxx.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/cxx/CMakeFiles/__idf_cxx.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 42
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 34
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/cxx/CMakeFiles/__idf_cxx.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/cxx/CMakeFiles/__idf_cxx.dir/rule
@@ -4140,12 +4162,12 @@ esp-idf/cxx/CMakeFiles/__idf_cxx.dir/clean:
 esp-idf/esp_timer/CMakeFiles/__idf_esp_timer.dir/all: esp-idf/esp_driver_gptimer/CMakeFiles/__idf_esp_driver_gptimer.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_timer/CMakeFiles/__idf_esp_timer.dir/build.make esp-idf/esp_timer/CMakeFiles/__idf_esp_timer.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_timer/CMakeFiles/__idf_esp_timer.dir/build.make esp-idf/esp_timer/CMakeFiles/__idf_esp_timer.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=36 "Built target __idf_esp_timer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=44 "Built target __idf_esp_timer"
 .PHONY : esp-idf/esp_timer/CMakeFiles/__idf_esp_timer.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_timer/CMakeFiles/__idf_esp_timer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 41
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 34
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_timer/CMakeFiles/__idf_esp_timer.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/esp_timer/CMakeFiles/__idf_esp_timer.dir/rule
@@ -4166,12 +4188,12 @@ esp-idf/esp_timer/CMakeFiles/__idf_esp_timer.dir/clean:
 esp-idf/esp_driver_gptimer/CMakeFiles/__idf_esp_driver_gptimer.dir/all: esp-idf/esp_ringbuf/CMakeFiles/__idf_esp_ringbuf.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_driver_gptimer/CMakeFiles/__idf_esp_driver_gptimer.dir/build.make esp-idf/esp_driver_gptimer/CMakeFiles/__idf_esp_driver_gptimer.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_driver_gptimer/CMakeFiles/__idf_esp_driver_gptimer.dir/build.make esp-idf/esp_driver_gptimer/CMakeFiles/__idf_esp_driver_gptimer.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num= "Built target __idf_esp_driver_gptimer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=23 "Built target __idf_esp_driver_gptimer"
 .PHONY : esp-idf/esp_driver_gptimer/CMakeFiles/__idf_esp_driver_gptimer.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_driver_gptimer/CMakeFiles/__idf_esp_driver_gptimer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 40
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 33
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_driver_gptimer/CMakeFiles/__idf_esp_driver_gptimer.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/esp_driver_gptimer/CMakeFiles/__idf_esp_driver_gptimer.dir/rule
@@ -4192,12 +4214,12 @@ esp-idf/esp_driver_gptimer/CMakeFiles/__idf_esp_driver_gptimer.dir/clean:
 esp-idf/esp_ringbuf/CMakeFiles/__idf_esp_ringbuf.dir/all: esp-idf/esp_driver_uart/CMakeFiles/__idf_esp_driver_uart.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_ringbuf/CMakeFiles/__idf_esp_ringbuf.dir/build.make esp-idf/esp_ringbuf/CMakeFiles/__idf_esp_ringbuf.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_ringbuf/CMakeFiles/__idf_esp_ringbuf.dir/build.make esp-idf/esp_ringbuf/CMakeFiles/__idf_esp_ringbuf.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=31 "Built target __idf_esp_ringbuf"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num= "Built target __idf_esp_ringbuf"
 .PHONY : esp-idf/esp_ringbuf/CMakeFiles/__idf_esp_ringbuf.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_ringbuf/CMakeFiles/__idf_esp_ringbuf.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 40
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 32
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_ringbuf/CMakeFiles/__idf_esp_ringbuf.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/esp_ringbuf/CMakeFiles/__idf_esp_ringbuf.dir/rule
@@ -4223,7 +4245,7 @@ esp-idf/esp_driver_uart/CMakeFiles/__idf_esp_driver_uart.dir/all: esp-idf/esp_ev
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_driver_uart/CMakeFiles/__idf_esp_driver_uart.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 39
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 32
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_driver_uart/CMakeFiles/__idf_esp_driver_uart.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/esp_driver_uart/CMakeFiles/__idf_esp_driver_uart.dir/rule
@@ -4249,7 +4271,7 @@ esp-idf/app_trace/CMakeFiles/__idf_app_trace.dir/all: esp-idf/xtensa/CMakeFiles/
 
 # Build rule for subdir invocation for target.
 esp-idf/app_trace/CMakeFiles/__idf_app_trace.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 85
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 75
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/app_trace/CMakeFiles/__idf_app_trace.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/app_trace/CMakeFiles/__idf_app_trace.dir/rule
@@ -4270,12 +4292,12 @@ esp-idf/app_trace/CMakeFiles/__idf_app_trace.dir/clean:
 esp-idf/esp_event/CMakeFiles/__idf_esp_event.dir/all: esp-idf/nvs_flash/CMakeFiles/__idf_nvs_flash.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_event/CMakeFiles/__idf_esp_event.dir/build.make esp-idf/esp_event/CMakeFiles/__idf_esp_event.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_event/CMakeFiles/__idf_esp_event.dir/build.make esp-idf/esp_event/CMakeFiles/__idf_esp_event.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=19 "Built target __idf_esp_event"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num= "Built target __idf_esp_event"
 .PHONY : esp-idf/esp_event/CMakeFiles/__idf_esp_event.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_event/CMakeFiles/__idf_esp_event.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 39
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 32
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_event/CMakeFiles/__idf_esp_event.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/esp_event/CMakeFiles/__idf_esp_event.dir/rule
@@ -4296,12 +4318,12 @@ esp-idf/esp_event/CMakeFiles/__idf_esp_event.dir/clean:
 esp-idf/nvs_flash/CMakeFiles/__idf_nvs_flash.dir/all: esp-idf/esp_driver_pcnt/CMakeFiles/__idf_esp_driver_pcnt.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/nvs_flash/CMakeFiles/__idf_nvs_flash.dir/build.make esp-idf/nvs_flash/CMakeFiles/__idf_nvs_flash.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/nvs_flash/CMakeFiles/__idf_nvs_flash.dir/build.make esp-idf/nvs_flash/CMakeFiles/__idf_nvs_flash.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=61 "Built target __idf_nvs_flash"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=65,66 "Built target __idf_nvs_flash"
 .PHONY : esp-idf/nvs_flash/CMakeFiles/__idf_nvs_flash.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/nvs_flash/CMakeFiles/__idf_nvs_flash.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 38
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 32
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/nvs_flash/CMakeFiles/__idf_nvs_flash.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/nvs_flash/CMakeFiles/__idf_nvs_flash.dir/rule
@@ -4322,12 +4344,12 @@ esp-idf/nvs_flash/CMakeFiles/__idf_nvs_flash.dir/clean:
 esp-idf/esp_driver_pcnt/CMakeFiles/__idf_esp_driver_pcnt.dir/all: esp-idf/esp_driver_spi/CMakeFiles/__idf_esp_driver_spi.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_driver_pcnt/CMakeFiles/__idf_esp_driver_pcnt.dir/build.make esp-idf/esp_driver_pcnt/CMakeFiles/__idf_esp_driver_pcnt.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_driver_pcnt/CMakeFiles/__idf_esp_driver_pcnt.dir/build.make esp-idf/esp_driver_pcnt/CMakeFiles/__idf_esp_driver_pcnt.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=15 "Built target __idf_esp_driver_pcnt"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=25 "Built target __idf_esp_driver_pcnt"
 .PHONY : esp-idf/esp_driver_pcnt/CMakeFiles/__idf_esp_driver_pcnt.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_driver_pcnt/CMakeFiles/__idf_esp_driver_pcnt.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 37
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 30
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_driver_pcnt/CMakeFiles/__idf_esp_driver_pcnt.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/esp_driver_pcnt/CMakeFiles/__idf_esp_driver_pcnt.dir/rule
@@ -4348,12 +4370,12 @@ esp-idf/esp_driver_pcnt/CMakeFiles/__idf_esp_driver_pcnt.dir/clean:
 esp-idf/esp_driver_spi/CMakeFiles/__idf_esp_driver_spi.dir/all: esp-idf/esp_driver_mcpwm/CMakeFiles/__idf_esp_driver_mcpwm.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_driver_spi/CMakeFiles/__idf_esp_driver_spi.dir/build.make esp-idf/esp_driver_spi/CMakeFiles/__idf_esp_driver_spi.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_driver_spi/CMakeFiles/__idf_esp_driver_spi.dir/build.make esp-idf/esp_driver_spi/CMakeFiles/__idf_esp_driver_spi.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=17 "Built target __idf_esp_driver_spi"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=27 "Built target __idf_esp_driver_spi"
 .PHONY : esp-idf/esp_driver_spi/CMakeFiles/__idf_esp_driver_spi.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_driver_spi/CMakeFiles/__idf_esp_driver_spi.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 36
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 29
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_driver_spi/CMakeFiles/__idf_esp_driver_spi.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/esp_driver_spi/CMakeFiles/__idf_esp_driver_spi.dir/rule
@@ -4374,12 +4396,12 @@ esp-idf/esp_driver_spi/CMakeFiles/__idf_esp_driver_spi.dir/clean:
 esp-idf/esp_driver_mcpwm/CMakeFiles/__idf_esp_driver_mcpwm.dir/all: esp-idf/esp_driver_i2s/CMakeFiles/__idf_esp_driver_i2s.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_driver_mcpwm/CMakeFiles/__idf_esp_driver_mcpwm.dir/build.make esp-idf/esp_driver_mcpwm/CMakeFiles/__idf_esp_driver_mcpwm.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_driver_mcpwm/CMakeFiles/__idf_esp_driver_mcpwm.dir/build.make esp-idf/esp_driver_mcpwm/CMakeFiles/__idf_esp_driver_mcpwm.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=14 "Built target __idf_esp_driver_mcpwm"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num= "Built target __idf_esp_driver_mcpwm"
 .PHONY : esp-idf/esp_driver_mcpwm/CMakeFiles/__idf_esp_driver_mcpwm.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_driver_mcpwm/CMakeFiles/__idf_esp_driver_mcpwm.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 35
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 28
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_driver_mcpwm/CMakeFiles/__idf_esp_driver_mcpwm.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/esp_driver_mcpwm/CMakeFiles/__idf_esp_driver_mcpwm.dir/rule
@@ -4400,12 +4422,12 @@ esp-idf/esp_driver_mcpwm/CMakeFiles/__idf_esp_driver_mcpwm.dir/clean:
 esp-idf/esp_driver_i2s/CMakeFiles/__idf_esp_driver_i2s.dir/all: esp-idf/sdmmc/CMakeFiles/__idf_sdmmc.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_driver_i2s/CMakeFiles/__idf_esp_driver_i2s.dir/build.make esp-idf/esp_driver_i2s/CMakeFiles/__idf_esp_driver_i2s.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_driver_i2s/CMakeFiles/__idf_esp_driver_i2s.dir/build.make esp-idf/esp_driver_i2s/CMakeFiles/__idf_esp_driver_i2s.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num= "Built target __idf_esp_driver_i2s"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=24 "Built target __idf_esp_driver_i2s"
 .PHONY : esp-idf/esp_driver_i2s/CMakeFiles/__idf_esp_driver_i2s.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_driver_i2s/CMakeFiles/__idf_esp_driver_i2s.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 34
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 28
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_driver_i2s/CMakeFiles/__idf_esp_driver_i2s.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/esp_driver_i2s/CMakeFiles/__idf_esp_driver_i2s.dir/rule
@@ -4426,12 +4448,12 @@ esp-idf/esp_driver_i2s/CMakeFiles/__idf_esp_driver_i2s.dir/clean:
 esp-idf/sdmmc/CMakeFiles/__idf_sdmmc.dir/all: esp-idf/esp_driver_sdmmc/CMakeFiles/__idf_esp_driver_sdmmc.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/sdmmc/CMakeFiles/__idf_sdmmc.dir/build.make esp-idf/sdmmc/CMakeFiles/__idf_sdmmc.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/sdmmc/CMakeFiles/__idf_sdmmc.dir/build.make esp-idf/sdmmc/CMakeFiles/__idf_sdmmc.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=65 "Built target __idf_sdmmc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=69 "Built target __idf_sdmmc"
 .PHONY : esp-idf/sdmmc/CMakeFiles/__idf_sdmmc.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/sdmmc/CMakeFiles/__idf_sdmmc.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 34
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 27
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/sdmmc/CMakeFiles/__idf_sdmmc.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/sdmmc/CMakeFiles/__idf_sdmmc.dir/rule
@@ -4452,12 +4474,12 @@ esp-idf/sdmmc/CMakeFiles/__idf_sdmmc.dir/clean:
 esp-idf/esp_driver_sdmmc/CMakeFiles/__idf_esp_driver_sdmmc.dir/all: esp-idf/esp_driver_sdspi/CMakeFiles/__idf_esp_driver_sdspi.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_driver_sdmmc/CMakeFiles/__idf_esp_driver_sdmmc.dir/build.make esp-idf/esp_driver_sdmmc/CMakeFiles/__idf_esp_driver_sdmmc.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_driver_sdmmc/CMakeFiles/__idf_esp_driver_sdmmc.dir/build.make esp-idf/esp_driver_sdmmc/CMakeFiles/__idf_esp_driver_sdmmc.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=16 "Built target __idf_esp_driver_sdmmc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=26 "Built target __idf_esp_driver_sdmmc"
 .PHONY : esp-idf/esp_driver_sdmmc/CMakeFiles/__idf_esp_driver_sdmmc.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_driver_sdmmc/CMakeFiles/__idf_esp_driver_sdmmc.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 33
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 26
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_driver_sdmmc/CMakeFiles/__idf_esp_driver_sdmmc.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/esp_driver_sdmmc/CMakeFiles/__idf_esp_driver_sdmmc.dir/rule
@@ -4483,7 +4505,7 @@ esp-idf/esp_driver_sdspi/CMakeFiles/__idf_esp_driver_sdspi.dir/all: esp-idf/esp_
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_driver_sdspi/CMakeFiles/__idf_esp_driver_sdspi.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 32
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 25
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_driver_sdspi/CMakeFiles/__idf_esp_driver_sdspi.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/esp_driver_sdspi/CMakeFiles/__idf_esp_driver_sdspi.dir/rule
@@ -4509,7 +4531,7 @@ esp-idf/esp_driver_sdio/CMakeFiles/__idf_esp_driver_sdio.dir/all: esp-idf/esp_dr
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_driver_sdio/CMakeFiles/__idf_esp_driver_sdio.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 32
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 25
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_driver_sdio/CMakeFiles/__idf_esp_driver_sdio.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/esp_driver_sdio/CMakeFiles/__idf_esp_driver_sdio.dir/rule
@@ -4530,12 +4552,12 @@ esp-idf/esp_driver_sdio/CMakeFiles/__idf_esp_driver_sdio.dir/clean:
 esp-idf/esp_driver_dac/CMakeFiles/__idf_esp_driver_dac.dir/all: esp-idf/esp_driver_rmt/CMakeFiles/__idf_esp_driver_rmt.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_driver_dac/CMakeFiles/__idf_esp_driver_dac.dir/build.make esp-idf/esp_driver_dac/CMakeFiles/__idf_esp_driver_dac.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_driver_dac/CMakeFiles/__idf_esp_driver_dac.dir/build.make esp-idf/esp_driver_dac/CMakeFiles/__idf_esp_driver_dac.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=12 "Built target __idf_esp_driver_dac"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num= "Built target __idf_esp_driver_dac"
 .PHONY : esp-idf/esp_driver_dac/CMakeFiles/__idf_esp_driver_dac.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_driver_dac/CMakeFiles/__idf_esp_driver_dac.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 32
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 25
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_driver_dac/CMakeFiles/__idf_esp_driver_dac.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/esp_driver_dac/CMakeFiles/__idf_esp_driver_dac.dir/rule
@@ -4561,7 +4583,7 @@ esp-idf/esp_driver_rmt/CMakeFiles/__idf_esp_driver_rmt.dir/all: esp-idf/esp_driv
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_driver_rmt/CMakeFiles/__idf_esp_driver_rmt.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 31
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 25
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_driver_rmt/CMakeFiles/__idf_esp_driver_rmt.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/esp_driver_rmt/CMakeFiles/__idf_esp_driver_rmt.dir/rule
@@ -4587,7 +4609,7 @@ esp-idf/esp_driver_sdm/CMakeFiles/__idf_esp_driver_sdm.dir/all: esp-idf/esp_driv
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_driver_sdm/CMakeFiles/__idf_esp_driver_sdm.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 31
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 25
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_driver_sdm/CMakeFiles/__idf_esp_driver_sdm.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/esp_driver_sdm/CMakeFiles/__idf_esp_driver_sdm.dir/rule
@@ -4608,12 +4630,12 @@ esp-idf/esp_driver_sdm/CMakeFiles/__idf_esp_driver_sdm.dir/clean:
 esp-idf/esp_driver_i2c/CMakeFiles/__idf_esp_driver_i2c.dir/all: esp-idf/esp_driver_ledc/CMakeFiles/__idf_esp_driver_ledc.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_driver_i2c/CMakeFiles/__idf_esp_driver_i2c.dir/build.make esp-idf/esp_driver_i2c/CMakeFiles/__idf_esp_driver_i2c.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_driver_i2c/CMakeFiles/__idf_esp_driver_i2c.dir/build.make esp-idf/esp_driver_i2c/CMakeFiles/__idf_esp_driver_i2c.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=13 "Built target __idf_esp_driver_i2c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num= "Built target __idf_esp_driver_i2c"
 .PHONY : esp-idf/esp_driver_i2c/CMakeFiles/__idf_esp_driver_i2c.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_driver_i2c/CMakeFiles/__idf_esp_driver_i2c.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 31
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 25
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_driver_i2c/CMakeFiles/__idf_esp_driver_i2c.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/esp_driver_i2c/CMakeFiles/__idf_esp_driver_i2c.dir/rule
@@ -4639,7 +4661,7 @@ esp-idf/esp_driver_ledc/CMakeFiles/__idf_esp_driver_ledc.dir/all: esp-idf/driver
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_driver_ledc/CMakeFiles/__idf_esp_driver_ledc.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 30
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 25
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_driver_ledc/CMakeFiles/__idf_esp_driver_ledc.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/esp_driver_ledc/CMakeFiles/__idf_esp_driver_ledc.dir/rule
@@ -4660,12 +4682,12 @@ esp-idf/esp_driver_ledc/CMakeFiles/__idf_esp_driver_ledc.dir/clean:
 esp-idf/driver/CMakeFiles/__idf_driver.dir/all: esp-idf/esp_phy/CMakeFiles/__idf_esp_phy.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/driver/CMakeFiles/__idf_driver.dir/build.make esp-idf/driver/CMakeFiles/__idf_driver.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/driver/CMakeFiles/__idf_driver.dir/build.make esp-idf/driver/CMakeFiles/__idf_driver.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=7 "Built target __idf_driver"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=15,16 "Built target __idf_driver"
 .PHONY : esp-idf/driver/CMakeFiles/__idf_driver.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/driver/CMakeFiles/__idf_driver.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 30
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 25
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/driver/CMakeFiles/__idf_driver.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/driver/CMakeFiles/__idf_driver.dir/rule
@@ -4686,12 +4708,12 @@ esp-idf/driver/CMakeFiles/__idf_driver.dir/clean:
 esp-idf/esp_phy/CMakeFiles/__idf_esp_phy.dir/all: esp-idf/esp_vfs_console/CMakeFiles/__idf_esp_vfs_console.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_phy/CMakeFiles/__idf_esp_phy.dir/build.make esp-idf/esp_phy/CMakeFiles/__idf_esp_phy.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_phy/CMakeFiles/__idf_esp_phy.dir/build.make esp-idf/esp_phy/CMakeFiles/__idf_esp_phy.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=30 "Built target __idf_esp_phy"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num= "Built target __idf_esp_phy"
 .PHONY : esp-idf/esp_phy/CMakeFiles/__idf_esp_phy.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_phy/CMakeFiles/__idf_esp_phy.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 29
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_phy/CMakeFiles/__idf_esp_phy.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/esp_phy/CMakeFiles/__idf_esp_phy.dir/rule
@@ -4717,7 +4739,7 @@ esp-idf/esp_vfs_console/CMakeFiles/__idf_esp_vfs_console.dir/all: esp-idf/vfs/CM
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_vfs_console/CMakeFiles/__idf_esp_vfs_console.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 28
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_vfs_console/CMakeFiles/__idf_esp_vfs_console.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/esp_vfs_console/CMakeFiles/__idf_esp_vfs_console.dir/rule
@@ -4738,12 +4760,12 @@ esp-idf/esp_vfs_console/CMakeFiles/__idf_esp_vfs_console.dir/clean:
 esp-idf/vfs/CMakeFiles/__idf_vfs.dir/all: esp-idf/lwip/CMakeFiles/__idf_lwip.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/vfs/CMakeFiles/__idf_vfs.dir/build.make esp-idf/vfs/CMakeFiles/__idf_vfs.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/vfs/CMakeFiles/__idf_vfs.dir/build.make esp-idf/vfs/CMakeFiles/__idf_vfs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num= "Built target __idf_vfs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=76 "Built target __idf_vfs"
 .PHONY : esp-idf/vfs/CMakeFiles/__idf_vfs.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/vfs/CMakeFiles/__idf_vfs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 28
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/vfs/CMakeFiles/__idf_vfs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/vfs/CMakeFiles/__idf_vfs.dir/rule
@@ -4764,12 +4786,12 @@ esp-idf/vfs/CMakeFiles/__idf_vfs.dir/clean:
 esp-idf/lwip/CMakeFiles/__idf_lwip.dir/all: esp-idf/esp_netif/CMakeFiles/__idf_esp_netif.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/lwip/CMakeFiles/__idf_lwip.dir/build.make esp-idf/lwip/CMakeFiles/__idf_lwip.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/lwip/CMakeFiles/__idf_lwip.dir/build.make esp-idf/lwip/CMakeFiles/__idf_lwip.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=48,49,50,51,52,53,54,55,56,57 "Built target __idf_lwip"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=55,56,57,58,59,60,61,62 "Built target __idf_lwip"
 .PHONY : esp-idf/lwip/CMakeFiles/__idf_lwip.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/lwip/CMakeFiles/__idf_lwip.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 28
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 22
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/lwip/CMakeFiles/__idf_lwip.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/lwip/CMakeFiles/__idf_lwip.dir/rule
@@ -4790,12 +4812,12 @@ esp-idf/lwip/CMakeFiles/__idf_lwip.dir/clean:
 esp-idf/esp_netif/CMakeFiles/__idf_esp_netif.dir/all: esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_netif/CMakeFiles/__idf_esp_netif.dir/build.make esp-idf/esp_netif/CMakeFiles/__idf_esp_netif.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_netif/CMakeFiles/__idf_esp_netif.dir/build.make esp-idf/esp_netif/CMakeFiles/__idf_esp_netif.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=29 "Built target __idf_esp_netif"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num= "Built target __idf_esp_netif"
 .PHONY : esp-idf/esp_netif/CMakeFiles/__idf_esp_netif.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_netif/CMakeFiles/__idf_esp_netif.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 18
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 14
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_netif/CMakeFiles/__idf_esp_netif.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/esp_netif/CMakeFiles/__idf_esp_netif.dir/rule
@@ -4816,12 +4838,12 @@ esp-idf/esp_netif/CMakeFiles/__idf_esp_netif.dir/clean:
 esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/all: esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/build.make esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/build.make esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=75,76,77,78,79,80,81,82,83 "Built target __idf_wpa_supplicant"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=78,79,80,81,82,83,84,85 "Built target __idf_wpa_supplicant"
 .PHONY : esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 17
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 14
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/rule
@@ -4842,12 +4864,12 @@ esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/clean:
 esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/all: esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/build.make esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/build.make esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=11 "Built target __idf_esp_coex"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num= "Built target __idf_esp_coex"
 .PHONY : esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/rule
@@ -4868,12 +4890,12 @@ esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/clean:
 esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/all: esp-idf/http_parser/CMakeFiles/__idf_http_parser.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/build.make esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/build.make esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=37 "Built target __idf_esp_wifi"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=45 "Built target __idf_esp_wifi"
 .PHONY : esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/rule
@@ -4888,18 +4910,44 @@ esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/clean:
 .PHONY : esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/clean
 
 #=============================================================================
+# Target rules for target esp-idf/bt/CMakeFiles/__idf_bt.dir
+
+# All Build rule for target.
+esp-idf/bt/CMakeFiles/__idf_bt.dir/all: esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/all
+	$(MAKE) $(MAKESILENT) -f esp-idf/bt/CMakeFiles/__idf_bt.dir/build.make esp-idf/bt/CMakeFiles/__idf_bt.dir/depend
+	$(MAKE) $(MAKESILENT) -f esp-idf/bt/CMakeFiles/__idf_bt.dir/build.make esp-idf/bt/CMakeFiles/__idf_bt.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=4,5,6,7,8,9,10,11,12 "Built target __idf_bt"
+.PHONY : esp-idf/bt/CMakeFiles/__idf_bt.dir/all
+
+# Build rule for subdir invocation for target.
+esp-idf/bt/CMakeFiles/__idf_bt.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 84
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/bt/CMakeFiles/__idf_bt.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
+.PHONY : esp-idf/bt/CMakeFiles/__idf_bt.dir/rule
+
+# Convenience name for target.
+__idf_bt: esp-idf/bt/CMakeFiles/__idf_bt.dir/rule
+.PHONY : __idf_bt
+
+# clean rule for target.
+esp-idf/bt/CMakeFiles/__idf_bt.dir/clean:
+	$(MAKE) $(MAKESILENT) -f esp-idf/bt/CMakeFiles/__idf_bt.dir/build.make esp-idf/bt/CMakeFiles/__idf_bt.dir/clean
+.PHONY : esp-idf/bt/CMakeFiles/__idf_bt.dir/clean
+
+#=============================================================================
 # Target rules for target esp-idf/unity/CMakeFiles/__idf_unity.dir
 
 # All Build rule for target.
 esp-idf/unity/CMakeFiles/__idf_unity.dir/all: esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/unity/CMakeFiles/__idf_unity.dir/build.make esp-idf/unity/CMakeFiles/__idf_unity.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/unity/CMakeFiles/__idf_unity.dir/build.make esp-idf/unity/CMakeFiles/__idf_unity.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=72 "Built target __idf_unity"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=75 "Built target __idf_unity"
 .PHONY : esp-idf/unity/CMakeFiles/__idf_unity.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/unity/CMakeFiles/__idf_unity.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 86
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 76
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/unity/CMakeFiles/__idf_unity.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/unity/CMakeFiles/__idf_unity.dir/rule
@@ -4926,7 +4974,7 @@ esp-idf/cmock/CMakeFiles/__idf_cmock.dir/all: esp-idf/unity/CMakeFiles/__idf_uni
 
 # Build rule for subdir invocation for target.
 esp-idf/cmock/CMakeFiles/__idf_cmock.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 86
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 76
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/cmock/CMakeFiles/__idf_cmock.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/cmock/CMakeFiles/__idf_cmock.dir/rule
@@ -4947,12 +4995,12 @@ esp-idf/cmock/CMakeFiles/__idf_cmock.dir/clean:
 esp-idf/console/CMakeFiles/__idf_console.dir/all: esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/console/CMakeFiles/__idf_console.dir/build.make esp-idf/console/CMakeFiles/__idf_console.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/console/CMakeFiles/__idf_console.dir/build.make esp-idf/console/CMakeFiles/__idf_console.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=4,5 "Built target __idf_console"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=13,14 "Built target __idf_console"
 .PHONY : esp-idf/console/CMakeFiles/__idf_console.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/console/CMakeFiles/__idf_console.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 87
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 77
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/console/CMakeFiles/__idf_console.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/console/CMakeFiles/__idf_console.dir/rule
@@ -4973,12 +5021,12 @@ esp-idf/console/CMakeFiles/__idf_console.dir/clean:
 esp-idf/http_parser/CMakeFiles/__idf_http_parser.dir/all: esp-idf/esp-tls/CMakeFiles/__idf_esp-tls.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/http_parser/CMakeFiles/__idf_http_parser.dir/build.make esp-idf/http_parser/CMakeFiles/__idf_http_parser.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/http_parser/CMakeFiles/__idf_http_parser.dir/build.make esp-idf/http_parser/CMakeFiles/__idf_http_parser.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=47 "Built target __idf_http_parser"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num= "Built target __idf_http_parser"
 .PHONY : esp-idf/http_parser/CMakeFiles/__idf_http_parser.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/http_parser/CMakeFiles/__idf_http_parser.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 5
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/http_parser/CMakeFiles/__idf_http_parser.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/http_parser/CMakeFiles/__idf_http_parser.dir/rule
@@ -4999,7 +5047,7 @@ esp-idf/http_parser/CMakeFiles/__idf_http_parser.dir/clean:
 esp-idf/esp-tls/CMakeFiles/__idf_esp-tls.dir/all: esp-idf/esp_adc/CMakeFiles/__idf_esp_adc.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp-tls/CMakeFiles/__idf_esp-tls.dir/build.make esp-idf/esp-tls/CMakeFiles/__idf_esp-tls.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp-tls/CMakeFiles/__idf_esp-tls.dir/build.make esp-idf/esp-tls/CMakeFiles/__idf_esp-tls.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=9 "Built target __idf_esp-tls"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num= "Built target __idf_esp-tls"
 .PHONY : esp-idf/esp-tls/CMakeFiles/__idf_esp-tls.dir/all
 
 # Build rule for subdir invocation for target.
@@ -5025,12 +5073,12 @@ esp-idf/esp-tls/CMakeFiles/__idf_esp-tls.dir/clean:
 esp-idf/esp_adc/CMakeFiles/__idf_esp_adc.dir/all: esp-idf/esp_eth/CMakeFiles/__idf_esp_eth.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_adc/CMakeFiles/__idf_esp_adc.dir/build.make esp-idf/esp_adc/CMakeFiles/__idf_esp_adc.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_adc/CMakeFiles/__idf_esp_adc.dir/build.make esp-idf/esp_adc/CMakeFiles/__idf_esp_adc.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=10 "Built target __idf_esp_adc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=20 "Built target __idf_esp_adc"
 .PHONY : esp-idf/esp_adc/CMakeFiles/__idf_esp_adc.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_adc/CMakeFiles/__idf_esp_adc.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 5
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_adc/CMakeFiles/__idf_esp_adc.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/esp_adc/CMakeFiles/__idf_esp_adc.dir/rule
@@ -5051,12 +5099,12 @@ esp-idf/esp_adc/CMakeFiles/__idf_esp_adc.dir/clean:
 esp-idf/esp_driver_cam/CMakeFiles/__idf_esp_driver_cam.dir/all: esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_driver_cam/CMakeFiles/__idf_esp_driver_cam.dir/build.make esp-idf/esp_driver_cam/CMakeFiles/__idf_esp_driver_cam.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_driver_cam/CMakeFiles/__idf_esp_driver_cam.dir/build.make esp-idf/esp_driver_cam/CMakeFiles/__idf_esp_driver_cam.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num= "Built target __idf_esp_driver_cam"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=22 "Built target __idf_esp_driver_cam"
 .PHONY : esp-idf/esp_driver_cam/CMakeFiles/__idf_esp_driver_cam.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_driver_cam/CMakeFiles/__idf_esp_driver_cam.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 85
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 76
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_driver_cam/CMakeFiles/__idf_esp_driver_cam.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/esp_driver_cam/CMakeFiles/__idf_esp_driver_cam.dir/rule
@@ -5077,12 +5125,12 @@ esp-idf/esp_driver_cam/CMakeFiles/__idf_esp_driver_cam.dir/clean:
 esp-idf/esp_eth/CMakeFiles/__idf_esp_eth.dir/all: esp-idf/esp_gdbstub/CMakeFiles/__idf_esp_gdbstub.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_eth/CMakeFiles/__idf_esp_eth.dir/build.make esp-idf/esp_eth/CMakeFiles/__idf_esp_eth.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_eth/CMakeFiles/__idf_esp_eth.dir/build.make esp-idf/esp_eth/CMakeFiles/__idf_esp_eth.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=18 "Built target __idf_esp_eth"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=28 "Built target __idf_esp_eth"
 .PHONY : esp-idf/esp_eth/CMakeFiles/__idf_esp_eth.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_eth/CMakeFiles/__idf_esp_eth.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_eth/CMakeFiles/__idf_esp_eth.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/esp_eth/CMakeFiles/__idf_esp_eth.dir/rule
@@ -5103,12 +5151,12 @@ esp-idf/esp_eth/CMakeFiles/__idf_esp_eth.dir/clean:
 esp-idf/esp_gdbstub/CMakeFiles/__idf_esp_gdbstub.dir/all: esp-idf/tcp_transport/CMakeFiles/__idf_tcp_transport.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_gdbstub/CMakeFiles/__idf_esp_gdbstub.dir/build.make esp-idf/esp_gdbstub/CMakeFiles/__idf_esp_gdbstub.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_gdbstub/CMakeFiles/__idf_esp_gdbstub.dir/build.make esp-idf/esp_gdbstub/CMakeFiles/__idf_esp_gdbstub.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num= "Built target __idf_esp_gdbstub"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=29 "Built target __idf_esp_gdbstub"
 .PHONY : esp-idf/esp_gdbstub/CMakeFiles/__idf_esp_gdbstub.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_gdbstub/CMakeFiles/__idf_esp_gdbstub.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_gdbstub/CMakeFiles/__idf_esp_gdbstub.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/esp_gdbstub/CMakeFiles/__idf_esp_gdbstub.dir/rule
@@ -5127,14 +5175,15 @@ esp-idf/esp_gdbstub/CMakeFiles/__idf_esp_gdbstub.dir/clean:
 
 # All Build rule for target.
 esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/all: esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/all
+esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/all: esp-idf/bt/CMakeFiles/__idf_bt.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/build.make esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/build.make esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=20 "Built target __idf_esp_hid"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num= "Built target __idf_esp_hid"
 .PHONY : esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 86
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 84
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/rule
@@ -5155,7 +5204,7 @@ esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/clean:
 esp-idf/tcp_transport/CMakeFiles/__idf_tcp_transport.dir/all: esp-idf/esp_http_client/CMakeFiles/__idf_esp_http_client.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/tcp_transport/CMakeFiles/__idf_tcp_transport.dir/build.make esp-idf/tcp_transport/CMakeFiles/__idf_tcp_transport.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/tcp_transport/CMakeFiles/__idf_tcp_transport.dir/build.make esp-idf/tcp_transport/CMakeFiles/__idf_tcp_transport.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=71 "Built target __idf_tcp_transport"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num= "Built target __idf_tcp_transport"
 .PHONY : esp-idf/tcp_transport/CMakeFiles/__idf_tcp_transport.dir/all
 
 # Build rule for subdir invocation for target.
@@ -5181,12 +5230,12 @@ esp-idf/tcp_transport/CMakeFiles/__idf_tcp_transport.dir/clean:
 esp-idf/esp_http_client/CMakeFiles/__idf_esp_http_client.dir/all: esp-idf/esp_http_server/CMakeFiles/__idf_esp_http_server.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_http_client/CMakeFiles/__idf_esp_http_client.dir/build.make esp-idf/esp_http_client/CMakeFiles/__idf_esp_http_client.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_http_client/CMakeFiles/__idf_esp_http_client.dir/build.make esp-idf/esp_http_client/CMakeFiles/__idf_esp_http_client.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num= "Built target __idf_esp_http_client"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=30 "Built target __idf_esp_http_client"
 .PHONY : esp-idf/esp_http_client/CMakeFiles/__idf_esp_http_client.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_http_client/CMakeFiles/__idf_esp_http_client.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_http_client/CMakeFiles/__idf_esp_http_client.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/esp_http_client/CMakeFiles/__idf_esp_http_client.dir/rule
@@ -5207,7 +5256,7 @@ esp-idf/esp_http_client/CMakeFiles/__idf_esp_http_client.dir/clean:
 esp-idf/esp_http_server/CMakeFiles/__idf_esp_http_server.dir/all: esp-idf/esp_https_ota/CMakeFiles/__idf_esp_https_ota.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_http_server/CMakeFiles/__idf_esp_http_server.dir/build.make esp-idf/esp_http_server/CMakeFiles/__idf_esp_http_server.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_http_server/CMakeFiles/__idf_esp_http_server.dir/build.make esp-idf/esp_http_server/CMakeFiles/__idf_esp_http_server.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=21 "Built target __idf_esp_http_server"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=31 "Built target __idf_esp_http_server"
 .PHONY : esp-idf/esp_http_server/CMakeFiles/__idf_esp_http_server.dir/all
 
 # Build rule for subdir invocation for target.
@@ -5266,7 +5315,7 @@ esp-idf/esp_https_server/CMakeFiles/__idf_esp_https_server.dir/all: esp-idf/xten
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_https_server/CMakeFiles/__idf_esp_https_server.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 85
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 75
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_https_server/CMakeFiles/__idf_esp_https_server.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/esp_https_server/CMakeFiles/__idf_esp_https_server.dir/rule
@@ -5287,12 +5336,12 @@ esp-idf/esp_https_server/CMakeFiles/__idf_esp_https_server.dir/clean:
 esp-idf/esp_lcd/CMakeFiles/__idf_esp_lcd.dir/all: esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_lcd/CMakeFiles/__idf_esp_lcd.dir/build.make esp-idf/esp_lcd/CMakeFiles/__idf_esp_lcd.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_lcd/CMakeFiles/__idf_esp_lcd.dir/build.make esp-idf/esp_lcd/CMakeFiles/__idf_esp_lcd.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=27 "Built target __idf_esp_lcd"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=36 "Built target __idf_esp_lcd"
 .PHONY : esp-idf/esp_lcd/CMakeFiles/__idf_esp_lcd.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_lcd/CMakeFiles/__idf_esp_lcd.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 86
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 76
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_lcd/CMakeFiles/__idf_esp_lcd.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/esp_lcd/CMakeFiles/__idf_esp_lcd.dir/rule
@@ -5318,7 +5367,7 @@ esp-idf/protobuf-c/CMakeFiles/__idf_protobuf-c.dir/all: esp-idf/xtensa/CMakeFile
 
 # Build rule for subdir invocation for target.
 esp-idf/protobuf-c/CMakeFiles/__idf_protobuf-c.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 85
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 75
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/protobuf-c/CMakeFiles/__idf_protobuf-c.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/protobuf-c/CMakeFiles/__idf_protobuf-c.dir/rule
@@ -5337,11 +5386,12 @@ esp-idf/protobuf-c/CMakeFiles/__idf_protobuf-c.dir/clean:
 
 # All Build rule for target.
 esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/all: esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/all
+esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/all: esp-idf/bt/CMakeFiles/__idf_bt.dir/all
 esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/all: esp-idf/console/CMakeFiles/__idf_console.dir/all
 esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/all: esp-idf/protobuf-c/CMakeFiles/__idf_protobuf-c.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/build.make esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/build.make esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=63 "Built target __idf_protocomm"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=67,68 "Built target __idf_protocomm"
 .PHONY : esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/all
 
 # Build rule for subdir invocation for target.
@@ -5365,6 +5415,7 @@ esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/clean:
 
 # All Build rule for target.
 esp-idf/esp_local_ctrl/CMakeFiles/__idf_esp_local_ctrl.dir/all: esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/all
+esp-idf/esp_local_ctrl/CMakeFiles/__idf_esp_local_ctrl.dir/all: esp-idf/bt/CMakeFiles/__idf_bt.dir/all
 esp-idf/esp_local_ctrl/CMakeFiles/__idf_esp_local_ctrl.dir/all: esp-idf/console/CMakeFiles/__idf_console.dir/all
 esp-idf/esp_local_ctrl/CMakeFiles/__idf_esp_local_ctrl.dir/all: esp-idf/esp_https_server/CMakeFiles/__idf_esp_https_server.dir/all
 esp-idf/esp_local_ctrl/CMakeFiles/__idf_esp_local_ctrl.dir/all: esp-idf/protobuf-c/CMakeFiles/__idf_protobuf-c.dir/all
@@ -5397,12 +5448,12 @@ esp-idf/esp_local_ctrl/CMakeFiles/__idf_esp_local_ctrl.dir/clean:
 esp-idf/espcoredump/CMakeFiles/__idf_espcoredump.dir/all: esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/espcoredump/CMakeFiles/__idf_espcoredump.dir/build.make esp-idf/espcoredump/CMakeFiles/__idf_espcoredump.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/espcoredump/CMakeFiles/__idf_espcoredump.dir/build.make esp-idf/espcoredump/CMakeFiles/__idf_espcoredump.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=38 "Built target __idf_espcoredump"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num= "Built target __idf_espcoredump"
 .PHONY : esp-idf/espcoredump/CMakeFiles/__idf_espcoredump.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/espcoredump/CMakeFiles/__idf_espcoredump.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 86
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 75
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/espcoredump/CMakeFiles/__idf_espcoredump.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/espcoredump/CMakeFiles/__idf_espcoredump.dir/rule
@@ -5423,12 +5474,12 @@ esp-idf/espcoredump/CMakeFiles/__idf_espcoredump.dir/clean:
 esp-idf/wear_levelling/CMakeFiles/__idf_wear_levelling.dir/all: esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/wear_levelling/CMakeFiles/__idf_wear_levelling.dir/build.make esp-idf/wear_levelling/CMakeFiles/__idf_wear_levelling.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/wear_levelling/CMakeFiles/__idf_wear_levelling.dir/build.make esp-idf/wear_levelling/CMakeFiles/__idf_wear_levelling.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=73 "Built target __idf_wear_levelling"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num= "Built target __idf_wear_levelling"
 .PHONY : esp-idf/wear_levelling/CMakeFiles/__idf_wear_levelling.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/wear_levelling/CMakeFiles/__idf_wear_levelling.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 86
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 75
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/wear_levelling/CMakeFiles/__idf_wear_levelling.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/wear_levelling/CMakeFiles/__idf_wear_levelling.dir/rule
@@ -5450,12 +5501,12 @@ esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/all: esp-idf/xtensa/CMakeFiles/__idf_xt
 esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/all: esp-idf/wear_levelling/CMakeFiles/__idf_wear_levelling.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/build.make esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/build.make esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=39 "Built target __idf_fatfs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=46 "Built target __idf_fatfs"
 .PHONY : esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 87
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 76
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/rule
@@ -5481,7 +5532,7 @@ esp-idf/json/CMakeFiles/__idf_json.dir/all: esp-idf/xtensa/CMakeFiles/__idf_xten
 
 # Build rule for subdir invocation for target.
 esp-idf/json/CMakeFiles/__idf_json.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 85
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 75
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/json/CMakeFiles/__idf_json.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/json/CMakeFiles/__idf_json.dir/rule
@@ -5502,12 +5553,12 @@ esp-idf/json/CMakeFiles/__idf_json.dir/clean:
 esp-idf/mqtt/CMakeFiles/__idf_mqtt.dir/all: esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/mqtt/CMakeFiles/__idf_mqtt.dir/build.make esp-idf/mqtt/CMakeFiles/__idf_mqtt.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/mqtt/CMakeFiles/__idf_mqtt.dir/build.make esp-idf/mqtt/CMakeFiles/__idf_mqtt.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=58 "Built target __idf_mqtt"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=63 "Built target __idf_mqtt"
 .PHONY : esp-idf/mqtt/CMakeFiles/__idf_mqtt.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/mqtt/CMakeFiles/__idf_mqtt.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 86
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 76
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/mqtt/CMakeFiles/__idf_mqtt.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/mqtt/CMakeFiles/__idf_mqtt.dir/rule
@@ -5533,7 +5584,7 @@ esp-idf/nvs_sec_provider/CMakeFiles/__idf_nvs_sec_provider.dir/all: esp-idf/xten
 
 # Build rule for subdir invocation for target.
 esp-idf/nvs_sec_provider/CMakeFiles/__idf_nvs_sec_provider.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 85
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 75
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/nvs_sec_provider/CMakeFiles/__idf_nvs_sec_provider.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/nvs_sec_provider/CMakeFiles/__idf_nvs_sec_provider.dir/rule
@@ -5554,12 +5605,12 @@ esp-idf/nvs_sec_provider/CMakeFiles/__idf_nvs_sec_provider.dir/clean:
 esp-idf/perfmon/CMakeFiles/__idf_perfmon.dir/all: esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/perfmon/CMakeFiles/__idf_perfmon.dir/build.make esp-idf/perfmon/CMakeFiles/__idf_perfmon.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/perfmon/CMakeFiles/__idf_perfmon.dir/build.make esp-idf/perfmon/CMakeFiles/__idf_perfmon.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=62 "Built target __idf_perfmon"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num= "Built target __idf_perfmon"
 .PHONY : esp-idf/perfmon/CMakeFiles/__idf_perfmon.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/perfmon/CMakeFiles/__idf_perfmon.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 86
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 75
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/perfmon/CMakeFiles/__idf_perfmon.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/perfmon/CMakeFiles/__idf_perfmon.dir/rule
@@ -5580,12 +5631,12 @@ esp-idf/perfmon/CMakeFiles/__idf_perfmon.dir/clean:
 esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/all: esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/build.make esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/build.make esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num= "Built target __idf_spiffs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=74 "Built target __idf_spiffs"
 .PHONY : esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 85
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 76
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/rule
@@ -5604,13 +5655,14 @@ esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/clean:
 
 # All Build rule for target.
 esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/all: esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/all
+esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/all: esp-idf/bt/CMakeFiles/__idf_bt.dir/all
 esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/all: esp-idf/console/CMakeFiles/__idf_console.dir/all
 esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/all: esp-idf/protobuf-c/CMakeFiles/__idf_protobuf-c.dir/all
 esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/all: esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/all
 esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/all: esp-idf/json/CMakeFiles/__idf_json.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/build.make esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/build.make esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=74 "Built target __idf_wifi_provisioning"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=77 "Built target __idf_wifi_provisioning"
 .PHONY : esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/all
 
 # Build rule for subdir invocation for target.
@@ -5641,7 +5693,7 @@ esp-idf/at_server/CMakeFiles/__idf_at_server.dir/all: esp-idf/xtensa/CMakeFiles/
 
 # Build rule for subdir invocation for target.
 esp-idf/at_server/CMakeFiles/__idf_at_server.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 85
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 75
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/at_server/CMakeFiles/__idf_at_server.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/at_server/CMakeFiles/__idf_at_server.dir/rule
@@ -5668,7 +5720,7 @@ esp-idf/at_wifi/CMakeFiles/__idf_at_wifi.dir/all: esp-idf/at_server/CMakeFiles/_
 
 # Build rule for subdir invocation for target.
 esp-idf/at_wifi/CMakeFiles/__idf_at_wifi.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 85
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 75
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/at_wifi/CMakeFiles/__idf_at_wifi.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/at_wifi/CMakeFiles/__idf_at_wifi.dir/rule
@@ -5683,46 +5735,20 @@ esp-idf/at_wifi/CMakeFiles/__idf_at_wifi.dir/clean:
 .PHONY : esp-idf/at_wifi/CMakeFiles/__idf_at_wifi.dir/clean
 
 #=============================================================================
-# Target rules for target esp-idf/main/CMakeFiles/__idf_main.dir
-
-# All Build rule for target.
-esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/all
-esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/at_server/CMakeFiles/__idf_at_server.dir/all
-esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/at_wifi/CMakeFiles/__idf_at_wifi.dir/all
-	$(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/depend
-	$(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num= "Built target __idf_main"
-.PHONY : esp-idf/main/CMakeFiles/__idf_main.dir/all
-
-# Build rule for subdir invocation for target.
-esp-idf/main/CMakeFiles/__idf_main.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 85
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/main/CMakeFiles/__idf_main.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
-.PHONY : esp-idf/main/CMakeFiles/__idf_main.dir/rule
-
-# Convenience name for target.
-__idf_main: esp-idf/main/CMakeFiles/__idf_main.dir/rule
-.PHONY : __idf_main
-
-# clean rule for target.
-esp-idf/main/CMakeFiles/__idf_main.dir/clean:
-	$(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/clean
-.PHONY : esp-idf/main/CMakeFiles/__idf_main.dir/clean
-
-#=============================================================================
 # Target rules for target esp-idf/at_ble/CMakeFiles/__idf_at_ble.dir
 
 # All Build rule for target.
 esp-idf/at_ble/CMakeFiles/__idf_at_ble.dir/all: esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/all
+esp-idf/at_ble/CMakeFiles/__idf_at_ble.dir/all: esp-idf/bt/CMakeFiles/__idf_bt.dir/all
+esp-idf/at_ble/CMakeFiles/__idf_at_ble.dir/all: esp-idf/at_server/CMakeFiles/__idf_at_server.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/at_ble/CMakeFiles/__idf_at_ble.dir/build.make esp-idf/at_ble/CMakeFiles/__idf_at_ble.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/at_ble/CMakeFiles/__idf_at_ble.dir/build.make esp-idf/at_ble/CMakeFiles/__idf_at_ble.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=1 "Built target __idf_at_ble"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num= "Built target __idf_at_ble"
 .PHONY : esp-idf/at_ble/CMakeFiles/__idf_at_ble.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/at_ble/CMakeFiles/__idf_at_ble.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 86
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 84
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/at_ble/CMakeFiles/__idf_at_ble.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/at_ble/CMakeFiles/__idf_at_ble.dir/rule
@@ -5737,18 +5763,48 @@ esp-idf/at_ble/CMakeFiles/__idf_at_ble.dir/clean:
 .PHONY : esp-idf/at_ble/CMakeFiles/__idf_at_ble.dir/clean
 
 #=============================================================================
+# Target rules for target esp-idf/main/CMakeFiles/__idf_main.dir
+
+# All Build rule for target.
+esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/all
+esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/bt/CMakeFiles/__idf_bt.dir/all
+esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/at_server/CMakeFiles/__idf_at_server.dir/all
+esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/at_wifi/CMakeFiles/__idf_at_wifi.dir/all
+esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/at_ble/CMakeFiles/__idf_at_ble.dir/all
+	$(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/depend
+	$(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num= "Built target __idf_main"
+.PHONY : esp-idf/main/CMakeFiles/__idf_main.dir/all
+
+# Build rule for subdir invocation for target.
+esp-idf/main/CMakeFiles/__idf_main.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 84
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/main/CMakeFiles/__idf_main.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
+.PHONY : esp-idf/main/CMakeFiles/__idf_main.dir/rule
+
+# Convenience name for target.
+__idf_main: esp-idf/main/CMakeFiles/__idf_main.dir/rule
+.PHONY : __idf_main
+
+# clean rule for target.
+esp-idf/main/CMakeFiles/__idf_main.dir/clean:
+	$(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/clean
+.PHONY : esp-idf/main/CMakeFiles/__idf_main.dir/clean
+
+#=============================================================================
 # Target rules for target esp-idf/at_mqtt/CMakeFiles/__idf_at_mqtt.dir
 
 # All Build rule for target.
 esp-idf/at_mqtt/CMakeFiles/__idf_at_mqtt.dir/all: esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/at_mqtt/CMakeFiles/__idf_at_mqtt.dir/build.make esp-idf/at_mqtt/CMakeFiles/__idf_at_mqtt.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/at_mqtt/CMakeFiles/__idf_at_mqtt.dir/build.make esp-idf/at_mqtt/CMakeFiles/__idf_at_mqtt.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num= "Built target __idf_at_mqtt"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=1 "Built target __idf_at_mqtt"
 .PHONY : esp-idf/at_mqtt/CMakeFiles/__idf_at_mqtt.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/at_mqtt/CMakeFiles/__idf_at_mqtt.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 85
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 76
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/at_mqtt/CMakeFiles/__idf_at_mqtt.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
 .PHONY : esp-idf/at_mqtt/CMakeFiles/__idf_at_mqtt.dir/rule
@@ -5761,6 +5817,33 @@ __idf_at_mqtt: esp-idf/at_mqtt/CMakeFiles/__idf_at_mqtt.dir/rule
 esp-idf/at_mqtt/CMakeFiles/__idf_at_mqtt.dir/clean:
 	$(MAKE) $(MAKESILENT) -f esp-idf/at_mqtt/CMakeFiles/__idf_at_mqtt.dir/build.make esp-idf/at_mqtt/CMakeFiles/__idf_at_mqtt.dir/clean
 .PHONY : esp-idf/at_mqtt/CMakeFiles/__idf_at_mqtt.dir/clean
+
+#=============================================================================
+# Target rules for target esp-idf/esp-nimble-cpp/CMakeFiles/__idf_esp-nimble-cpp.dir
+
+# All Build rule for target.
+esp-idf/esp-nimble-cpp/CMakeFiles/__idf_esp-nimble-cpp.dir/all: esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/all
+esp-idf/esp-nimble-cpp/CMakeFiles/__idf_esp-nimble-cpp.dir/all: esp-idf/bt/CMakeFiles/__idf_bt.dir/all
+	$(MAKE) $(MAKESILENT) -f esp-idf/esp-nimble-cpp/CMakeFiles/__idf_esp-nimble-cpp.dir/build.make esp-idf/esp-nimble-cpp/CMakeFiles/__idf_esp-nimble-cpp.dir/depend
+	$(MAKE) $(MAKESILENT) -f esp-idf/esp-nimble-cpp/CMakeFiles/__idf_esp-nimble-cpp.dir/build.make esp-idf/esp-nimble-cpp/CMakeFiles/__idf_esp-nimble-cpp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=18,19 "Built target __idf_esp-nimble-cpp"
+.PHONY : esp-idf/esp-nimble-cpp/CMakeFiles/__idf_esp-nimble-cpp.dir/all
+
+# Build rule for subdir invocation for target.
+esp-idf/esp-nimble-cpp/CMakeFiles/__idf_esp-nimble-cpp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 86
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp-nimble-cpp/CMakeFiles/__idf_esp-nimble-cpp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/eunous/git/dvid/com-at/com-at/build/CMakeFiles 0
+.PHONY : esp-idf/esp-nimble-cpp/CMakeFiles/__idf_esp-nimble-cpp.dir/rule
+
+# Convenience name for target.
+__idf_esp-nimble-cpp: esp-idf/esp-nimble-cpp/CMakeFiles/__idf_esp-nimble-cpp.dir/rule
+.PHONY : __idf_esp-nimble-cpp
+
+# clean rule for target.
+esp-idf/esp-nimble-cpp/CMakeFiles/__idf_esp-nimble-cpp.dir/clean:
+	$(MAKE) $(MAKESILENT) -f esp-idf/esp-nimble-cpp/CMakeFiles/__idf_esp-nimble-cpp.dir/build.make esp-idf/esp-nimble-cpp/CMakeFiles/__idf_esp-nimble-cpp.dir/clean
+.PHONY : esp-idf/esp-nimble-cpp/CMakeFiles/__idf_esp-nimble-cpp.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

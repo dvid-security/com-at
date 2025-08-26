@@ -319,6 +319,30 @@ src/manager.c.s:
 	cd /home/eunous/git/dvid/com-at/com-at/build && $(MAKE) $(MAKESILENT) -f esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/build.make esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/src/manager.c.s
 .PHONY : src/manager.c.s
 
+src/scheme_ble.obj: src/scheme_ble.c.obj
+.PHONY : src/scheme_ble.obj
+
+# target to build an object file
+src/scheme_ble.c.obj:
+	cd /home/eunous/git/dvid/com-at/com-at/build && $(MAKE) $(MAKESILENT) -f esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/build.make esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/src/scheme_ble.c.obj
+.PHONY : src/scheme_ble.c.obj
+
+src/scheme_ble.i: src/scheme_ble.c.i
+.PHONY : src/scheme_ble.i
+
+# target to preprocess a source file
+src/scheme_ble.c.i:
+	cd /home/eunous/git/dvid/com-at/com-at/build && $(MAKE) $(MAKESILENT) -f esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/build.make esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/src/scheme_ble.c.i
+.PHONY : src/scheme_ble.c.i
+
+src/scheme_ble.s: src/scheme_ble.c.s
+.PHONY : src/scheme_ble.s
+
+# target to generate assembly for a file
+src/scheme_ble.c.s:
+	cd /home/eunous/git/dvid/com-at/com-at/build && $(MAKE) $(MAKESILENT) -f esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/build.make esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/src/scheme_ble.c.s
+.PHONY : src/scheme_ble.c.s
+
 src/scheme_console.obj: src/scheme_console.c.obj
 .PHONY : src/scheme_console.obj
 
@@ -470,6 +494,9 @@ help:
 	@echo "... src/manager.obj"
 	@echo "... src/manager.i"
 	@echo "... src/manager.s"
+	@echo "... src/scheme_ble.obj"
+	@echo "... src/scheme_ble.i"
+	@echo "... src/scheme_ble.s"
 	@echo "... src/scheme_console.obj"
 	@echo "... src/scheme_console.i"
 	@echo "... src/scheme_console.s"

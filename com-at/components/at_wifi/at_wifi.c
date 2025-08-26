@@ -3,6 +3,10 @@
 #include "at_wifi.h"
 #include "at_server.h"
 
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+
+
 #include "esp_wifi.h"
 #include "esp_log.h"
 #include "driver/uart.h"
@@ -251,6 +255,26 @@ static void at_handle_cwap(const char *params)
     }
 }
 
+// AT+WIFISTOP : Stoppe et désinitialise le WiFi (libère la RAM pour BLE)
+static void at_handle_wifistop(const char *params)
+{
+    ESP_LOGI(TAG, "AT+WIFISTOP called");
+    esp_err_t err1 = esp_wifi_stop();
+    esp_err_t err2 = esp_wifi_deinit();
+
+    vTaskDelay(pdMS_TO_TICKS(100)); // Délai pour libération mémoire
+
+    if (err1 == ESP_OK && err2 == ESP_OK) {
+        uart_send("OK\r\n");
+        ESP_LOGI(TAG, "WiFi stopped and deinit OK");
+    } else {
+        uart_send("ERROR\r\n");
+        ESP_LOGE(TAG, "WiFi stop/deinit failed: %s/%s",
+            esp_err_to_name(err1), esp_err_to_name(err2));
+    }
+}
+
+
 // === REGISTRATION ===
 
 void wifi_at_register(void)
@@ -281,41 +305,54 @@ void wifi_at_register(void)
         {"AT+CWMODE?",   at_handle_cwmode_query, "Lit le mode Wi-Fi (1=STA,2=AP,3=AP+STA)"},
         {"AT+CWMODE",    at_handle_cwmode_set,   "Change le mode Wi-Fi (1=STA,2=AP,3=AP+STA)"},
         {"AT+CWAP",      at_handle_cwap,    "Configure le SoftAP: AT+CWAP=\"ssid\",\"pass\",ch,auth"},
+        {"AT+WIFISTOP",  at_handle_wifistop,  "Stoppe et désinitialise le WiFi (libère la RAM pour BLE)"},
     };
     for (size_t i = 0; i < sizeof(cmds)/sizeof(cmds[0]); i++)
         at_server_register_command(&cmds[i]);
     ESP_LOGI(TAG, "All AT Wi-Fi commands registered.");
 }
 
-
 void at_wifi_test_all(void)
 {
     printf("TEST AT+CWLAP...\n");
     at_handle_cwlap(NULL);
+    vTaskDelay(pdMS_TO_TICKS(1000));
 
     printf("TEST AT+CWJAP...\n");
     at_handle_cwjap("\"Livebox-3EC0\",\"LK7sHJ4RmpXdDySvKz\"");
+    vTaskDelay(pdMS_TO_TICKS(1000));
 
     printf("TEST AT+CWJAP?...\n");
     at_handle_cwjap_query(NULL);
+    vTaskDelay(pdMS_TO_TICKS(1000));
 
     printf("TEST AT+CWSTATE?...\n");
     at_handle_cwstate(NULL);
+    vTaskDelay(pdMS_TO_TICKS(1000));
 
     printf("TEST AT+CIFSR...\n");
     at_handle_cifsr(NULL);
+    vTaskDelay(pdMS_TO_TICKS(1000));
 
     printf("TEST AT+CWQAP...\n");
     at_handle_cwqap(NULL);
+    vTaskDelay(pdMS_TO_TICKS(1000));
 
     printf("TEST AT+CWMODE?...\n");
     at_handle_cwmode_query(NULL);
+    vTaskDelay(pdMS_TO_TICKS(1000));
 
     printf("TEST AT+CWMODE=2...\n");
     at_handle_cwmode_set("2");
+    vTaskDelay(pdMS_TO_TICKS(1000));
 
     printf("TEST AT+CWAP...\n");
     at_handle_cwap("\"TestAP\",\"test1234\",6,3");
+    vTaskDelay(pdMS_TO_TICKS(1000));
+
+    printf("TEST AT+CWAP...\n");
+    at_handle_wifistop(NULL);
+    vTaskDelay(pdMS_TO_TICKS(5000));
 
     printf("DONE.\n");
 }

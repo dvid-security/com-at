@@ -7,6 +7,7 @@
 
 #include "at_server.h"
 #include "at_wifi.h"  // Ton module AT Wi-Fi
+#include "at_ble.h"
 
 void uart_init(void)
 {
@@ -23,10 +24,10 @@ void uart_init(void)
 
 void app_main(void)
 {
-    // 0️⃣ Met le log global bien verbeux pour debug (optionnel)
+    // Met le log global bien verbeux pour debug (optionnel)
     esp_log_level_set("*", ESP_LOG_INFO);
 
-    // 1️⃣ Init NVS (obligatoire pour le Wi-Fi)
+    // Initialisation non-volatile storage
     esp_err_t ret = nvs_flash_init();
     if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND) {
         ESP_ERROR_CHECK(nvs_flash_erase());
@@ -35,14 +36,16 @@ void app_main(void)
         ESP_ERROR_CHECK(ret);
     }
 
-    // 2️⃣ UART ready pour AT et debug
+    // UART ready pour AT et debug
     uart_init();
 
-    // 3️⃣ Enregistre toutes tes commandes Wi-Fi (init Wi-Fi incluse dans wifi_at_register)
+    // Enregistre toutes tes commandes Wi-Fi (init Wi-Fi incluse dans wifi_at_register)
     wifi_at_register();
-
     at_wifi_test_all();
-    at_server_start();
 
+    ble_at_register();
+    at_ble_test_all();
+    
+    at_server_start();
     // Le serveur AT tourne maintenant sur une tâche FreeRTOS, tout est prêt !
 }

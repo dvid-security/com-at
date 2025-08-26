@@ -199,6 +199,30 @@ esp32/esp_coex_adapter.c.s:
 	cd /home/eunous/git/dvid/com-at/com-at/build && $(MAKE) $(MAKESILENT) -f esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/build.make esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/esp32/esp_coex_adapter.c.s
 .PHONY : esp32/esp_coex_adapter.c.s
 
+src/coexist.obj: src/coexist.c.obj
+.PHONY : src/coexist.obj
+
+# target to build an object file
+src/coexist.c.obj:
+	cd /home/eunous/git/dvid/com-at/com-at/build && $(MAKE) $(MAKESILENT) -f esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/build.make esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/src/coexist.c.obj
+.PHONY : src/coexist.c.obj
+
+src/coexist.i: src/coexist.c.i
+.PHONY : src/coexist.i
+
+# target to preprocess a source file
+src/coexist.c.i:
+	cd /home/eunous/git/dvid/com-at/com-at/build && $(MAKE) $(MAKESILENT) -f esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/build.make esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/src/coexist.c.i
+.PHONY : src/coexist.c.i
+
+src/coexist.s: src/coexist.c.s
+.PHONY : src/coexist.s
+
+# target to generate assembly for a file
+src/coexist.c.s:
+	cd /home/eunous/git/dvid/com-at/com-at/build && $(MAKE) $(MAKESILENT) -f esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/build.make esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/src/coexist.c.s
+.PHONY : src/coexist.c.s
+
 src/coexist_debug.obj: src/coexist_debug.c.obj
 .PHONY : src/coexist_debug.obj
 
@@ -247,6 +271,30 @@ src/coexist_debug_diagram.c.s:
 	cd /home/eunous/git/dvid/com-at/com-at/build && $(MAKE) $(MAKESILENT) -f esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/build.make esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/src/coexist_debug_diagram.c.s
 .PHONY : src/coexist_debug_diagram.c.s
 
+src/lib_printf.obj: src/lib_printf.c.obj
+.PHONY : src/lib_printf.obj
+
+# target to build an object file
+src/lib_printf.c.obj:
+	cd /home/eunous/git/dvid/com-at/com-at/build && $(MAKE) $(MAKESILENT) -f esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/build.make esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/src/lib_printf.c.obj
+.PHONY : src/lib_printf.c.obj
+
+src/lib_printf.i: src/lib_printf.c.i
+.PHONY : src/lib_printf.i
+
+# target to preprocess a source file
+src/lib_printf.c.i:
+	cd /home/eunous/git/dvid/com-at/com-at/build && $(MAKE) $(MAKESILENT) -f esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/build.make esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/src/lib_printf.c.i
+.PHONY : src/lib_printf.c.i
+
+src/lib_printf.s: src/lib_printf.c.s
+.PHONY : src/lib_printf.s
+
+# target to generate assembly for a file
+src/lib_printf.c.s:
+	cd /home/eunous/git/dvid/com-at/com-at/build && $(MAKE) $(MAKESILENT) -f esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/build.make esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/src/lib_printf.c.s
+.PHONY : src/lib_printf.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -263,12 +311,18 @@ help:
 	@echo "... esp32/esp_coex_adapter.obj"
 	@echo "... esp32/esp_coex_adapter.i"
 	@echo "... esp32/esp_coex_adapter.s"
+	@echo "... src/coexist.obj"
+	@echo "... src/coexist.i"
+	@echo "... src/coexist.s"
 	@echo "... src/coexist_debug.obj"
 	@echo "... src/coexist_debug.i"
 	@echo "... src/coexist_debug.s"
 	@echo "... src/coexist_debug_diagram.obj"
 	@echo "... src/coexist_debug_diagram.i"
 	@echo "... src/coexist_debug_diagram.s"
+	@echo "... src/lib_printf.obj"
+	@echo "... src/lib_printf.i"
+	@echo "... src/lib_printf.s"
 .PHONY : help
 
 

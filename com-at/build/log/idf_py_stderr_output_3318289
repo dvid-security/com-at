@@ -1,8 +1,0 @@
-/home/eunous/git/dvid/com-at/com-at/main/com-at.c:4:10: fatal error: at_wifi.h: No such file or directory
-    4 | #include "at_wifi.h"   // Ton module Wi-Fi AT
-      |          ^~~~~~~~~~~
-compilation terminated.
-make[2]: *** [esp-idf/main/CMakeFiles/__idf_main.dir/build.make:76: esp-idf/main/CMakeFiles/__idf_main.dir/com-at.c.obj] Error 1
-make[1]: *** [CMakeFiles/Makefile2:5665: esp-idf/main/CMakeFiles/__idf_main.dir/all] Error 2
-make[1]: *** Waiting for unfinished jobs....
-make: *** [Makefile:136: all] Error 2

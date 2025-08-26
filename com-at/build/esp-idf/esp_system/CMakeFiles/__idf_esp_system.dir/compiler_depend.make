@@ -2492,6 +2492,11 @@ esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/startup_funcs.c.obj: /home/eu
   /home/eunous/esp-idf/components/soc/esp32/include/soc/uart_struct.h \
   /home/eunous/esp-idf/components/soc/esp32/include/soc/dport_reg.h \
   /home/eunous/esp-idf/components/soc/esp32/include/soc/dport_access.h \
+  /home/eunous/esp-idf/components/esp_coex/include/private/esp_coexist_internal.h \
+  /home/eunous/esp-idf/components/esp_coex/include/esp_coexist.h \
+  /home/eunous/esp-idf/components/hal/include/hal/gpio_types.h \
+  /home/eunous/esp-idf/components/soc/esp32/include/soc/gpio_num.h \
+  /home/eunous/esp-idf/components/esp_coex/include/private/esp_coexist_adapter.h \
   /home/eunous/esp-idf/components/esp_hw_support/include/esp_private/esp_clk.h \
   /home/eunous/esp-idf/components/spi_flash/include/esp_private/spi_flash_os.h \
   /home/eunous/esp-idf/components/esp_rom/include/esp_rom_spiflash.h \
@@ -3058,6 +3063,14 @@ esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/xt_wdt.c.obj: /home/eunous/es
 
 /home/eunous/esp-idf/components/esp_system/task_wdt/task_wdt.c:
 
+/home/eunous/esp-idf/components/esp_coex/include/private/esp_coexist_adapter.h:
+
+/home/eunous/esp-idf/components/hal/include/hal/gpio_types.h:
+
+/home/eunous/esp-idf/components/esp_coex/include/esp_coexist.h:
+
+/home/eunous/esp-idf/components/esp_coex/include/private/esp_coexist_internal.h:
+
 /home/eunous/esp-idf/components/esp_system/include/esp_xt_wdt.h:
 
 /home/eunous/esp-idf/components/esp_system/startup_funcs.c:
@@ -3341,6 +3354,8 @@ config/sdkconfig.h:
 /home/eunous/esp-idf/components/xtensa/include/xtensa/corebits.h:
 
 /home/eunous/esp-idf/components/xtensa/include/xtensa/xtruntime-frames.h:
+
+/home/eunous/esp-idf/components/soc/esp32/include/soc/gpio_num.h:
 
 /home/eunous/esp-idf/components/xtensa/esp32/include/xtensa/config/core-isa.h:
 

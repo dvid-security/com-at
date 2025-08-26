@@ -112,8 +112,11 @@ esp-idf/main/CMakeFiles/__idf_main.dir/com-at.c.obj: /home/eunous/git/dvid/com-a
   /home/eunous/esp-idf/components/hal/include/hal/uart_types.h \
   /home/eunous/esp-idf/components/soc/esp32/include/soc/clk_tree_defs.h \
   /home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.h \
-  /home/eunous/git/dvid/com-at/com-at/components/at_wifi/at_wifi.h
+  /home/eunous/git/dvid/com-at/com-at/components/at_wifi/at_wifi.h \
+  /home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.h
 
+
+/home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.h:
 
 /home/eunous/git/dvid/com-at/com-at/components/at_server/at_server.h:
 

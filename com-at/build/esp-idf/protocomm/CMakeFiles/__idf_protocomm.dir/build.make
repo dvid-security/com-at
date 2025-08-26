@@ -251,6 +251,20 @@ esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/src/crypto/srp6a/esp_srp_mpi.c.
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/__idf_protocomm.dir/src/crypto/srp6a/esp_srp_mpi.c.s"
 	cd /home/eunous/git/dvid/com-at/com-at/build/esp-idf/protocomm && /home/eunous/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/eunous/esp-idf/components/protocomm/src/crypto/srp6a/esp_srp_mpi.c -o CMakeFiles/__idf_protocomm.dir/src/crypto/srp6a/esp_srp_mpi.c.s
 
+esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/src/transports/protocomm_nimble.c.obj: esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/flags.make
+esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/src/transports/protocomm_nimble.c.obj: /home/eunous/esp-idf/components/protocomm/src/transports/protocomm_nimble.c
+esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/src/transports/protocomm_nimble.c.obj: esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/src/transports/protocomm_nimble.c.obj"
+	cd /home/eunous/git/dvid/com-at/com-at/build/esp-idf/protocomm && /home/eunous/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/src/transports/protocomm_nimble.c.obj -MF CMakeFiles/__idf_protocomm.dir/src/transports/protocomm_nimble.c.obj.d -o CMakeFiles/__idf_protocomm.dir/src/transports/protocomm_nimble.c.obj -c /home/eunous/esp-idf/components/protocomm/src/transports/protocomm_nimble.c
+
+esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/src/transports/protocomm_nimble.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/__idf_protocomm.dir/src/transports/protocomm_nimble.c.i"
+	cd /home/eunous/git/dvid/com-at/com-at/build/esp-idf/protocomm && /home/eunous/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/eunous/esp-idf/components/protocomm/src/transports/protocomm_nimble.c > CMakeFiles/__idf_protocomm.dir/src/transports/protocomm_nimble.c.i
+
+esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/src/transports/protocomm_nimble.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/__idf_protocomm.dir/src/transports/protocomm_nimble.c.s"
+	cd /home/eunous/git/dvid/com-at/com-at/build/esp-idf/protocomm && /home/eunous/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/eunous/esp-idf/components/protocomm/src/transports/protocomm_nimble.c -o CMakeFiles/__idf_protocomm.dir/src/transports/protocomm_nimble.c.s
+
 # Object files for target __idf_protocomm
 __idf_protocomm_OBJECTS = \
 "CMakeFiles/__idf_protocomm.dir/src/common/protocomm.c.obj" \
@@ -265,7 +279,8 @@ __idf_protocomm_OBJECTS = \
 "CMakeFiles/__idf_protocomm.dir/src/security/security1.c.obj" \
 "CMakeFiles/__idf_protocomm.dir/src/security/security2.c.obj" \
 "CMakeFiles/__idf_protocomm.dir/src/crypto/srp6a/esp_srp.c.obj" \
-"CMakeFiles/__idf_protocomm.dir/src/crypto/srp6a/esp_srp_mpi.c.obj"
+"CMakeFiles/__idf_protocomm.dir/src/crypto/srp6a/esp_srp_mpi.c.obj" \
+"CMakeFiles/__idf_protocomm.dir/src/transports/protocomm_nimble.c.obj"
 
 # External object files for target __idf_protocomm
 __idf_protocomm_EXTERNAL_OBJECTS =
@@ -283,9 +298,10 @@ esp-idf/protocomm/libprotocomm.a: esp-idf/protocomm/CMakeFiles/__idf_protocomm.d
 esp-idf/protocomm/libprotocomm.a: esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/src/security/security2.c.obj
 esp-idf/protocomm/libprotocomm.a: esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/src/crypto/srp6a/esp_srp.c.obj
 esp-idf/protocomm/libprotocomm.a: esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/src/crypto/srp6a/esp_srp_mpi.c.obj
+esp-idf/protocomm/libprotocomm.a: esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/src/transports/protocomm_nimble.c.obj
 esp-idf/protocomm/libprotocomm.a: esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/build.make
 esp-idf/protocomm/libprotocomm.a: esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking C static library libprotocomm.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking C static library libprotocomm.a"
 	cd /home/eunous/git/dvid/com-at/com-at/build/esp-idf/protocomm && $(CMAKE_COMMAND) -P CMakeFiles/__idf_protocomm.dir/cmake_clean_target.cmake
 	cd /home/eunous/git/dvid/com-at/com-at/build/esp-idf/protocomm && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/__idf_protocomm.dir/link.txt --verbose=$(VERBOSE)
 

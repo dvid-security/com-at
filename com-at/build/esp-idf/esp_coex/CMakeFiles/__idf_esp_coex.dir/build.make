@@ -69,10 +69,38 @@ include esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/progress.make
 # Include the compile flags for this target's objects.
 include esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/flags.make
 
+esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/src/coexist.c.obj: esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/flags.make
+esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/src/coexist.c.obj: /home/eunous/esp-idf/components/esp_coex/src/coexist.c
+esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/src/coexist.c.obj: esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/src/coexist.c.obj"
+	cd /home/eunous/git/dvid/com-at/com-at/build/esp-idf/esp_coex && /home/eunous/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/src/coexist.c.obj -MF CMakeFiles/__idf_esp_coex.dir/src/coexist.c.obj.d -o CMakeFiles/__idf_esp_coex.dir/src/coexist.c.obj -c /home/eunous/esp-idf/components/esp_coex/src/coexist.c
+
+esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/src/coexist.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/__idf_esp_coex.dir/src/coexist.c.i"
+	cd /home/eunous/git/dvid/com-at/com-at/build/esp-idf/esp_coex && /home/eunous/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/eunous/esp-idf/components/esp_coex/src/coexist.c > CMakeFiles/__idf_esp_coex.dir/src/coexist.c.i
+
+esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/src/coexist.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/__idf_esp_coex.dir/src/coexist.c.s"
+	cd /home/eunous/git/dvid/com-at/com-at/build/esp-idf/esp_coex && /home/eunous/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/eunous/esp-idf/components/esp_coex/src/coexist.c -o CMakeFiles/__idf_esp_coex.dir/src/coexist.c.s
+
+esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/src/lib_printf.c.obj: esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/flags.make
+esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/src/lib_printf.c.obj: /home/eunous/esp-idf/components/esp_coex/src/lib_printf.c
+esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/src/lib_printf.c.obj: esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/src/lib_printf.c.obj"
+	cd /home/eunous/git/dvid/com-at/com-at/build/esp-idf/esp_coex && /home/eunous/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/src/lib_printf.c.obj -MF CMakeFiles/__idf_esp_coex.dir/src/lib_printf.c.obj.d -o CMakeFiles/__idf_esp_coex.dir/src/lib_printf.c.obj -c /home/eunous/esp-idf/components/esp_coex/src/lib_printf.c
+
+esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/src/lib_printf.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/__idf_esp_coex.dir/src/lib_printf.c.i"
+	cd /home/eunous/git/dvid/com-at/com-at/build/esp-idf/esp_coex && /home/eunous/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/eunous/esp-idf/components/esp_coex/src/lib_printf.c > CMakeFiles/__idf_esp_coex.dir/src/lib_printf.c.i
+
+esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/src/lib_printf.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/__idf_esp_coex.dir/src/lib_printf.c.s"
+	cd /home/eunous/git/dvid/com-at/com-at/build/esp-idf/esp_coex && /home/eunous/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/eunous/esp-idf/components/esp_coex/src/lib_printf.c -o CMakeFiles/__idf_esp_coex.dir/src/lib_printf.c.s
+
 esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/esp32/esp_coex_adapter.c.obj: esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/flags.make
 esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/esp32/esp_coex_adapter.c.obj: /home/eunous/esp-idf/components/esp_coex/esp32/esp_coex_adapter.c
 esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/esp32/esp_coex_adapter.c.obj: esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/esp32/esp_coex_adapter.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/esp32/esp_coex_adapter.c.obj"
 	cd /home/eunous/git/dvid/com-at/com-at/build/esp-idf/esp_coex && /home/eunous/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/esp32/esp_coex_adapter.c.obj -MF CMakeFiles/__idf_esp_coex.dir/esp32/esp_coex_adapter.c.obj.d -o CMakeFiles/__idf_esp_coex.dir/esp32/esp_coex_adapter.c.obj -c /home/eunous/esp-idf/components/esp_coex/esp32/esp_coex_adapter.c
 
 esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/esp32/esp_coex_adapter.c.i: cmake_force
@@ -86,7 +114,7 @@ esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/esp32/esp_coex_adapter.c.s: cmake
 esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/src/coexist_debug_diagram.c.obj: esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/flags.make
 esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/src/coexist_debug_diagram.c.obj: /home/eunous/esp-idf/components/esp_coex/src/coexist_debug_diagram.c
 esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/src/coexist_debug_diagram.c.obj: esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/src/coexist_debug_diagram.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/src/coexist_debug_diagram.c.obj"
 	cd /home/eunous/git/dvid/com-at/com-at/build/esp-idf/esp_coex && /home/eunous/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/src/coexist_debug_diagram.c.obj -MF CMakeFiles/__idf_esp_coex.dir/src/coexist_debug_diagram.c.obj.d -o CMakeFiles/__idf_esp_coex.dir/src/coexist_debug_diagram.c.obj -c /home/eunous/esp-idf/components/esp_coex/src/coexist_debug_diagram.c
 
 esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/src/coexist_debug_diagram.c.i: cmake_force
@@ -100,7 +128,7 @@ esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/src/coexist_debug_diagram.c.s: cm
 esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/src/coexist_debug.c.obj: esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/flags.make
 esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/src/coexist_debug.c.obj: /home/eunous/esp-idf/components/esp_coex/src/coexist_debug.c
 esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/src/coexist_debug.c.obj: esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/src/coexist_debug.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/src/coexist_debug.c.obj"
 	cd /home/eunous/git/dvid/com-at/com-at/build/esp-idf/esp_coex && /home/eunous/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/src/coexist_debug.c.obj -MF CMakeFiles/__idf_esp_coex.dir/src/coexist_debug.c.obj.d -o CMakeFiles/__idf_esp_coex.dir/src/coexist_debug.c.obj -c /home/eunous/esp-idf/components/esp_coex/src/coexist_debug.c
 
 esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/src/coexist_debug.c.i: cmake_force
@@ -113,6 +141,8 @@ esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/src/coexist_debug.c.s: cmake_forc
 
 # Object files for target __idf_esp_coex
 __idf_esp_coex_OBJECTS = \
+"CMakeFiles/__idf_esp_coex.dir/src/coexist.c.obj" \
+"CMakeFiles/__idf_esp_coex.dir/src/lib_printf.c.obj" \
 "CMakeFiles/__idf_esp_coex.dir/esp32/esp_coex_adapter.c.obj" \
 "CMakeFiles/__idf_esp_coex.dir/src/coexist_debug_diagram.c.obj" \
 "CMakeFiles/__idf_esp_coex.dir/src/coexist_debug.c.obj"
@@ -120,12 +150,14 @@ __idf_esp_coex_OBJECTS = \
 # External object files for target __idf_esp_coex
 __idf_esp_coex_EXTERNAL_OBJECTS =
 
+esp-idf/esp_coex/libesp_coex.a: esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/src/coexist.c.obj
+esp-idf/esp_coex/libesp_coex.a: esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/src/lib_printf.c.obj
 esp-idf/esp_coex/libesp_coex.a: esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/esp32/esp_coex_adapter.c.obj
 esp-idf/esp_coex/libesp_coex.a: esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/src/coexist_debug_diagram.c.obj
 esp-idf/esp_coex/libesp_coex.a: esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/src/coexist_debug.c.obj
 esp-idf/esp_coex/libesp_coex.a: esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/build.make
 esp-idf/esp_coex/libesp_coex.a: esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C static library libesp_coex.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/eunous/git/dvid/com-at/com-at/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking C static library libesp_coex.a"
 	cd /home/eunous/git/dvid/com-at/com-at/build/esp-idf/esp_coex && $(CMAKE_COMMAND) -P CMakeFiles/__idf_esp_coex.dir/cmake_clean_target.cmake
 	cd /home/eunous/git/dvid/com-at/com-at/build/esp-idf/esp_coex && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/__idf_esp_coex.dir/link.txt --verbose=$(VERBOSE)
 

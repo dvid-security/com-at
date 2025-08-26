@@ -1,0 +1,8 @@
+/home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:3:10: fatal error: driver/uart.h: No such file or directory
+    3 | #include "driver/uart.h"
+      |          ^~~~~~~~~~~~~~~
+compilation terminated.
+make[2]: *** [esp-idf/at_ble/CMakeFiles/__idf_at_ble.dir/build.make:76: esp-idf/at_ble/CMakeFiles/__idf_at_ble.dir/at_ble.c.obj] Error 1
+make[1]: *** [CMakeFiles/Makefile2:5745: esp-idf/at_ble/CMakeFiles/__idf_at_ble.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+make: *** [Makefile:136: all] Error 2

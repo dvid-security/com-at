@@ -51,6 +51,7 @@
 /home/eunous/git/dvid/com-at/com-at/build/esp-idf/wpa_supplicant/libwpa_supplicant.a
 /home/eunous/git/dvid/com-at/com-at/build/esp-idf/esp_coex/libesp_coex.a
 /home/eunous/git/dvid/com-at/com-at/build/esp-idf/esp_wifi/libesp_wifi.a
+/home/eunous/git/dvid/com-at/com-at/build/esp-idf/bt/libbt.a
 /home/eunous/git/dvid/com-at/com-at/build/esp-idf/unity/libunity.a
 /home/eunous/git/dvid/com-at/com-at/build/esp-idf/cmock/libcmock.a
 /home/eunous/git/dvid/com-at/com-at/build/esp-idf/console/libconsole.a
@@ -81,6 +82,7 @@
 /home/eunous/git/dvid/com-at/com-at/build/esp-idf/wifi_provisioning/libwifi_provisioning.a
 /home/eunous/git/dvid/com-at/com-at/build/esp-idf/at_server/libat_server.a
 /home/eunous/git/dvid/com-at/com-at/build/esp-idf/at_wifi/libat_wifi.a
-/home/eunous/git/dvid/com-at/com-at/build/esp-idf/main/libmain.a
 /home/eunous/git/dvid/com-at/com-at/build/esp-idf/at_ble/libat_ble.a
+/home/eunous/git/dvid/com-at/com-at/build/esp-idf/main/libmain.a
 /home/eunous/git/dvid/com-at/com-at/build/esp-idf/at_mqtt/libat_mqtt.a
+/home/eunous/git/dvid/com-at/com-at/build/esp-idf/esp-nimble-cpp/libesp-nimble-cpp.a

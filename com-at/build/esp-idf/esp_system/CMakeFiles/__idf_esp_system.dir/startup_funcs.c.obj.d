@@ -146,6 +146,11 @@ esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/startup_funcs.c.obj: \
  /home/eunous/esp-idf/components/soc/esp32/include/soc/uart_struct.h \
  /home/eunous/esp-idf/components/soc/esp32/include/soc/dport_reg.h \
  /home/eunous/esp-idf/components/soc/esp32/include/soc/dport_access.h \
+ /home/eunous/esp-idf/components/esp_coex/include/private/esp_coexist_internal.h \
+ /home/eunous/esp-idf/components/esp_coex/include/esp_coexist.h \
+ /home/eunous/esp-idf/components/hal/include/hal/gpio_types.h \
+ /home/eunous/esp-idf/components/soc/esp32/include/soc/gpio_num.h \
+ /home/eunous/esp-idf/components/esp_coex/include/private/esp_coexist_adapter.h \
  /home/eunous/esp-idf/components/esp_hw_support/include/esp_private/esp_clk.h \
  /home/eunous/esp-idf/components/spi_flash/include/esp_private/spi_flash_os.h \
  /home/eunous/esp-idf/components/esp_rom/include/esp_rom_spiflash.h \

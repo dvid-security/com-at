@@ -11,6 +11,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/__idf_wifi_provisioning.dir/src/handlers.c.obj.d"
   "CMakeFiles/__idf_wifi_provisioning.dir/src/manager.c.obj"
   "CMakeFiles/__idf_wifi_provisioning.dir/src/manager.c.obj.d"
+  "CMakeFiles/__idf_wifi_provisioning.dir/src/scheme_ble.c.obj"
+  "CMakeFiles/__idf_wifi_provisioning.dir/src/scheme_ble.c.obj.d"
   "CMakeFiles/__idf_wifi_provisioning.dir/src/scheme_console.c.obj"
   "CMakeFiles/__idf_wifi_provisioning.dir/src/scheme_console.c.obj.d"
   "CMakeFiles/__idf_wifi_provisioning.dir/src/scheme_softap.c.obj"

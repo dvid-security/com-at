@@ -1,0 +1,18 @@
+/home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c: In function 'build_gatt_svcs':
+/home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:102:29: error: implicit declaration of function 'ble_uuid16_init' [-Werror=implicit-function-declaration]
+  102 |             chars[j].uuid = ble_uuid16_init(chr->uuid);
+      |                             ^~~~~~~~~~~~~~~
+/home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:102:27: warning: assignment to 'const ble_uuid_t *' from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  102 |             chars[j].uuid = ble_uuid16_init(chr->uuid);
+      |                           ^
+/home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:114:27: warning: assignment to 'const ble_uuid_t *' from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  114 |         gatt_svcs[i].uuid = ble_uuid16_init(svc->uuid);
+      |                           ^
+/home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c: At top level:
+/home/eunous/git/dvid/com-at/com-at/components/at_ble/at_ble.c:45:21: warning: 'ble_host_handle' defined but not used [-Wunused-variable]
+   45 | static TaskHandle_t ble_host_handle = NULL;
+      |                     ^~~~~~~~~~~~~~~
+cc1: some warnings being treated as errors
+make[2]: *** [esp-idf/at_ble/CMakeFiles/__idf_at_ble.dir/build.make:76: esp-idf/at_ble/CMakeFiles/__idf_at_ble.dir/at_ble.c.obj] Error 1
+make[1]: *** [CMakeFiles/Makefile2:5745: esp-idf/at_ble/CMakeFiles/__idf_at_ble.dir/all] Error 2
+make: *** [Makefile:136: all] Error 2

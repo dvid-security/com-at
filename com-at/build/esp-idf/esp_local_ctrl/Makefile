@@ -247,6 +247,30 @@ src/esp_local_ctrl_handler.c.s:
 	cd /home/eunous/git/dvid/com-at/com-at/build && $(MAKE) $(MAKESILENT) -f esp-idf/esp_local_ctrl/CMakeFiles/__idf_esp_local_ctrl.dir/build.make esp-idf/esp_local_ctrl/CMakeFiles/__idf_esp_local_ctrl.dir/src/esp_local_ctrl_handler.c.s
 .PHONY : src/esp_local_ctrl_handler.c.s
 
+src/esp_local_ctrl_transport_ble.obj: src/esp_local_ctrl_transport_ble.c.obj
+.PHONY : src/esp_local_ctrl_transport_ble.obj
+
+# target to build an object file
+src/esp_local_ctrl_transport_ble.c.obj:
+	cd /home/eunous/git/dvid/com-at/com-at/build && $(MAKE) $(MAKESILENT) -f esp-idf/esp_local_ctrl/CMakeFiles/__idf_esp_local_ctrl.dir/build.make esp-idf/esp_local_ctrl/CMakeFiles/__idf_esp_local_ctrl.dir/src/esp_local_ctrl_transport_ble.c.obj
+.PHONY : src/esp_local_ctrl_transport_ble.c.obj
+
+src/esp_local_ctrl_transport_ble.i: src/esp_local_ctrl_transport_ble.c.i
+.PHONY : src/esp_local_ctrl_transport_ble.i
+
+# target to preprocess a source file
+src/esp_local_ctrl_transport_ble.c.i:
+	cd /home/eunous/git/dvid/com-at/com-at/build && $(MAKE) $(MAKESILENT) -f esp-idf/esp_local_ctrl/CMakeFiles/__idf_esp_local_ctrl.dir/build.make esp-idf/esp_local_ctrl/CMakeFiles/__idf_esp_local_ctrl.dir/src/esp_local_ctrl_transport_ble.c.i
+.PHONY : src/esp_local_ctrl_transport_ble.c.i
+
+src/esp_local_ctrl_transport_ble.s: src/esp_local_ctrl_transport_ble.c.s
+.PHONY : src/esp_local_ctrl_transport_ble.s
+
+# target to generate assembly for a file
+src/esp_local_ctrl_transport_ble.c.s:
+	cd /home/eunous/git/dvid/com-at/com-at/build && $(MAKE) $(MAKESILENT) -f esp-idf/esp_local_ctrl/CMakeFiles/__idf_esp_local_ctrl.dir/build.make esp-idf/esp_local_ctrl/CMakeFiles/__idf_esp_local_ctrl.dir/src/esp_local_ctrl_transport_ble.c.s
+.PHONY : src/esp_local_ctrl_transport_ble.c.s
+
 src/esp_local_ctrl_transport_httpd.obj: src/esp_local_ctrl_transport_httpd.c.obj
 .PHONY : src/esp_local_ctrl_transport_httpd.obj
 
@@ -293,6 +317,9 @@ help:
 	@echo "... src/esp_local_ctrl_handler.obj"
 	@echo "... src/esp_local_ctrl_handler.i"
 	@echo "... src/esp_local_ctrl_handler.s"
+	@echo "... src/esp_local_ctrl_transport_ble.obj"
+	@echo "... src/esp_local_ctrl_transport_ble.i"
+	@echo "... src/esp_local_ctrl_transport_ble.s"
 	@echo "... src/esp_local_ctrl_transport_httpd.obj"
 	@echo "... src/esp_local_ctrl_transport_httpd.i"
 	@echo "... src/esp_local_ctrl_transport_httpd.s"

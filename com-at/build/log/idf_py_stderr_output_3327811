@@ -1,8 +1,0 @@
-/home/eunous/git/dvid/com-at/com-at/components/at_wifi/at_wifi.c:1:10: fatal error: wifi_at.h: No such file or directory
-    1 | #include "wifi_at.h"
-      |          ^~~~~~~~~~~
-compilation terminated.
-make[2]: *** [esp-idf/at_wifi/CMakeFiles/__idf_at_wifi.dir/build.make:76: esp-idf/at_wifi/CMakeFiles/__idf_at_wifi.dir/at_wifi.c.obj] Error 1
-make[1]: *** [CMakeFiles/Makefile2:5665: esp-idf/at_wifi/CMakeFiles/__idf_at_wifi.dir/all] Error 2
-make[1]: *** Waiting for unfinished jobs....
-make: *** [Makefile:136: all] Error 2
