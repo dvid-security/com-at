@@ -447,4 +447,219 @@ TEST AT+CWQAP...
 [0;32mI (8536) wifi:pm stop, total sleep time: 3444424 us / 3929893 us[0m
 
 [0;32mI (8536) wifi:<ba-del>idx:0, tid:5[0m
-[0;32mI (8536) wifi:new:<1,0>, old:<1,0>, 
+[0;32mI (8536) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:6, snd_ch_cfg:0x0[0m
+OK
+TEST AT+CWMODE?...
++CWMODE:1
+OK
+TEST AT+CWMODE=2...
+[0;32mI (10536) wifi:mode : softAP (a4:cf:12:55:ef:e5)[0m
+[0;32mI (10536) wifi:Total power save buffer number: 16[0m
+[0;32mI (10536) wifi:Init max length of beacon: 752/752[0m
+[0;32mI (10536) wifi:Init max length of beacon: 752/752[0m
+OK
+[0;32mI (10556) esp_netif_lwip: DHCP server started on interface WIFI_AP_DEF with IP: 192.168.4.1[0m
+TEST AT+CWAP...
+[0;32mI (11566) wifi:Total power save buffer number: 16[0m
+OK
+[0;32mI (11566) esp_netif_lwip: DHCP server started on interface WIFI_AP_DEF with IP: 192.168.4.1[0m
+TEST AT+CWAP...
+[0;32mI (12566) AT_WIFI: AT+WIFISTOP called[0m
+[0;32mI (12566) wifi:flush txq[0m
+[0;32mI (12566) wifi:stop sw txq[0m
+[0;32mI (12566) wifi:lmac stop hw txq[0m
+[0;32mI (12566) wifi:Deinit lldesc rx mblock:10[0m
+OK
+[0;32mI (12676) AT_WIFI: WiFi stopped and deinit OK[0m
+DONE.
+[0;32mI (17676) AT_BLE: All AT BLE commands registered.[0m
+BLE FAT TEST...
+STEP 1: GATTBUILD (uuid 0x180F, 2 characs)
+[0;32mI (17676) AT_BLE: GATTBUILD start: params='"180F";"2A19:rw";"2A1B:r"'[0m
+[0;32mI (17676) AT_BLE: calloc gatt_chars 0x3ffcd088 (n=3)[0m
+[0;32mI (17686) AT_BLE: char #0: uuid=0x2A19 flags=0x0A ptr=0x3ffcd088[0m
+[0;32mI (17686) AT_BLE: char #1: uuid=0x2A1B flags=0x02 ptr=0x3ffcd0a4[0m
+[0;32mI (17696) AT_BLE: gatt_chars[2] = END[0m
+[0;32mI (17706) AT_BLE: calloc gatt_svcs 0x3ffd5664[0m
+[0;32mI (17706) AT_BLE: gatt_svcs[0]: uuid=0x180F chars=0x3ffcd088[0m
+[0;32mI (17716) AT_BLE: About to init BLE stack (dynamic gatt_svcs=0x3ffd5664)...[0m
+[0;32mI (17726) BTDM_INIT: BT controller compile version [faadb75][0m
+[0;32mI (17726) BTDM_INIT: Bluetooth MAC: a4:cf:12:55:ef:e6[0m
+[0;32mI (17976) AT_BLE: count_cfg err=0[0m
+[0;32mI (17976) AT_BLE: add_svcs err=0[0m
+[0;32mI (17976) AT_BLE: NimBLE using DYNAMIC GATT[0m
+[0;32mI (17976) AT_BLE: NimBLE initialized OK![0m
+[0;32mI (18016) NimBLE: Failed to restore IRKs from store; status=8
+[0m
+[0;32mI (18016) AT_BLE: NimBLE synced! Ready.[0m
+[0;32mI (18026) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (18026) NimBLE: disc_mode=2[0m
+[0;32mI (18026) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=0 adv_itvl_max=0[0m
+[0;32mI (18036) NimBLE: 
+[0m
+[0;32mI (18046) AT_BLE: BLE Advertising started! Name: DemoESP[0m
+GATT table rebuilt OK : service 0x180F, 2 characs (mfg cnt=0)
+STEP 2: BLEBEGIN (TestAT/HELLO123)
+[0;32mI (19056) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (19056) AT_BLE: NimBLE stopped/deinit OK![0m
+[0;32mI (19066) BTDM_INIT: BT controller compile version [faadb75][0m
+[0;32mI (19066) BTDM_INIT: Bluetooth MAC: a4:cf:12:55:ef:e6[0m
+[0;32mI (19306) AT_BLE: count_cfg err=0[0m
+[0;32mI (19306) AT_BLE: add_svcs err=0[0m
+[0;32mI (19306) AT_BLE: NimBLE using DYNAMIC GATT[0m
+[0;32mI (19316) AT_BLE: NimBLE initialized OK![0m
+[0;32mI (19356) NimBLE: Failed to restore IRKs from store; status=8
+[0m
+[0;32mI (19356) AT_BLE: NimBLE synced! Ready.[0m
+[0;32mI (19356) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (19356) NimBLE: disc_mode=2[0m
+[0;32mI (19366) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=0 adv_itvl_max=0[0m
+[0;32mI (19376) NimBLE: 
+[0m
+[0;32mI (19386) AT_BLE: BLE Advertising started! Name: TestAT[0m
+STEP 3: ADV START (pub dynamique standard)
+[0;32mI (20386) AT_BLE: BLE Advertising started! Name: TestAT[0m
+STEP 4: ADV STOP
+[0;32mI (25386) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (25386) AT_BLE: BLE advertising stopped.[0m
+STEP 5: BLE STOP
+[0;32mI (26386) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (26386) AT_BLE: NimBLE stopped/deinit OK![0m
+[0;32mI (26386) AT_BLE: BLE stack stopped.[0m
+STEP 6: GATTBUILD (uuid 0xABCD, 2 characs)
+[0;32mI (27386) AT_BLE: GATTBUILD start: params='"ABCD";"2A19:rw";"2A1B:r"'[0m
+[0;32mI (27386) AT_BLE: free gatt_svcs 0x3ffd5664[0m
+[0;32mI (27386) AT_BLE: free gatt_chars 0x3ffcd088[0m
+[0;32mI (27396) AT_BLE: calloc gatt_chars 0x3ffb2990 (n=3)[0m
+[0;32mI (27396) AT_BLE: char #0: uuid=0x2A19 flags=0x0A ptr=0x3ffb2990[0m
+[0;32mI (27406) AT_BLE: char #1: uuid=0x2A1B flags=0x02 ptr=0x3ffb29ac[0m
+[0;32mI (27406) AT_BLE: gatt_chars[2] = END[0m
+[0;32mI (27416) AT_BLE: calloc gatt_svcs 0x3ffb29e8[0m
+[0;32mI (27416) AT_BLE: gatt_svcs[0]: uuid=0xABCD chars=0x3ffb2990[0m
+[0;32mI (27426) AT_BLE: About to init BLE stack (dynamic gatt_svcs=0x3ffb29e8)...[0m
+[0;32mI (27436) BTDM_INIT: BT controller compile version [faadb75][0m
+[0;32mI (27436) BTDM_INIT: Bluetooth MAC: a4:cf:12:55:ef:e6[0m
+[0;32mI (27686) AT_BLE: count_cfg err=0[0m
+[0;32mI (27686) AT_BLE: add_svcs err=0[0m
+[0;32mI (27686) AT_BLE: NimBLE using DYNAMIC GATT[0m
+[0;32mI (27686) AT_BLE: NimBLE initialized OK![0m
+[0;32mI (27726) NimBLE: Failed to restore IRKs from store; status=8
+[0m
+[0;32mI (27726) AT_BLE: NimBLE synced! Ready.[0m
+[0;32mI (27726) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (27726) NimBLE: disc_mode=2[0m
+[0;32mI (27736) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=0 adv_itvl_max=0[0m
+[0;32mI (27746) NimBLE: 
+[0m
+[0;32mI (27756) AT_BLE: BLE Advertising started! Name: TestAT[0m
+GATT table rebuilt OK : service 0xABCD, 2 characs (mfg cnt=1)
+STEP 7: SET MANUFACTURER (CUSTOM1)
+[0;32mI (28756) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (28756) NimBLE: disc_mode=2[0m
+[0;32mI (28756) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=0 adv_itvl_max=0[0m
+[0;32mI (28766) NimBLE: 
+[0m
+[0;32mI (28766) AT_BLE: BLE Advertising started! Name: TestAT[0m
+[0;32mI (28776) AT_BLE: BLE manufacturer data (ASCII) set: 'CUSTOM1'[0m
+STEP 8: SET NAME (DevABCD)
+[0;32mI (29776) AT_BLE: BLE Advertising started! Name: DevABCD[0m
+[0;32mI (29776) AT_BLE: BLE name set to: DevABCD[0m
+STEP 9: ADV START (uuid 0xABCD, nom=DevABCD)
+[0;32mI (30776) AT_BLE: BLE Advertising started! Name: DevABCD[0m
+BLE FAT TEST DONE!
+[0;32mI (35776) AT_SERVER: Table AT après init:[0m
+[0;32mI (35776) AT_SERVER:   cmd[0]: AT+CWLAP[0m
+[0;32mI (35776) AT_SERVER:   cmd[1]: AT+CWJAP[0m
+[0;32mI (35776) AT_SERVER:   cmd[2]: AT+CWJAP?[0m
+[0;32mI (35776) AT_SERVER:   cmd[3]: AT+CWQAP[0m
+[0;32mI (35786) AT_SERVER:   cmd[4]: AT+CWSTATE?[0m
+[0;32mI (35786) AT_SERVER:   cmd[5]: AT+CIFSR[0m
+[0;32mI (35796) AT_SERVER:   cmd[6]: AT+CWMODE?[0m
+[0;32mI (35796) AT_SERVER:   cmd[7]: AT+CWMODE[0m
+[0;32mI (35806) AT_SERVER:   cmd[8]: AT+CWAP[0m
+[0;32mI (35806) AT_SERVER:   cmd[9]: AT+WIFISTOP[0m
+[0;32mI (35816) AT_SERVER:   cmd[10]: AT+BLEBEGIN[0m
+[0;32mI (35816) AT_SERVER:   cmd[11]: AT+BLEADVSTOP[0m
+[0;32mI (35826) AT_SERVER:   cmd[12]: AT+BLEADVSTART[0m
+[0;32mI (35826) AT_SERVER:   cmd[13]: AT+BLESTOP[0m
+[0;32mI (35836) AT_SERVER:   cmd[14]: AT+BLECLEAR[0m
+[0;32mI (35836) AT_SERVER:   cmd[15]: AT+BLESETNAME[0m
+[0;32mI (35846) AT_SERVER:   cmd[16]: AT+BLEMFG[0m
+[0;32mI (35846) AT_SERVER:   cmd[17]: AT+BLESCAN[0m
+[0;32mI (35856) AT_SERVER:   cmd[18]: AT+GATTBUILD[0m
+[0;32mI (35856) AT_SERVER:   cmd[19]: AT[0m
+[0;32mI (35856) AT_SERVER:   cmd[20]: AT+HELP[0m
+[0;32mI (35866) AT_SERVER: AT Server started (UART task)...[0m
+[0;32mI (35876) main_task: Returned from app_main()[0m
+  ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:13232
+load:0x40080400,len:3028
+entry 0x400805e4
+[     7][D][esp32-hal-cpu.c:244] setCpuFrequencyMhz(): PLL: 480 / 2 = 240 Mhz, APB: 80000000 Hz
+[    24][V][esp32-hal-uart.c:330] uartBegin(): UART0 baud(115200) Mode(800001c) rxPin(3) txPin(1)
+[    33][V][esp32-hal-uart.c:416] uartBegin(): UART0 not installed. Starting installation
+[    44][V][esp32-hal-uart.c:467] uartBegin(): UART0 initialization done.
+[    59][I][esp32-hal-i2c.c:75] i2cInit(): Initialising I2C Master: sda=15 scl=4 freq=100000
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:13232
+load:0x40080400,len:3028
+entry 0x400805e4
+[     7][D][esp32-hal-cpu.c:244] setCpuFrequencyMhz(): PLL: 480 / 2 = 240 Mhz, APB: 80000000 Hz
+[    24][V][esp32-hal-uart.c:330] uartBegin(): UART0 baud(115200) Mode(800001c) rxPin(3) txPin(1)
+[    33][V][esp32-hal-uart.c:416] uartBegin(): UART0 not installed. Starting installation
+[    44][V][esp32-hal-uart.c:467] uartBegin(): UART0 initialization done.
+[    59][I][esp32-hal-i2c.c:75] i2cInit(): Initialising I2C Master: sda=15 scl=4 freq=100000
+[   168][V][esp32-hal-uart.c:330] uartBegin(): UART1 baud(115200) Mode(800001c) rxPin(16) txPin(17)
+[   177][V][esp32-hal-uart.c:416] uartBegin(): UART1 not installed. Starting installation
+[   185][V][esp32-hal-uart.c:467] uartBegin(): UART1 initialization done.
+ESP32 architecture
+Test firmware
+[   293][W][Wire.cpp:301] begin(): Bus already started in Master Mode.
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:13232
+load:0x40080400,len:3028
+entry 0x400805e4
+[     7][D][esp32-hal-cpu.c:244] setCpuFrequencyMhz(): PLL: 480 / 2 = 240 Mhz, APB: 80000000 Hz
+[    24][V][esp32-hal-uart.c:330] uartBegin(): UART0 baud(115200) Mode(800001c) rxPin(3) txPin(1)
+[    33][V][esp32-hal-uart.c:416] uartBegin(): UART0 not installed. Starting installation
+[    44][V][esp32-hal-uart.c:467] uartBegin(): UART0 initialization done.
+[    59][I][esp32-hal-i2c.c:75] i2cInit(): Initialising I2C Master: sda=15 scl=4 freq=100000
+[   168][V][esp32-hal-uart.c:330] uartBegin(): UART1 baud(115200) Mode(800001c) rxPin(16) txPin(17)
+[   177][V][esp32-hal-uart.c:416] uartBegin(): UART1 not installed. Starting installation
+[   185][V][esp32-hal-uart.c:467] uartBegin(): UART1 initialization done.
+ESP32 architecture
+Test firmware
+[   293][W][Wire.cpp:301] begin(): Bus already started in Master Mode.
+Resetting ESP-C6...
+Testing ESP-C6 communication...
+AT response: AT
+
+OK
+
+Initializing WiFi driver...
+CWINIT response: AT+CWINIT=1
+
+OK
+
+Setup complete - Challenge is active

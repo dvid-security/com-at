@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "com-at",
-    "project_version":    "c8f111d-dirty",
+    "project_version":    "a7617bc-dirty",
     "project_path":       "/home/eunous/git/dvid/com-at/com-at",
     "idf_path":           "/home/eunous/esp-idf",
     "build_dir":          "/home/eunous/git/dvid/com-at/com-at/build",

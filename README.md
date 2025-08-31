@@ -18,9 +18,12 @@ Par \[Eun0us - DVID]
 
 * Commandes AT universelles
 * Wi-Fi : scan, AP, STA
-* MQTT : connect, publish, subscribe
 * Bluetooth Low Energy (BLE) : scan, pub, config stack NimBLE
 * Idéal pour dev rapide, test hardware, domotique, IoT…
+
+Futur implémentation:
+
+* Flash OTA
 
 ---
 
@@ -76,22 +79,21 @@ idf.py build flash monitor
 
 ## Commandes BLE
 
-| Commande                        | Description                                                            | Exemple                       | Retour attendu |
-| ------------------------------- | ---------------------------------------------------------------------- | ----------------------------- | -------------- |
-| `AT+BLECLEAR`                   | Reset config BLE                                                       | `AT+BLECLEAR`                 | `OK`           |
-| `AT+BLEADDSVC=uuid`             | Ajoute un service (uuid 16 bits)                                       | `AT+BLEADDSVC=0x180F`         | `OK`           |
-| `AT+BLEADDCHAR=sidx,uuid,flags` | Ajoute une caractéristique (flags: 0x01=read, 0x02=write, 0x04=notify) | `AT+BLEADDCHAR=0,0x2A19,0x03` | `OK`           |
-| `AT+BLELIST`                    | Liste la config BLE                                                    | `AT+BLELIST`                  | (liste) + `OK` |
-| `AT+BLEINIT`                    | Lance la stack BLE et publie                                           | `AT+BLEINIT`                  | `OK`           |
-| `AT+BLEDEINIT`                  | Stoppe la stack BLE                                                    | `AT+BLEDEINIT`                | `OK`           |
-| `AT+BLESCAN`                    | Scan BLE                                                               | `AT+BLESCAN`                  | (résultats)    |
-| `AT+BLEADV="payload"`           | Diffuse un custom payload                                              | `AT+BLEADV="data"`            | `OK`           |
-| `AT+BLERD=<handle>`             | Read sur une caractéristique                                           | `AT+BLERD=0x14`               | (donnée lue)   |
-
+| Commande                                 | Description                                                                | Exemple                                               | Retour attendu         |
+| ---------------------------------------- | -------------------------------------------------------------------------- | ----------------------------------------------------- | ---------------------- |
+| `AT+BLECLEAR`                            | Reset config BLE, efface tout                                              | `AT+BLECLEAR`                                         | `OK`                   |
+| `AT+BLEBEGIN="Nom";"ManuData"`           | Configure le nom + manufacturer data, init NimBLE stack et advertising     | `AT+BLEBEGIN="TestAT";"HELLO123"`                     | `OK`                   |
+| `AT+BLEMFG="manudata"`                   | Change manufacturer data pub (ASCII)                                       | `AT+BLEMFG="WORLD456"`                                | `OK`                   |
+| `AT+BLESETNAME="nom"`                    | Change dynamiquement le nom BLE (adv)                                      | `AT+BLESETNAME="DynTest"`                             | `OK`                   |
+| `AT+BLEADVSTART`                         | Démarre advertising BLE (avec config courante)                             | `AT+BLEADVSTART`                                      | `OK`                   |
+| `AT+BLEADVSTOP`                          | Stop advertising BLE                                                       | `AT+BLEADVSTOP`                                       | `OK`                   |
+| `AT+BLESTOP`                             | Stop NimBLE stack (BLE OFF)                                                | `AT+BLESTOP`                                          | `OK`                   |
+| `AT+BLESCAN=secs`                        | Scan des devices BLE pendant X secondes                                    | `AT+BLESCAN=5`                                        | (résultats)+`OK`       |
+| `AT+GATTBUILD="svcUUID";"char:flags";...`| Rebuild GATT dynamique (1 service, N caracs)                               | `AT+GATTBUILD="180F";"2A19:rw";"2A1B:r"`              | `OK`                   |
 
 **Exemple de séquence BLE :**
 
-```
+```plaintext
 AT+BLECLEAR
 AT+BLEADDSVC=0x180F
 AT+BLEADDCHAR=0,0x2A19,0x03
@@ -120,7 +122,7 @@ Python + [bleak](https://github.com/hbldh/bleak) pour sniffer/filtrer les pubs :
 import asyncio
 from bleak import BleakScanner
 
-TARGET_MAC = "A4:CF:12:55:EF:E6"
+TARGET_MAC = "" #"A4:CF:12:FF:FF:FF" Target ESP BLE MAC addr
 
 def detection_callback(device, adv_data):
     if device.address.upper() == TARGET_MAC:
