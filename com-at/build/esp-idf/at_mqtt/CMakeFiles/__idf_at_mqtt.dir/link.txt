@@ -1,2 +1,0 @@
-/home/eunous/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-ar qc libat_mqtt.a CMakeFiles/__idf_at_mqtt.dir/at_mqtt.c.obj
-/home/eunous/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-ranlib libat_mqtt.a

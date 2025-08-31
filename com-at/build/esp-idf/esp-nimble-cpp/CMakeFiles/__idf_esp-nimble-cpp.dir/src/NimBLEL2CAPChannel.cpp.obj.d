@@ -1,6 +1,0 @@
-esp-idf/esp-nimble-cpp/CMakeFiles/__idf_esp-nimble-cpp.dir/src/NimBLEL2CAPChannel.cpp.obj: \
- /home/eunous/git/dvid/com-at/com-at/components/esp-nimble-cpp/src/NimBLEL2CAPChannel.cpp \
- /home/eunous/git/dvid/com-at/com-at/components/esp-nimble-cpp/src/NimBLEL2CAPChannel.h \
- /home/eunous/esp-idf/components/bt/host/nimble/nimble/porting/nimble/include/syscfg/syscfg.h \
- /home/eunous/esp-idf/components/bt/host/nimble/port/include/esp_nimble_cfg.h \
- /home/eunous/git/dvid/com-at/com-at/build/config/sdkconfig.h
