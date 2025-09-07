@@ -1,8 +1,8 @@
 # com-at
 
-**Firmware AT pour ESP-C6**
-Basé sur **ESP-IDF v5.3.2**
-Par \[Eun0us - DVID]
+**Firmware AT pour ESP-C6**  
+Basé sur **ESP-IDF v5.3.2**  
+Par [Eun0us - DVID]
 
 ---
 
@@ -20,10 +20,10 @@ Par \[Eun0us - DVID]
 * Wi-Fi : scan, AP, STA
 * Bluetooth Low Energy (BLE) : scan, pub, config stack NimBLE
 * Idéal pour dev rapide, test hardware, domotique, IoT…
+* **Mise à jour OTA du firmware directement via une commande AT**
 
-Futur implémentation:
-
-* Flash OTA
+Futures implémentations :
+* MQTT natif, plus de commandes IO, persistance flash, etc.
 
 ---
 
@@ -44,8 +44,8 @@ idf.py build flash monitor
 
 * [Commandes générales](#commandes-générales)
 * [Commandes Wi-Fi](#commandes-wi-fi)
-* [Commandes MQTT](#commandes-mqtt)
 * [Commandes BLE](#commandes-ble)
+* [Commandes OTA (mise-à-jour)](#commandes-ota-mise-à-jour)
 * [Tests automatiques](#tests-automatiques)
 
 ---
@@ -103,6 +103,44 @@ AT+BLEINIT
 
 ---
 
+## Commandes OTA (mise-à-jour)
+
+**Nouveau !**  
+Le firmware supporte la **mise à jour OTA** (Over-The-Air) directement via commande AT.  
+Idéal pour déployer tes updates sans ouvrir le boîtier ni brancher de câble !
+
+| Commande        | Description                                  | Exemple                                                         | Retour attendu                        |
+| --------------- | -------------------------------------------- | --------------------------------------------------------------- | ------------------------------------- |
+| `AT+OTA=<url>`  | Télécharge et flashe le firmware depuis URL  | `AT+OTA=http://monserveur.local/firmware.bin`                   | `OTA START`<br>`OTA OK`<br>(reboot)   |
+|                 | (supporte aussi https si certs corrects)     |                                                                 | `OTA ERROR` en cas d’échec            |
+
+> **Astuce :** le firmware téléchargé doit être compilé pour partition OTA, avec la même table de partitionnement.
+
+### Exemple d’utilisation
+
+1. Compiler et déposer le nouveau firmware `.bin` sur ton serveur HTTP ou HTTPS.
+2. Connecter l’ESP-C6 à un réseau Wi-Fi (voir commandes Wi-Fi).
+3. Depuis le terminal série :
+
+    ```plaintext
+   AT+OTA=http://192.168.1.100/firmware.bin
+    ```
+
+   ou
+
+   ```plaintext
+   AT+OTA=https://mon.serveur/firmware.bin
+   ```
+
+4. Attendre :  
+   - Réponse `OTA START`,  
+   - Si succès : `OTA OK` et redémarrage automatique.  
+   - Si erreur : `OTA ERROR`
+
+> **Remarque :** Pour https auto-signé, tu peux ajuster le code OTA pour ignorer le nom commun, ou ajouter ta CA (voir esp_https_ota docs).
+
+---
+
 ## Tests automatiques
 
 Routine type (voir `at_ble_test_all()`):
@@ -116,7 +154,7 @@ Routine type (voir `at_ble_test_all()`):
 
 ## Exemples de scripts de sniffing BLE
 
-Python + [bleak](https://github.com/hbldh/bleak) pour sniffer/filtrer les pubs :
+Python + [bleak](https://github.com/hbldh/bleak) pour sniffer/filtrer les pubs :
 
 ```python
 import asyncio
@@ -145,5 +183,5 @@ MIT – do what you want, enjoy, collab!
 
 ---
 
-**Made by Eun0us for DVID**
-Pour toute question : Discord or Issue git
+**Made by Eun0us for DVID**  
+Pour toute question : Discord ou Issue git

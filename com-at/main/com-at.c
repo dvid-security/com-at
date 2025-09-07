@@ -8,8 +8,10 @@
 #include "at_server.h"
 #include "at_wifi.h"  // Ton module AT Wi-Fi
 #include "at_ble.h"
+#include "at_ota.h"
 //#include "at_mqtt.h"
 
+// Initialisation de l'UART pour AT et debug            
 void uart_init(void)
 {
     const uart_config_t uart_config = {
@@ -37,17 +39,23 @@ void app_main(void)
         ESP_ERROR_CHECK(ret);
     }
 
+    printf("DVID com-at starting...\n");
+    printf("Binaire 1 \n")
     // UART ready pour AT et debug
     uart_init();
 
     // Enregistre toutes tes commandes Wi-Fi (init Wi-Fi incluse dans wifi_at_register)
     wifi_at_register();
-    at_wifi_test_all();
+    //at_wifi_test_all();
 
     // Initialise et enregistre les commandes BLE
     ble_at_register();
-    at_ble_test_all();
+    //at_ble_test_all();
 
+
+    //at_ota_register();
+    //at_ota_test_all(); // Pas de test automatique pour OTA
+    
     // Initialise et enregistre les commandes MQTT
     //mqtt_at_register();
     //at_mqtt_test_all();

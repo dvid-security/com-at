@@ -10,6 +10,7 @@
 #include "host/ble_uuid.h"
 #include "services/gap/ble_svc_gap.h"
 #include "services/gatt/ble_svc_gatt.h"
+
 #include "at_server.h"
 
 #define TAG "AT_BLE"
@@ -37,7 +38,7 @@ void at_ble_test_all(void);
 
 // ------ BLE globals ------
 static bool ble_inited = false;
-static char g_current_name[32] = "DemoESP";
+static char g_current_name[32] = "DVID_BLE";
 static uint8_t g_manu_data[32];
 static uint8_t g_manu_data_len = 0;
 
@@ -132,74 +133,6 @@ static int generic_access_cb(uint16_t conn_handle, uint16_t attr_handle, struct 
     return BLE_ATT_ERR_UNLIKELY;
 }
 
-void at_handle_gattbuild(const char *params) {
-    ESP_LOGI(TAG, "GATTBUILD start: params='%s'", params);
-
-    free_gatt_tables();
-
-    char copy[MAX_GATT_STR]; strncpy(copy, params, sizeof(copy)-1); copy[sizeof(copy)-1]=0;
-    char *token, *saveptr;
-    char *fields[1 + MAX_DYNAMIC_CHARS] = {0};
-    int count = 0;
-    for (token = strtok_r(copy, ";", &saveptr); token && count < MAX_DYNAMIC_CHARS+1; token = strtok_r(NULL, ";", &saveptr))
-        fields[count++] = token;
-
-    if (count < 2) { printf("Syntax error: Need service + at least 1 charac\n"); return; }
-
-    char svc_str[8]; sscanf(fields[0], "\"%4[^\"]\"", svc_str);
-    uint16_t svc_uuid = (uint16_t)strtol(svc_str, NULL, 16);
-
-    int n_chars = count-1;
-    if(n_chars > MAX_DYNAMIC_CHARS) n_chars = MAX_DYNAMIC_CHARS;
-    dyn_n_chars = n_chars;
-    gatt_chars = calloc(n_chars+1, sizeof(struct ble_gatt_chr_def));
-    ESP_LOGI(TAG, "calloc gatt_chars %p (n=%d)", gatt_chars, n_chars+1);
-    for (int i=0; i<n_chars; ++i) {
-        char uuid_str[8]="", flag_str[8]="";
-        sscanf(fields[1+i], "\"%4[^\"]: %7[^\"]\"", uuid_str, flag_str);
-        if(flag_str[0]==0) sscanf(fields[1+i], "\"%4[^\"]: %6[^\"]\"", uuid_str, flag_str);
-        if(flag_str[0]==0) sscanf(fields[1+i], "\"%4[^\"]: %5[^\"]\"", uuid_str, flag_str);
-        if(flag_str[0]==0) sscanf(fields[1+i], "\"%4[^\"]: %4[^\"]\"", uuid_str, flag_str);
-        if(flag_str[0]==0) sscanf(fields[1+i], "\"%4[^\"]:%3[^\"]\"", uuid_str, flag_str);
-
-        uint16_t uuid = (uint16_t)strtol(uuid_str, NULL, 16);
-        int flags = parse_flags(flag_str);
-
-        gatt_chars[i].uuid = BLE_UUID16_DECLARE(uuid);
-        gatt_chars[i].access_cb = generic_access_cb;
-        gatt_chars[i].arg = (void*)(intptr_t)i;
-        gatt_chars[i].flags = flags;
-
-        dyn_gatt_vals[i][0] = 0;
-        dyn_gatt_val_lens[i] = 1;
-        ESP_LOGI(TAG, "char #%d: uuid=0x%04X flags=0x%02X ptr=%p", i, uuid, flags, &gatt_chars[i]);
-    }
-    memset(&gatt_chars[n_chars], 0, sizeof(struct ble_gatt_chr_def));
-    ESP_LOGI(TAG, "gatt_chars[%d] = END", n_chars);
-
-    gatt_svcs = calloc(2, sizeof(struct ble_gatt_svc_def));
-    ESP_LOGI(TAG, "calloc gatt_svcs %p", gatt_svcs);
-    gatt_svcs[0].type = BLE_GATT_SVC_TYPE_PRIMARY;
-    gatt_svcs[0].uuid = BLE_UUID16_DECLARE(svc_uuid);
-    gatt_svcs[0].characteristics = gatt_chars;
-    memset(&gatt_svcs[1], 0, sizeof(struct ble_gatt_svc_def));
-    ESP_LOGI(TAG, "gatt_svcs[0]: uuid=0x%04X chars=%p", svc_uuid, gatt_chars);
-
-    at_ble_deinit_stack();
-    ESP_LOGI(TAG, "About to init BLE stack (dynamic gatt_svcs=%p)...", gatt_svcs);
-    at_ble_init_stack();
-
-    static uint8_t gattbuild_counter = 0;
-    g_manu_data[0] = 0x42;
-    g_manu_data[1] = 0x99;
-    g_manu_data[2] = gattbuild_counter++;
-    g_manu_data_len = 3;
-
-    start_ble_advertising();
-
-    printf("GATT table rebuilt OK : service 0x%04X, %d characs (mfg cnt=%d)\n", svc_uuid, n_chars, gattbuild_counter-1);
-}
-
 // ----------- BLE Stack Init/Deinit ------------
 
 static void at_ble_init_stack(void) {
@@ -243,9 +176,57 @@ static void ble_gap_on_sync(void) {
     ESP_LOGI(TAG, "NimBLE synced! Ready.");
 }
 
+// ------------ Extract name from ADV data --------------
+
+static void ble_adv_extract_name(const uint8_t *adv_data, uint8_t adv_len, char *name, size_t name_len) {
+    uint8_t len, type;
+    uint8_t idx = 0;
+    while (idx < adv_len) {
+        len = adv_data[idx++];
+        if (len == 0) break;
+        type = adv_data[idx++];
+        if (type == 0x09) { // Complete Local Name
+            size_t to_copy = len-1;
+            if (to_copy >= name_len) to_copy = name_len-1;
+            memcpy(name, &adv_data[idx], to_copy);
+            name[to_copy] = '\0';
+            return;
+        }
+        idx += len-1;
+    }
+    name[0] = 0;
+}
+
+// ----------- BLE GAP Callbacks ------------
+
+static int ble_scan_cb(struct ble_gap_event *event, void *arg) {
+    if (event->type == BLE_GAP_EVENT_DISC) {
+        char addr_str[18] = {0};
+        sprintf(addr_str, "%02X:%02X:%02X:%02X:%02X:%02X",
+                event->disc.addr.val[5], event->disc.addr.val[4], event->disc.addr.val[3],
+                event->disc.addr.val[2], event->disc.addr.val[1], event->disc.addr.val[0]);
+
+        char name[32] = "";
+        ble_adv_extract_name((const uint8_t*)event->disc.data, event->disc.length_data, name, sizeof(name));
+        
+        char line[128];
+        if (strlen(name) > 0)
+            snprintf(line, sizeof(line), "+BLESCAN:%s,%d,\"%s\"\r\n", addr_str, event->disc.rssi, name);
+        else
+            snprintf(line, sizeof(line), "+BLESCAN:%s,%d\r\n", addr_str, event->disc.rssi);
+
+        uart_write_bytes(UART_NUM, line, strlen(line));
+        ESP_LOGI(TAG, "Found BLE: %s (RSSI %d, name='%s')", addr_str, event->disc.rssi, name);
+    }
+    if (event->type == BLE_GAP_EVENT_DISC_COMPLETE) {
+        uart_write_bytes(UART_NUM, "OK\r\n", 4);
+    }
+    return 0;
+}
+
 // ----------- ADV, STOP, RENAME, etc ------------
 
-static void start_ble_advertising(void) {
+static void start_ble_advertising(void)   {
     struct ble_hs_adv_fields fields = {0};
     fields.name = (uint8_t*)g_current_name;
     fields.name_len = strlen(g_current_name);
@@ -267,7 +248,8 @@ static void start_ble_advertising(void) {
 void at_handle_blebegin(const char *params) {
     char name[32] = "DemoESP";
     char manu_ascii[32] = "";
-    sscanf(params, "\"%31[^\"]\";\"%31[^\"]\"", name, manu_ascii);
+    int n = sscanf(params, "\"%31[^\"]\";\"%31[^\"]\"", name, manu_ascii);
+    if (n < 1) { uart_write_bytes(UART_NUM, "ERROR\r\n", 7); return; }
     strncpy(g_current_name, name, sizeof(g_current_name)-1);
     g_current_name[sizeof(g_current_name)-1]=0;
 
@@ -284,11 +266,13 @@ void at_handle_blebegin(const char *params) {
     at_ble_deinit_stack();
     at_ble_init_stack();
     start_ble_advertising();
+    uart_write_bytes(UART_NUM, "OK\r\n", 4);
 }
 
 void at_handle_blemfg(const char *params) {
     char manu_ascii[32] = "";
-    sscanf(params, "\"%31[^\"]\"", manu_ascii);
+    int n = sscanf(params, "\"%31[^\"]\"", manu_ascii);
+    if (n < 1) { uart_write_bytes(UART_NUM, "ERROR\r\n", 7); return; }
 
     g_manu_data_len = strlen(manu_ascii);
     if (g_manu_data_len > 0 && g_manu_data_len < sizeof(g_manu_data)) {
@@ -301,59 +285,137 @@ void at_handle_blemfg(const char *params) {
     }
     start_ble_advertising();
     ESP_LOGI(TAG, "BLE manufacturer data (ASCII) set: '%.*s'", g_manu_data_len, g_manu_data);
+    uart_write_bytes(UART_NUM, "OK\r\n", 4);
 }
 
 void at_handle_bleadvstop(const char *params) {
-    ble_gap_adv_stop();
-    ESP_LOGI(TAG, "BLE advertising stopped.");
+    int ret = ble_gap_adv_stop();
+    if (ret == 0) {
+        ESP_LOGI(TAG, "BLE advertising stopped.");
+        uart_write_bytes(UART_NUM, "OK\r\n", 4);
+    } else {
+        uart_write_bytes(UART_NUM, "ERROR\r\n", 7);
+    }
 }
 
 void at_handle_bleadvstart(const char *params) {
     start_ble_advertising();
+    uart_write_bytes(UART_NUM, "OK\r\n", 4);
 }
 
 void at_handle_blestop(const char *params) {
     at_ble_deinit_stack();
     ESP_LOGI(TAG, "BLE stack stopped.");
+    uart_write_bytes(UART_NUM, "OK\r\n", 4);
 }
 
 void at_handle_bleclear(const char *params) {
     at_ble_deinit_stack();
     free_gatt_tables();
     ESP_LOGI(TAG, "Conf BLE cleared/reset.");
+    uart_write_bytes(UART_NUM, "OK\r\n", 4);
 }
 
 void at_handle_blesetname(const char *params) {
     char name[32]="";
-    sscanf(params, "\"%31[^\"]\"", name);
+    int n = sscanf(params, "\"%31[^\"]\"", name);
+    if (n < 1) { uart_write_bytes(UART_NUM, "ERROR\r\n", 7); return; }
     strncpy(g_current_name, name, sizeof(g_current_name)-1);
     g_current_name[sizeof(g_current_name)-1]=0;
     start_ble_advertising();
     ESP_LOGI(TAG, "BLE name set to: %s", g_current_name);
+    uart_write_bytes(UART_NUM, "OK\r\n", 4);
 }
 
-// ----------- BLE SCAN -----------
-
-static int ble_scan_cb(struct ble_gap_event *event, void *arg) {
-    if (event->type == BLE_GAP_EVENT_DISC) {
-        char addr_str[18] = {0};
-        sprintf(addr_str, "%02X:%02X:%02X:%02X:%02X:%02X",
-                event->disc.addr.val[5], event->disc.addr.val[4], event->disc.addr.val[3],
-                event->disc.addr.val[2], event->disc.addr.val[1], event->disc.addr.val[0]);
-        ESP_LOGI(TAG, "Found BLE: %s (RSSI %d)", addr_str, event->disc.rssi);
-    }
-    return 0;
-}
 void at_handle_blescan(const char *params) {
     int duration = 5;
     if (params && *params) sscanf(params, "%d", &duration);
+    if (duration <= 0 || duration > 60) { 
+        uart_write_bytes(UART_NUM, "ERROR\r\n", 7); 
+        return; 
+    }
     struct ble_gap_disc_params scan_params = {0};
     scan_params.passive = 1;
     scan_params.itvl = 0x0010;
     scan_params.window = 0x0010;
     scan_params.filter_duplicates = 1;
-    ble_gap_disc(BLE_OWN_ADDR_PUBLIC, duration * 1000, &scan_params, ble_scan_cb, NULL);
-    ESP_LOGI(TAG, "BLE scan started for %ds...", duration);
+    int ret = ble_gap_disc(BLE_OWN_ADDR_PUBLIC, duration * 1000, &scan_params, ble_scan_cb, NULL);
+    if (ret != 0) {
+        uart_write_bytes(UART_NUM, "ERROR\r\n", 7);
+    } // pas de OK ici ! C'est le callback qui l'enverra en fin de scan
+}
+
+void at_handle_gattbuild(const char *params) {
+    if (!params || strlen(params) == 0) { uart_write_bytes(UART_NUM, "ERROR\r\n", 7); return; }
+
+    ESP_LOGI(TAG, "GATTBUILD start: params='%s'", params);
+
+    free_gatt_tables();
+
+    char copy[MAX_GATT_STR]; strncpy(copy, params, sizeof(copy)-1); copy[sizeof(copy)-1]=0;
+    char *token, *saveptr;
+    char *fields[1 + MAX_DYNAMIC_CHARS] = {0};
+    int count = 0;
+    for (token = strtok_r(copy, ";", &saveptr); token && count < MAX_DYNAMIC_CHARS+1; token = strtok_r(NULL, ";", &saveptr))
+        fields[count++] = token;
+
+    if (count < 2) { uart_write_bytes(UART_NUM, "ERROR\r\n", 7); return; }
+
+    char svc_str[8]; sscanf(fields[0], "\"%4[^\"]\"", svc_str);
+    uint16_t svc_uuid = (uint16_t)strtol(svc_str, NULL, 16);
+
+    int n_chars = count-1;
+    if(n_chars > MAX_DYNAMIC_CHARS) n_chars = MAX_DYNAMIC_CHARS;
+    dyn_n_chars = n_chars;
+    gatt_chars = calloc(n_chars+1, sizeof(struct ble_gatt_chr_def));
+    if (!gatt_chars) { uart_write_bytes(UART_NUM, "ERROR\r\n", 7); return; }
+    ESP_LOGI(TAG, "calloc gatt_chars %p (n=%d)", gatt_chars, n_chars+1);
+    for (int i=0; i<n_chars; ++i) {
+        char uuid_str[8]="", flag_str[8]="";
+        sscanf(fields[1+i], "\"%4[^\"]: %7[^\"]\"", uuid_str, flag_str);
+        if(flag_str[0]==0) sscanf(fields[1+i], "\"%4[^\"]: %6[^\"]\"", uuid_str, flag_str);
+        if(flag_str[0]==0) sscanf(fields[1+i], "\"%4[^\"]: %5[^\"]\"", uuid_str, flag_str);
+        if(flag_str[0]==0) sscanf(fields[1+i], "\"%4[^\"]: %4[^\"]\"", uuid_str, flag_str);
+        if(flag_str[0]==0) sscanf(fields[1+i], "\"%4[^\"]:%3[^\"]\"", uuid_str, flag_str);
+
+        uint16_t uuid = (uint16_t)strtol(uuid_str, NULL, 16);
+        int flags = parse_flags(flag_str);
+
+        gatt_chars[i].uuid = BLE_UUID16_DECLARE(uuid);
+        gatt_chars[i].access_cb = generic_access_cb;
+        gatt_chars[i].arg = (void*)(intptr_t)i;
+        gatt_chars[i].flags = flags;
+
+        dyn_gatt_vals[i][0] = 0;
+        dyn_gatt_val_lens[i] = 1;
+        ESP_LOGI(TAG, "char #%d: uuid=0x%04X flags=0x%02X ptr=%p", i, uuid, flags, &gatt_chars[i]);
+    }
+    memset(&gatt_chars[n_chars], 0, sizeof(struct ble_gatt_chr_def));
+    ESP_LOGI(TAG, "gatt_chars[%d] = END", n_chars);
+
+    gatt_svcs = calloc(2, sizeof(struct ble_gatt_svc_def));
+    if (!gatt_svcs) { free(gatt_chars); uart_write_bytes(UART_NUM, "ERROR\r\n", 7); return; }
+    ESP_LOGI(TAG, "calloc gatt_svcs %p", gatt_svcs);
+    gatt_svcs[0].type = BLE_GATT_SVC_TYPE_PRIMARY;
+    gatt_svcs[0].uuid = BLE_UUID16_DECLARE(svc_uuid);
+    gatt_svcs[0].characteristics = gatt_chars;
+    memset(&gatt_svcs[1], 0, sizeof(struct ble_gatt_svc_def));
+    ESP_LOGI(TAG, "gatt_svcs[0]: uuid=0x%04X chars=%p", svc_uuid, gatt_chars);
+
+    at_ble_deinit_stack();
+    ESP_LOGI(TAG, "About to init BLE stack (dynamic gatt_svcs=%p)...", gatt_svcs);
+    at_ble_init_stack();
+
+    static uint8_t gattbuild_counter = 0;
+    g_manu_data[0] = 0x42;
+    g_manu_data[1] = 0x99;
+    g_manu_data[2] = gattbuild_counter++;
+    g_manu_data_len = 3;
+
+    start_ble_advertising();
+
+    printf("GATT table rebuilt OK : service 0x%04X, %d characs (mfg cnt=%d)\n", svc_uuid, n_chars, gattbuild_counter-1);
+    uart_write_bytes(UART_NUM, "OK\r\n", 4);
 }
 
 // ------------ REGISTRATION (à appeler dans app_main/init) ------------
