@@ -40,7 +40,7 @@ void app_main(void)
     }
 
     printf("DVID com-at starting...\n");
-    printf("Binaire 1 \n")
+    
     // UART ready pour AT et debug
     uart_init();
 
