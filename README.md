@@ -8,7 +8,6 @@ Par [Eun0us - DVID]
 
 ![Firmware ESP-C6](https://img.shields.io/badge/firmware-esp--idf%20v5.3.2-blue)
 ![Status](https://img.shields.io/badge/status-alpha-lightgrey)
-![License](https://img.shields.io/badge/license-MIT-green)
 
 ---
 
@@ -179,7 +178,7 @@ asyncio.run(main())
 
 ## Licence
 
-MIT – do what you want, enjoy, collab!
+GNUv3
 
 ---
 
