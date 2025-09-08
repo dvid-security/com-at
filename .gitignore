@@ -12,3 +12,5 @@ firmwares/**/sdkconfig.old
 firmwares/**/sdkconfig
  
 managed_components
+
+.vscode
