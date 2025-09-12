@@ -10,7 +10,6 @@
 #include "at_server.h"
 #include "esp_idf_version.h"  // Pour version IDF
 
-#define UART_NUM UART_NUM_0
 #define UART_RX_BUF_SIZE 1024
 #define AT_MAX_CMDS 32
 #define AT_MAX_CMD_LEN 128

@@ -1,5 +1,5 @@
-#include <SoftwareSerial.h>
 #include "com_at.h"
+#include <SoftwareSerial.h>
 
 SoftwareSerial espSerial(2, 3); // RX, TX (adapter selon branchement)
 com_at esp(espSerial);
