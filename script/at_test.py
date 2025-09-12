@@ -110,6 +110,8 @@ def main():
         test_ble(ser)
         # Décommente pour tester l’OTA pour de vrai
         # test_ota(ser)
+        send_cmd(ser, 'AT+CWSAP="TestAP","12345678",6,3')
+        time.sleep(20)  # Garde l'AP active un moment
     finally:
         ser.close()
         print("\nPort série fermé.")

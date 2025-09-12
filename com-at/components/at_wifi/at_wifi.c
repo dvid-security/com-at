@@ -15,16 +15,13 @@
 #include <string.h>
 #include <stdlib.h>
 
-#define UART_NUM UART_NUM_0
 
 static const char *TAG = "AT_WIFI";
 
-// Helper pour écrire sur l'uart proprement
+// === HANDLERS ===
 static void uart_send(const char* s) {
     uart_write_bytes(UART_NUM, s, strlen(s));
 }
-
-// === HANDLERS ===
 
 // AT+CWLAP (scan)
 static void at_handle_cwlap(const char *params)
@@ -228,14 +225,15 @@ static void at_handle_cwmode_set(const char *params)
 // AT+CWAP="ssid","pass",ch,auth : Crée un hotspot Wi-Fi SoftAP
 static void at_handle_cwap(const char *params)
 {
-    // Format attendu : "ssid","pass",ch,authmode
     char ssid[33] = {0}, pass[65] = {0};
     int channel = 1, authmode = 0;
-    // Parsing simple
+
     if (sscanf(params, "\"%32[^\"]\",\"%64[^\"]\",%d,%d", ssid, pass, &channel, &authmode) < 4) {
+        ESP_LOGE(TAG, "CWAP: Param parsing failed: '%s'", params);
         uart_send("ERROR\r\n");
         return;
     }
+    ESP_LOGI(TAG, "CWAP: ssid='%s' pass='%s' channel=%d authmode=%d", ssid, pass, channel, authmode);
 
     wifi_config_t ap_config = {0};
     strncpy((char*)ap_config.ap.ssid, ssid, sizeof(ap_config.ap.ssid));
@@ -246,14 +244,23 @@ static void at_handle_cwap(const char *params)
     ap_config.ap.authmode = (wifi_auth_mode_t)authmode;
     if (authmode == 0) ap_config.ap.authmode = WIFI_AUTH_OPEN;
 
-    esp_wifi_set_mode(WIFI_MODE_AP);
-
+    // Arrêter le Wi-Fi si besoin
+    esp_wifi_stop();
+    vTaskDelay(pdMS_TO_TICKS(100));
+    if (esp_wifi_set_mode(WIFI_MODE_AP) != ESP_OK) {
+        ESP_LOGE(TAG, "CWAP: Failed to set mode AP");
+        uart_send("ERROR\r\n");
+        return;
+    }
     if (esp_wifi_set_config(WIFI_IF_AP, &ap_config) == ESP_OK) {
+        esp_wifi_start();
         uart_send("OK\r\n");
     } else {
+        ESP_LOGE(TAG, "CWAP: Failed to set config");
         uart_send("ERROR\r\n");
     }
 }
+
 
 // AT+WIFISTOP : Stoppe et désinitialise le WiFi (libère la RAM pour BLE)
 static void at_handle_wifistop(const char *params)

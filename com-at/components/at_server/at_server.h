@@ -3,7 +3,7 @@
 #include <stdbool.h>
 #include "driver/uart.h"
 
-#define UART_NUM UART_NUM_0
+#define UART_NUM            UART_NUM_1
 #define UART_RX_BUF_SIZE 1024
 
 typedef void (*at_cmd_handler_t)(const char *params);
