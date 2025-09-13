@@ -59,15 +59,12 @@ void app_main(void)
 
     // Enregistre toutes tes commandes Wi-Fi (init Wi-Fi incluse dans wifi_at_register)
     wifi_at_register();
-    //at_wifi_test_all();
 
     // Initialise et enregistre les commandes BLE
     ble_at_register();
-    //at_ble_test_all();
 
 
     //at_ota_register();
-    //at_ota_test_all(); // Pas de test automatique pour OTA
     
     // Initialise et enregistre les commandes MQTT
     //mqtt_at_register();
@@ -75,5 +72,4 @@ void app_main(void)
 
     // Démarre le serveur AT (tâche FreeRTOS)
     at_server_start();
-    // Le serveur AT tourne maintenant sur une tâche FreeRTOS, tout est prêt !
 }
