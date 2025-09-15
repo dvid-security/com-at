@@ -1,6 +1,8 @@
 # com-at
 
-> **Firmware AT universel pour ESP32-C6**
+![](./img/dvid.png)
+
+> **Firmware AT universel pour ESP32-C6** </br>
 > Par Eun0us @ DVID
 > Basé sur ESP-IDF v5.3.2
 
@@ -12,28 +14,59 @@
 
 ---
 
-## Présentation Firmware
+## Présentation Repo
+
+Le repo contient 2 dossier com-at & dvid-at (le nom changera surment vers **lib-at**)
+ 
+### /com-at
 
 **com-at** est un firmware AT pour l’**ESP32-C6** :
 
 * Commandes AT compatibles modules industriels
 * Stack BLE NimBLE dynamique (scan, pub, GATT custom)
 * Gestion complète Wi-Fi (scan, AP, STA, état IP)
-* Extensible : GPIO, MQTT, etc.
+* Extensible : OTA, GPIO, MQTT, etc.
+
+L'idée de ce firmware est d'être utilisée dans le cas de training et donc à pour but d'évoluée
+Si jamais vous avez des question sur le Framework ESP-IDF vous pouvez me ping *@Eun0us* sur Discord.
 
 ---
 
-## ToDo 
+### /dvid-at
 
+La lib dvid-at permet d'utilisé les commandes de la [Tables des matères](#table-des-matières) directementement depuis les **core esp32 ou smt32** afin de piloter l'esp32-c6 via un système de commande AT</br>
+Le dossier dvid contient une lib qui pourras être utiliser par tous les devs de training compatible avec anciens training ( **en cour de dev** )</br>
+Lire le [README.md](./dvid-at/README.md)
+
+## todo
+
+* Tester & éprouver la lib sur des vrais training
 * OTA sécurisé (update via URL HTTP/HTTPS)
-* -> AT+RST
+* Faire la commande -> AT+RST (esp_reboot) return Ok to uart before reboot
+* Faire commande -> AT afin de recuperer addresse MAC BLE & WiFi
 
-## Build & Flash
+## Set-Up
+
+### ESP-IDF
+
+See [HERE](https://idf.espressif.com/) for links to detailed instructions on how to set up the ESP-IDF depending on chip you use. [github](https://github.com/espressif/esp-idf)
+
+```sh
+git clone esp-idf-repo
+
+source ./esp-idf/export.sh <- Linux
+ls ./esp-idf/export. -> export.bat   export.fish  export.ps1   export.sh 
+```
+
+Une fois l'environement ESP-IDF set vous pouvez utilisez la commande `idf.py help` pour voir la listes des commandes disponible.
+
+### Build & Flash
 
 ```sh
 idf.py set-target esp32c6
-idf.py menuconfig -> Components Config -> Bleutooth [x] -> Nimble (Only) 
-idf.py build flash monitor
+idf.py menuconfig -> Components Config -> Bleutooth [X] -> Nimble (Only) 
+       menuconfig -> Partiton Table ->> Partition Table (X)Single facory app, no OTA -À-> (X) Single Factory app (large) ,no OTA   
+idf.py build flash monitor 
 ```
 
 *ESP-IDF v5.1 >= requis*
@@ -59,7 +92,7 @@ idf.py build flash monitor
 | `AT`       | Ping/test interface        | `AT`       | `OK`                    |
 | `AT+HELP`  | Liste toutes les commandes | `AT+HELP`  | (liste) + `OK`          |
 | `AT+GMR`   | Version firmware           | `AT+GMR`   | `com-at vX.Y.Z`<br>`OK` |
-| `AT+RESET` | Redémarrage complet        | `AT+RESET` | (reboot)                |
+| `AT+RST`   | Redémarrage compley a quelqu'un qui passe recuperer le colis ? ou je doit le depose t        | `AT+RST`   | (reboot)                |
 
 ---
 
@@ -99,9 +132,10 @@ idf.py build flash monitor
 
 ---
 
-## Commandes OTA (Mise-à-jour Firmware)
+## Commandes OTA
 
-*Pack de commande a tester*
+Commande AT_OTA en cours de developpement ce module permettrais au user de reflasher directement la chip `esp32-C6` grâce a une commande AT envoyer par le core lui même
+**important:** Pour être flasher il faut préalablement  
 
 | Commande       | Description                          | Exemple                                    | Retour attendu          |
 | -------------- | ------------------------------------ | ------------------------------------------ | ----------------------- |
