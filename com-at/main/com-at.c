@@ -57,19 +57,10 @@ void app_main(void)
     // UART ready pour AT et debug
     uart_init();
 
-    // Enregistre toutes tes commandes Wi-Fi (init Wi-Fi incluse dans wifi_at_register)
+    // Enregistre les handlers AT de chaque module
     wifi_at_register();
-
-    // Initialise et enregistre les commandes BLE
     ble_at_register();
-
-
     //at_ota_register();
-    
-    // Initialise et enregistre les commandes MQTT
-    //mqtt_at_register();
-    //at_mqtt_test_all();
-
-    // Démarre le serveur AT (tâche FreeRTOS)
+    //at_mqtt_register();
     at_server_start();
 }

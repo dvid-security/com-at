@@ -26,7 +26,7 @@
 ## ToDo 
 
 * OTA sécurisé (update via URL HTTP/HTTPS)
-* 
+* -> AT+RST
 
 ## Build & Flash
 
