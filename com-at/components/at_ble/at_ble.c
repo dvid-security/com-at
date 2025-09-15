@@ -40,7 +40,7 @@ void ble_at_register(void);
 // ------ BLE globals ------
 static bool ble_inited = false;
 static char g_current_name[32] = "DVID_BLE";
-static uint8_t g_manu_data[32];
+static uint8_t g_manu_data[32] = {0};
 static uint8_t g_manu_data_len = 0;
 
 // ------ Dynamic GATT ------
@@ -54,38 +54,6 @@ static uint16_t dyn_gatt_val_lens[MAX_DYNAMIC_CHARS] = {0};
 static uint8_t g_mac_override[6] = {0};
 static bool g_mac_override_enabled = false;
 
-
-
-
-// ---- A l'extérieur, tout en haut ----
-static uint8_t char_val1[8] = {0xDE, 0xAD, 0xBE, 0xEF};
-static uint8_t char_val2[8] = {0x42, 0x24, 0x42, 0x24};
-
-int dyn_test_cb1(uint16_t conn_handle, uint16_t attr_handle, struct ble_gatt_access_ctxt *ctxt, void *arg) {
-    if (ctxt->op == BLE_GATT_ACCESS_OP_READ_CHR) {
-        os_mbuf_append(ctxt->om, char_val1, sizeof(char_val1));
-        ESP_LOGI(TAG, "[DYN] READ char1");
-        return 0;
-    } else if (ctxt->op == BLE_GATT_ACCESS_OP_WRITE_CHR) {
-        int len = OS_MBUF_PKTLEN(ctxt->om);
-        if (len > sizeof(char_val1)) len = sizeof(char_val1);
-        os_mbuf_copydata(ctxt->om, 0, len, char_val1);
-        ESP_LOGI(TAG, "[DYN] WRITE char1");
-        return 0;
-    }
-    return BLE_ATT_ERR_UNLIKELY;
-}
-int dyn_test_cb2(uint16_t conn_handle, uint16_t attr_handle, struct ble_gatt_access_ctxt *ctxt, void *arg) {
-    if (ctxt->op == BLE_GATT_ACCESS_OP_READ_CHR) {
-        os_mbuf_append(ctxt->om, char_val2, sizeof(char_val2));
-        ESP_LOGI(TAG, "[DYN] READ char2");
-        return 0;
-    }
-    return BLE_ATT_ERR_UNLIKELY;
-}
-
-
-
 // ------- Dynamic GATT management -------
 int parse_flags(const char *s) {
     int flags = 0;
@@ -94,7 +62,6 @@ int parse_flags(const char *s) {
     if (strchr(s, 'n')) flags |= BLE_GATT_CHR_F_NOTIFY;
     return flags;
 }
-
 void free_gatt_tables() {
     if (gatt_svcs) { ESP_LOGI(TAG, "free gatt_svcs %p", gatt_svcs); free(gatt_svcs); gatt_svcs = NULL; }
     if (gatt_chars) { ESP_LOGI(TAG, "free gatt_chars %p", gatt_chars); free(gatt_chars); gatt_chars = NULL; }
@@ -102,11 +69,9 @@ void free_gatt_tables() {
     memset(dyn_gatt_vals, 0, sizeof(dyn_gatt_vals));
     memset(dyn_gatt_val_lens, 0, sizeof(dyn_gatt_val_lens));
 }
-
 static int generic_access_cb(uint16_t conn_handle, uint16_t attr_handle, struct ble_gatt_access_ctxt *ctxt, void *arg) {
     int idx = (int)(intptr_t)arg;
     if(idx < 0 || idx >= MAX_DYNAMIC_CHARS) return BLE_ATT_ERR_UNLIKELY;
-
     if (ctxt->op == BLE_GATT_ACCESS_OP_READ_CHR) {
         os_mbuf_append(ctxt->om, dyn_gatt_vals[idx], dyn_gatt_val_lens[idx]);
         ESP_LOGI(TAG, "GATT: READ idx=%d len=%d", idx, dyn_gatt_val_lens[idx]);
@@ -123,36 +88,34 @@ static int generic_access_cb(uint16_t conn_handle, uint16_t attr_handle, struct 
 }
 
 // ----------- BLE Stack Init/Deinit ------------
-
 static void at_ble_init_stack(void) {
     if (ble_inited) return;
-
     // --- Override MAC si demandé ---
     if (g_mac_override_enabled) {
         esp_err_t ret = esp_base_mac_addr_set(g_mac_override);
         ESP_LOGI(TAG, "esp_base_mac_addr_set: %s", esp_err_to_name(ret));
     }
-
     ESP_ERROR_CHECK(nimble_port_init());
     ble_hs_cfg.sync_cb = ble_gap_on_sync;
     ble_svc_gap_init();
     ble_svc_gatt_init();
-
-    int err = 0;
+    // --- NE PAS AJOUTER DE SERVICE GATT si aucun GATT n'est défini !
     if (gatt_svcs) {
-        err = ble_gatts_count_cfg(gatt_svcs); ESP_LOGI(TAG, "count_cfg err=%d", err);
-        err = ble_gatts_add_svcs(gatt_svcs); ESP_LOGI(TAG, "add_svcs err=%d", err);
-        if (err != 0) ESP_LOGE(TAG, "Failed to add dynamic GATT table, err=%d", err);
-        else ESP_LOGI(TAG, "NimBLE using DYNAMIC GATT");
-    } else {
-        ESP_LOGI(TAG, "No GATT service defined, BLE stack started empty.");
+        int err = 0;
+        err = ble_gatts_count_cfg(gatt_svcs);
+        ESP_LOGI(TAG, "count_cfg err=%d", err);
+        err = ble_gatts_add_svcs(gatt_svcs);
+        ESP_LOGI(TAG, "add_svcs err=%d", err);
+        if (err != 0)
+            ESP_LOGE(TAG, "Failed to add dynamic GATT table, err=%d", err);
+        else
+            ESP_LOGI(TAG, "NimBLE using DYNAMIC GATT");
     }
-
+    // Pas de dummy service : SANS GATT => BLE pub only = OK !
     nimble_port_freertos_init(ble_host_task);
     ble_inited = true;
     ESP_LOGI(TAG, "NimBLE initialized OK!");
 }
-
 static void at_ble_deinit_stack(void) {
     if (!ble_inited) return;
     nimble_port_stop();
@@ -160,12 +123,10 @@ static void at_ble_deinit_stack(void) {
     ble_inited = false;
     ESP_LOGI(TAG, "NimBLE stopped/deinit OK!");
 }
-
 static void ble_host_task(void *param) {
     nimble_port_run();
     nimble_port_freertos_deinit();
 }
-
 static void ble_gap_on_sync(void) {
     ESP_LOGI(TAG, "NimBLE synced! Ready.");
 }
@@ -191,7 +152,6 @@ static void ble_adv_extract_name(const uint8_t *adv_data, uint8_t adv_len, char 
 }
 
 // ----------- BLE GAP Callbacks (scan optionnel) ------------
-
 static int ble_scan_cb(struct ble_gap_event *event, void *arg) {
     if (event->type == BLE_GAP_EVENT_DISC) {
         char addr_str[18] = {0};
@@ -215,12 +175,7 @@ static int ble_scan_cb(struct ble_gap_event *event, void *arg) {
 }
 
 // ----------- ADV, STOP, RENAME, etc ------------
-
 static void start_ble_advertising(void)   {
-    if (!gatt_svcs) {
-        ESP_LOGW(TAG, "No GATT service present! Advertising skipped.");
-        return;
-    }
     struct ble_hs_adv_fields fields = {0};
     fields.name = (uint8_t*)g_current_name;
     fields.name_len = strlen(g_current_name);
@@ -233,7 +188,12 @@ static void start_ble_advertising(void)   {
     struct ble_gap_adv_params adv_params = {0};
     adv_params.conn_mode = BLE_GAP_CONN_MODE_UND;
     adv_params.disc_mode = BLE_GAP_DISC_MODE_GEN;
+    adv_params.itvl_min = 0x20;    
+    adv_params.itvl_max = 0x40;  
+    adv_params.channel_map = 7;  // tous canaux
+    
     ble_gap_adv_start(BLE_OWN_ADDR_PUBLIC, NULL, BLE_HS_FOREVER, &adv_params, NULL, NULL);
+    
     ESP_LOGI(TAG, "BLE Advertising started! Name: %s", g_current_name);
 }
 
@@ -409,7 +369,6 @@ void at_handle_gattbuild(const char *params) {
 }
 
 // ------------ REGISTRATION (à appeler dans app_main/init) ------------
-
 void ble_at_register(void) {
     static const at_command_t ble_cmds[] = {
         {"AT+BLEBEGIN",   at_handle_blebegin,   "Start BLE: AT+BLEBEGIN=\"Name\";\"ManuHex\""},
@@ -418,7 +377,7 @@ void ble_at_register(void) {
         {"AT+BLESTOP",    at_handle_blestop,    "Stop BLE stack"},
         {"AT+BLECLEAR",   at_handle_bleclear,   "Clear BLE stack/config"},
         {"AT+BLESETNAME", at_handle_blesetname, "Set BLE adv name: AT+BLESETNAME=\"Name\""},
-        {"AT+BLEMFG",     at_handle_blemfg,     "Set Manufacturer Data: AT+BLEMFG=\"01020304\""},
+        {"AT+BLEMFG",     at_handle_blemfg,     "Set Manufacturer Data: AT+BLEMFG=\"DVID_AT\""},
         {"AT+BLESCAN",    at_handle_blescan,    "Scan for BLE devices: AT+BLESCAN=secs"},
         {"AT+GATTBUILD",  at_handle_gattbuild,  "Build custom GATT: AT+GATTBUILD=\"svcUUID\";\"charUUID:flags\";..."},
         {"AT+BLEMADDR",   at_handle_blemaddr,   "Change BLE MAC: AT+BLEMADDR=\"AA:BB:CC:DD:EE:FF\""},
@@ -427,5 +386,3 @@ void ble_at_register(void) {
         at_server_register_command(&ble_cmds[i]);
     ESP_LOGI(TAG, "All AT BLE commands registered.");
 }
-
-
